@@ -1,0 +1,14 @@
+# customize urs-font as described here:
+# https://sourcethemes.com/academic/docs/customization/#custom-font
+
+# Font style metadata
+name = "Minimal"
+
+# Optional Google font URL
+google_fonts = "Amatic+SC|Emilys+Candy|Saira+Stencil+One"
+
+# Font families
+heading_font = "Emilys Candy"
+body_font = "Amatic SC"
+nav_font = "Saira Stencil One"
+mono_font = "Roboto Mono"
