@@ -26,3 +26,13 @@ img_replace <-
 img_replace %>% plot()
 
 image_write(img_replace %>% image_read(), 'content/authors/admin/avatar.jpg')
+
+
+# create custom icon shown in browser tab
+# see https://sourcethemes.com/academic/docs/customization/#website-icon
+# https://github.com/gcushen/hugo-academic/issues/454#issuecomment-522265376
+img_replace %>%
+  image_read() %>%
+  image_trim() %>%
+  image_resize(geometry_size_pixels(32, 32)) %>%
+  image_write("assets/images/icon.png")
