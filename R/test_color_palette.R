@@ -4,9 +4,15 @@ library(tidyverse)
 palette <- c("#FFFEC1", "#EDA79D", "#E36E39", "#8C6A68", "#015F95", "#FFFEC1", "#EDA79D", "#E36E39")
 palette <- c("#FFFEA9", "#EDA74D", "#E36E39", "#8C6A68", "#619F95", "#FFFEC1", "#EDA79D", "#E36E39")
 color(palette) %>% plot
-palette %>% 
-  clr_lighten(.1) %>% 
+palette %>%
+  clr_lighten(.5) %>%
   # clr_negate() %>%
-  # color() %>% as.character() %>% str_sub(end=-3) %>% str_to_lower()
-  plot
+  color() %>% as.character() %>% str_sub(end=-3) %>% str_to_lower()
+  # plot()
 
+# determine color brightness:
+palette %>%
+  prismatic::clr_greyscale() %>%
+  farver::decode_colour() %>%
+  as_tibble() %>%
+  pull()
