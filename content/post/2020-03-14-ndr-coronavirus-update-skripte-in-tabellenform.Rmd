@@ -105,6 +105,29 @@ df_saetze <-
   ungroup() %>% 
   select(-i)
 
+
+df_saetze <- 
+  all_pdfs %>% 
+  separate_rows(text, sep = "\n") %>% 
+  group_by(url) %>%  
+  mutate(i = case_when(str_detect(text %>% str_to_lower(), "^christian drosten$") ~ "cd",
+                       str_detect(text %>% str_to_lower(), "^korinna hennig$")    ~ "kh",
+                       str_detect(text %>% str_to_lower(), "^anja martini$")      ~ "am")
+         ) %>%
+  mutate(Absatz = cumsum(!is.na(i))) %>%  
+  fill(i) %>% 
+  group_by_at(c("Titel", "url", "Datum", "Themen", "Absatz")) %>% 
+  summarise(author = unique(i),
+            text = paste(text, collapse = "\n")) %>%
+  tidytext::unnest_tokens(Satz, 
+                          text,
+                          "sentences",
+                          to_lower = FALSE) %>% 
+  mutate(Seite = str_extract(Satz, "\\d+\\/\\d+")) %>% 
+  fill(Seite) %>% 
+  ungroup()
+
+
 # write_csv(df_saetze, "drosten.csv")
 
 ```
