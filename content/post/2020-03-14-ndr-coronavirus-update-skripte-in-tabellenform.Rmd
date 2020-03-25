@@ -45,11 +45,11 @@ Datum <-
   html_nodes(".date") %>% 
   html_text()
 
-Themen <- 
-  all_links %>%
-  html_nodes("p") %>%
-  html_text() %>% 
-  .[3:15]
+# Themen <- 
+#   all_links %>%
+#   html_nodes("p") %>%
+#   html_text() %>% 
+#   .[3:15]
   # str_subset("^\nThemen")
 
 # # episodes <-
@@ -70,7 +70,10 @@ pdf_links <-
   set_names(a_links %>% html_text()) %>%
   enframe(name = "Titel", value = "url") %>%
   filter(str_detect(url, "\\.pdf$") & (!str_detect(Titel, "^Download"))) %>% 
-  mutate(Datum, Themen) %>% 
+  mutate(
+    Datum#, 
+    # Themen
+    ) %>% 
   mutate_all(~str_remove_all(., "\n"))
 
 
@@ -116,7 +119,9 @@ df_saetze <-
          ) %>%
   mutate(Absatz = cumsum(!is.na(i))) %>%  
   fill(i) %>% 
-  group_by_at(c("Titel", "url", "Datum", "Themen", "Absatz")) %>% 
+  group_by_at(c("Titel", "url", "Datum", 
+                # "Themen", 
+                "Absatz")) %>% 
   summarise(author = unique(i),
             text = paste(text, collapse = "\n")) %>%
   tidytext::unnest_tokens(Satz, 
@@ -167,14 +172,14 @@ d <- df_saetze %>%
   DT::datatable(filter = "top", 
                 rownames = FALSE,
                 options = list(
-                  columnDefs = list(list(visible=FALSE, targets=3:5)),
+                  columnDefs = list(list(visible=FALSE, targets=3:4)),
                   dom = 'BfrtiP',
                   # see https://rstudio.github.io/DT/extensions.html
                   searchPanes = list(show = FALSE),
                   targets = c(1),
                   scrollX = TRUE,
                   buttons = list(list(
-                    extend = 'colvis', columns = c(1:5)
+                    extend = 'colvis', columns = c(1:4)
                   ))#,
                   # fixedColumns = TRUE
   ),
