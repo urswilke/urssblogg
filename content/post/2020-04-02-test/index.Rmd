@@ -1,5 +1,5 @@
 ---
-title: Test
+title: "Generative art gifs"
 author: Urs Wilke
 date: '2020-04-02'
 slug: []
@@ -89,11 +89,6 @@ animation::saveGIF(
   ani.width = anim_width
 )
 
-```
-
-```{r giff}
-1
-knitr::include_graphics("ambient_anim_plot.gif", error = FALSE)
 ```
 
 
@@ -255,7 +250,7 @@ animation::saveGIF(
 )
 ```
 
-![](gifs/ambient3d.gif)
+![](ambient3d.gif)
 
 ## gganimate
 
