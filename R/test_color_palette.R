@@ -11,8 +11,29 @@ palette %>%
   # plot()
 
 # determine color brightness:
+get_brightness <- function(palette) {
+  palette %>%
+    prismatic::clr_greyscale() %>%
+    farver::decode_colour() %>%
+    .[,1]
+}
+sort_colors <- function(palette) {
+  tibble(palette) %>%
+    mutate(brightness = map_dbl(palette, get_brightness)) %>%
+    arrange(-brightness, palette) %>%
+    mutate(bright_diff = lead(brightness) - brightness)
+    # pull(palette) %>%
+    # color()
+}
+palette %>% unique() %>% sort_colors()
+
 palette %>%
-  prismatic::clr_greyscale() %>%
-  farver::decode_colour() %>%
-  as_tibble() %>%
-  pull()
+  # unique() %>%
+  sort_colors() %>%
+  mutate(rank(bright_diff, ties.method = "first"))
+# mutate(c(T,
+#          ifelse(bright_diff[-c(1, length(bright_diff))] %in% sort(bright_diff[-c(1, length(bright_diff))], decreasing = T)[1:3],
+#                 T,
+#                 F),
+#          T)
+#        )
