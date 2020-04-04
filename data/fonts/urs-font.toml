@@ -5,10 +5,15 @@
 name = "Minimal"
 
 # Optional Google font URL
-google_fonts = "Amatic+SC|Emilys+Candy|Saira+Stencil+One"
+# google_fonts = "Amatic+SC|Emilys+Candy|Saira+Stencil+One"
+google_fonts = "Libre+Franklin|Maven+Pro|Ubuntu+Mono"
 
 # Font families
-heading_font = "Emilys Candy"
-body_font = "Amatic SC"
-nav_font = "Saira Stencil One"
-mono_font = "Roboto Mono"
+heading_font = "Libre Franklin"
+body_font = "Maven Pro"
+nav_font = "Maven Pro"
+mono_font = "Ubuntu Mono"
+# heading_font = "Emilys Candy"
+# body_font = "Amatic SC"
+# nav_font = "Saira Stencil One"
+# mono_font = "Roboto Mono"
