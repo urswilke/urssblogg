@@ -30,14 +30,14 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE)
 
 ## Setup
 
-This script is inspired mostly by packages and a [blog post](https://www.data-imaginist.com/2020/a-noisy-start/) of [Thomas Pedersen](https://twitter.com/thomasp85). To understand the code, I recommend to read the blog post first. And you should know R. Otherwise, maybe scroll directly to the gifs :smile:.
+This script is inspired mostly by packages and a [blog post](https://www.data-imaginist.com/2020/a-noisy-start/) of [Thomas Pedersen](https://twitter.com/thomasp85). To understand the code, I recommend to read the blog post first. And you should know R. Otherwise, maybe scroll directly to the gifs :smile:. 
 
 ```{r load_libs}
 library(ambient)
 library(tidyverse)
 ```
 
-Furthermore, the packages {paletteer}, {animation} and {tweenr} are needed. (I really love these packages `r emo::ji("star_struck")`) 
+Furthermore, the packages {paletteer}, {animation}, {here} and {tweenr} are needed. 
 
 Let's define the gif width / height:
 
@@ -269,7 +269,7 @@ animation::saveGIF(
 *use gganimate and another color palette*
 
 Of course, I already tried gganimate when I started to use ggplot to produce the gifs. But somehow it didn't work and I didn't understand the error messages. After having discovered to use the 3rd dimension of ambient::long_grid for the gifs, I thought I should give it another try.
-here is how it can be done:
+Here is how it can be done:
 
 ```{r gganim, eval=FALSE}
 anim_height = 300
@@ -291,6 +291,7 @@ anim <-
                            z + perturb)) %>%
   ggplot(aes(x = x, y = y, fill = noise)) + 
   geom_raster() +
+  # Let's take another palette:
   paletteer::scale_fill_paletteer_c("scico::hawaii") + 
   theme_void() + 
   theme(legend.position = "none") + 
@@ -311,3 +312,4 @@ gganimate::anim_save(here::here("gganim.gif"),
 
 
 Really cool, isn't it?! If you have questions or comments, I would be really happy if you [drop me a note](https://twitter.com/UrsWilke).
+Thank you for all the hard work of the involved software used! It's all for free and I really love these packages `r emo::ji("star_struck")`.

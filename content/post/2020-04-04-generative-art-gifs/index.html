@@ -41,7 +41,7 @@ output:
 <p>This script is inspired mostly by packages and a <a href="https://www.data-imaginist.com/2020/a-noisy-start/">blog post</a> of <a href="https://twitter.com/thomasp85">Thomas Pedersen</a>. To understand the code, I recommend to read the blog post first. And you should know R. Otherwise, maybe scroll directly to the gifs :smile:.</p>
 <pre class="r"><code>library(ambient)
 library(tidyverse)</code></pre>
-<p>Furthermore, the packages {paletteer}, {animation} and {tweenr} are needed. (I really love these packages 🤩)</p>
+<p>Furthermore, the packages {paletteer}, {animation}, {here} and {tweenr} are needed.</p>
 <p>Let’s define the gif width / height:</p>
 <pre class="r"><code>anim_height = 300
 anim_width = 400</code></pre>
@@ -210,7 +210,7 @@ when creating the simplex noise:</p>
 <h2>Cold smoke</h2>
 <p><em>use gganimate and another color palette</em></p>
 <p>Of course, I already tried gganimate when I started to use ggplot to produce the gifs. But somehow it didn’t work and I didn’t understand the error messages. After having discovered to use the 3rd dimension of ambient::long_grid for the gifs, I thought I should give it another try.
-here is how it can be done:</p>
+Here is how it can be done:</p>
 <pre class="r"><code>anim_height = 300
 anim_width = 400
 nframes = 50
@@ -230,6 +230,7 @@ anim &lt;-
                            z + perturb)) %&gt;%
   ggplot(aes(x = x, y = y, fill = noise)) + 
   geom_raster() +
+  # Let&#39;s take another palette:
   paletteer::scale_fill_paletteer_c(&quot;scico::hawaii&quot;) + 
   theme_void() + 
   theme(legend.position = &quot;none&quot;) + 
@@ -244,5 +245,6 @@ gganimate::anim_save(here::here(&quot;gganim.gif&quot;),
                      width = anim_width,
                      height = anim_height)</code></pre>
 <p><img src="gganim.gif" /></p>
-<p>Really cool, isn’t it?! If you have questions or comments, I would be really happy if you <a href="https://twitter.com/UrsWilke">drop me a note</a>.</p>
+<p>Really cool, isn’t it?! If you have questions or comments, I would be really happy if you <a href="https://twitter.com/UrsWilke">drop me a note</a>.
+Thank you for all the hard work of the involved software used! It’s all for free and I really love these packages 🤩.</p>
 </div>
