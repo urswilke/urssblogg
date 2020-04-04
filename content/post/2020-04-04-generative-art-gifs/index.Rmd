@@ -66,7 +66,6 @@ grid_simplex <- grid %>%
 
 *GIF based on plot method with increasing wave frequencies*
 
-
 Create list of grids based on an increasing sequence of frequencies (we take the same simplex noise `perturb` defined before):
 
 ```{r grid_list}
