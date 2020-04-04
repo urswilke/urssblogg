@@ -15,9 +15,22 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#gif-based-on-plot-method-with-increasing-wave-frequencies">GIF based on plot method with increasing wave frequencies</a></li>
+<li><a href="#increasing-wave-frequency-gif-based-on-ggplot-with-custom-color-palette">Increasing wave frequency gif based on ggplot with custom color palette</a></li>
+<li><a href="#the-love-lava-lamp">The love lava lamp</a></li>
+<li><a href="#gif-by-using-the-third-dimension-of-ambientlong_grid">GIF by using the third dimension of ambient::long_grid</a></li>
+<li><a href="#gganimate">gganimate</a></li>
+</ul>
+</div>
 
 <div id="setup" class="section level2">
 <h2>Setup</h2>
@@ -221,9 +234,7 @@ gganimate::anim_save(here::here(&quot;gganim.gif&quot;),
                      rewind = TRUE,
                      width = anim_width,
                      height = anim_height)</code></pre>
-<div class="figure">
-<img src="gganim.gif" alt="Cold smoke" />
-<p class="caption">Cold smoke</p>
-</div>
+<p><img src="gganim.gif" />
+<em>Cold smoke</em></p>
 <p>Really cool, isn’t it?! If you have questions or comments, I would be really happy if you <a href="https://twitter.com/UrsWilke">drop me a note</a>.</p>
 </div>

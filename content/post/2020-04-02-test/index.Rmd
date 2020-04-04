@@ -15,6 +15,9 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 
@@ -292,7 +295,8 @@ gganimate::anim_save(here::here("gganim.gif"),
                      height = anim_height)
 
 ```
-![Cold smoke](gganim.gif)
+![](gganim.gif)
+*Cold smoke*
 
 
 
