@@ -3,9 +3,11 @@
 
 # urssblogg
 
+<!-- badges: start -->
+
 [![Netlify
 Status](https://api.netlify.com/api/v1/badges/22eb021f-69fe-4422-9820-5fe2a57d5a58/deploy-status)](https://app.netlify.com/sites/urssblogg/deploys)
-<!-- badges: start --> <!-- badges: end -->
+<!-- badges: end -->
 
 This is the github repo for my personal
 [website](https://urssblogg.netlify.com/).
