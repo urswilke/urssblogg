@@ -16,4 +16,4 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This is the github repo for my personal website.
+This is the github repo for my personal [website](https://urssblogg.netlify.com/).
