@@ -18,7 +18,7 @@ role: data scientist <br> physicist <br> PhD in environmental engineering (EPFL)
 #   url: "https://www.epfl.ch/"
 
 # Short bio (displayed in user profile at end of posts)
-# bio: My research interests include distributed robotics, mobile computing and programmable matter.
+# bio: 
 
 # interests:
 # - Programming in R and python
@@ -69,6 +69,9 @@ social:
 # - Researchers
 # - Visitors
 ---
+
+This is my bog site, where I will mostly plot things about R (#rstats). 
+Much will hopefully change on this site. I'm about to start constructing it.
 
 <!-- Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
 
