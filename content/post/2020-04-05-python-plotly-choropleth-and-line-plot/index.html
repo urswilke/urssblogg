@@ -14,14 +14,20 @@ authors: []
 lastmod: '2020-04-05T10:20:17+02:00'
 featured: no
 image:
+  # https://stackoverflow.com/questions/47371794/how-to-create-an-image-preview-for-a-post-in-hugo-academic-from-rmd
   caption: ''
   focal_point: ''
-  preview_only: no
+  preview_only: true
 projects: []
 ---
 
 
 
+<p>Maybe this should rather be a question on stackoverflow…
+The interactive plotly graph consists of two subplots (see the static image at the bottom).
+I wasn’t able to couple the two subplots in a way that lasso-selecting polygons in the choropleth graph triggers the selection of the corresponding lines in the line plot (and vice versa).
+Any advice how to do that would be highly appreciated.
+The ipynb file can be downloaded <a href="https://github.com/urswilke/jupyter-notebooks/blob/master/plotly_choro_line.ipynb">here</a>.</p>
 <p>Import libs:</p>
 <pre class="python"><code>import pandas as pd
 import numpy as np
@@ -133,4 +139,4 @@ with fw.batch_update():
     polygons.on_selection(choro_update)
         
 fw</code></pre>
-<p><img src="plotly_snapshot.png" /></p>
+<p><img src="feature.png" /></p>
