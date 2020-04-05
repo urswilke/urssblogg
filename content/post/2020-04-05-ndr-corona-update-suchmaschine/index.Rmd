@@ -1,5 +1,5 @@
 ---
-title: NDR Corona Upadate Suchmaschine
+title: NDR Corona Update Suchmaschine
 author: Urs Wilke
 date: '2020-04-05'
 slug: []
@@ -40,6 +40,7 @@ all_links <-
   read_html()
 
 ```
+
 
 
 ```{r rvest, include=FALSE}
@@ -128,7 +129,7 @@ df_saetze <-
   group_by_at(c("Titel", "url", "Datum", 
                 # "Themen", 
                 "Absatz")) %>% 
-  summarise(author = unique(i),
+  summarise(Person = unique(i),
             text = paste(text, collapse = "\n")) %>%
   tidytext::unnest_tokens(Satz, 
                           text,
@@ -159,11 +160,13 @@ Die dazugehörigen Skripte sind auf:
 
 https://www.ndr.de/nachrichten/info/Coronavirus-Update-Die-Podcast-Folgen-als-Skript,podcastcoronavirus102.html
 
-In der Tabelle unten sind schlicht die Texte aus allen PDFs aufgeführt. Jeder Satz aus den PDFs entspricht einer Zeile in der Tabelle. Weiter habe ich den Tabellen das Datum, die url des jeweiligen PDFs, den Titel des Podcasts, die Themenübersicht und die Satz-Nr. im jeweiligen PDF aufgeführt.
+In der Tabelle unten sind schlicht die Texte aus allen PDFs aufgeführt. Jeder Satz aus den PDFs entspricht einer Zeile in der Tabelle. Daneben habe ich den Tabellen das Datum der Folge aufgeführt. Weiter können über den Button "column visibility" die url des jeweiligen PDFs, der Titel der Folge, die Seite im PDF, die Nummer des Absatzes im pdf und die Person die spricht eingeblendet werden.
 
 Über die Suchfelder können die Texte gefiltert werden. 
 
-Als Beispiel: Wenn man "test anzahl" (ohne Anführungszeichen) eingibt, kann man erfahren, dass in Korea fast 200.000 Labortests durchgeführt wurden und dass das viel ist (Podcast-Datum 09.03.2020). Daraus schließe ich, dass nicht jeder sich testen lassen kann, und die Tests klug eingesetzt werden müssen. Aber am besten hört man sich die Podcasts an! Ich dachte mir nur, dass das so als Suchmaschine genutzt werden kann, falls jemand für Laien veständliche Informationen zum Thema Coronavirus sucht von einer sehr kompetenten Person. 
+Als Beispiel: Wenn man "test labor" (ohne Anführungszeichen) im Suchfeld ("Search") eingibt, werden alle Sätze angezeigt, die diese beiden Wortbestandteile enthalten.
+
+Unter der Tabelle sind weitere Optionen zum Filtern der Tabelleneinträge.
 
 
 
@@ -178,14 +181,14 @@ d <- df_saetze %>%
   DT::datatable(filter = "top", 
                 rownames = FALSE,
                 options = list(
-                  columnDefs = list(list(visible=FALSE, targets=3:4)),
+                  columnDefs = list(list(visible=FALSE, targets=2:6)),
                   dom = 'BfrtipP',
                   # see https://rstudio.github.io/DT/extensions.html
                   searchPanes = list(show = FALSE),
                   targets = c(1),
                   scrollX = TRUE,
                   buttons = list(list(
-                    extend = 'colvis', columns = c(1:4)
+                    extend = 'colvis', columns = c(1:6)
                   ))#,
                   # fixedColumns = TRUE
   ),
@@ -194,7 +197,7 @@ d <- df_saetze %>%
 ```
 
 
-```{r widgetframe}
+```{r widgetframe, message=FALSE}
 widgetframe::frameWidget(d, height = 3000, width = '100%')
 ```
 
