@@ -15,9 +15,10 @@ authors: []
 lastmod: '2020-04-04T19:13:50+02:00'
 featured: no
 image:
+  # https://stackoverflow.com/questions/47371794/how-to-create-an-image-preview-for-a-post-in-hugo-academic-from-rmd
   caption: ''
   focal_point: ''
-  preview_only: no
+  preview_only: true
 projects: []
 output:
   blogdown::html_page:
@@ -99,7 +100,17 @@ as.raster() plot method).</p>
 }
 # A single plot could now be produced via:
 # grid_list[[1]] %&gt;% as_tibble() %&gt;% ggplot_ambient(&quot;oompaBase::blueyellow&quot;)
-# (using the palette &quot;oompaBase::blueyellow&quot;)</code></pre>
+# (using the palette &quot;oompaBase::blueyellow&quot;)
+
+# save thumbnail for blog post:
+# https://stackoverflow.com/questions/47371794/how-to-create-an-image-preview-for-a-post-in-hugo-academic-from-rmd
+# grid_list[[1]] %&gt;% 
+#   ggplot_ambient(&quot;oompaBase::jetColors&quot;) %&gt;% 
+#   ggsave(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-04-04-generative-art-gifs&quot;, &quot;featured.png&quot;), 
+#          ., 
+#          height = anim_width/300, 
+#          width = anim_height/300, 
+#          dpi = 300)</code></pre>
 <p>Now we can produce the gif with ggplot in the same way as the first method
 with plot :</p>
 <pre class="r"><code>animation::saveGIF(

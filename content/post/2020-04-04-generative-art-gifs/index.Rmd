@@ -15,9 +15,10 @@ authors: []
 lastmod: '2020-04-04T19:13:50+02:00'
 featured: no
 image:
+  # https://stackoverflow.com/questions/47371794/how-to-create-an-image-preview-for-a-post-in-hugo-academic-from-rmd
   caption: ''
   focal_point: ''
-  preview_only: no
+  preview_only: true
 projects: []
 output:
   blogdown::html_page:
@@ -123,6 +124,16 @@ ggplot_ambient <- function(long_grid, pal) {
 # A single plot could now be produced via:
 # grid_list[[1]] %>% as_tibble() %>% ggplot_ambient("oompaBase::blueyellow")
 # (using the palette "oompaBase::blueyellow")
+
+# save thumbnail for blog post:
+# https://stackoverflow.com/questions/47371794/how-to-create-an-image-preview-for-a-post-in-hugo-academic-from-rmd
+# grid_list[[1]] %>% 
+#   ggplot_ambient("oompaBase::jetColors") %>% 
+#   ggsave(here::here("content", "post", "2020-04-04-generative-art-gifs", "featured.png"), 
+#          ., 
+#          height = anim_width/300, 
+#          width = anim_height/300, 
+#          dpi = 300)
 ```
 
 Now we can produce the gif with ggplot in the same way as the first method
