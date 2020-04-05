@@ -25,7 +25,7 @@ Maybe this should rather be a question on stackoverflow...
 The interactive plotly graph consists of two subplots (see the static image at the bottom). 
 I wasn't able to couple the two subplots in a way that lasso-selecting polygons in the choropleth graph triggers the selection of the corresponding lines in the line plot (and vice versa). 
 Any advice how to do that would be highly appreciated.
-The ipynb file can be downloaded [here](https://github.com/urswilke/jupyter-notebooks/blob/master/plotly_choro_line.ipynb). 
+The ipynb file can be downloaded [here](https://github.com/urswilke/urssblogg/blob/master/content/post/2020-04-05-python-plotly-choropleth-and-line-plot/plotly_choro_line.ipynb). 
 
 
 Import libs:
@@ -155,4 +155,4 @@ with fw.batch_update():
 fw
 ```
 
-![](feature.png)
+![](featured.png)

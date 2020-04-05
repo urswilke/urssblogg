@@ -70,7 +70,7 @@ social:
 # - Visitors
 ---
 
-This is my bog site, where I will mostly plot things about R (#rstats). 
+This is my blog site, where I will mostly plot things about R (#rstats) and a bit of python. 
 Much will hopefully change on this site. I'm about to start constructing it.
 
 <!-- Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
