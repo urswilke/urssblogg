@@ -179,7 +179,7 @@ d <- df_saetze %>%
                 rownames = FALSE,
                 options = list(
                   columnDefs = list(list(visible=FALSE, targets=3:4)),
-                  dom = 'BfrtiP',
+                  dom = 'BfrtipP',
                   # see https://rstudio.github.io/DT/extensions.html
                   searchPanes = list(show = FALSE),
                   targets = c(1),
