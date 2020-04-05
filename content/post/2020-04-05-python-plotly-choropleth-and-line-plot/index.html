@@ -1,0 +1,136 @@
+---
+title: Python Plotly Choropleth and Line Plot
+author: Urs Wilke
+date: '2020-04-05'
+slug: []
+categories: []
+tags:
+  - 'jupyter'
+  - 'python'
+  - 'plotly'
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-05T10:20:17+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Import libs:</p>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
+from ipywidgets import widgets
+</code></pre>
+<p>Load toy geo data:</p>
+<pre class="python"><code>%run -i &#39;funs.py&#39;
+df = px.data.election().reset_index()
+geojson = px.data.election_geojson()
+
+# only take ten districts:
+df = df[0:11]
+
+# correct different spelling of one district in the 2 objects:
+df.loc[df[&#39;district&#39;] == &#39;112-DeLorimier&#39;, &#39;district&#39;] = &#39;112-De Lorimier&#39;
+# only take the polygons of the districts in df:
+geojson[&#39;features&#39;] = [feature for feature in geojson[&#39;features&#39;] if feature[&#39;properties&#39;][&#39;district&#39;] in df.district.array]
+</code></pre>
+<p>Create toy time series data (very hacky):</p>
+<pre class="python"><code>def create_ts_data(df):
+    tag = pd.Series(np.arange(10))
+    tage = pd.concat([tag] * len(df.district))
+    df_ts = pd.DataFrame(df[&#39;district&#39;].append([df[&#39;district&#39;]]*9))
+    df_ts[&#39;index_orig&#39;] = df_ts.index
+    df_ts = df_ts.reset_index()
+    df_ts[&#39;tag&#39;] = tage.sort_values().array
+    df_ts[&#39;randNumCol&#39;] = df_ts[&#39;index_orig&#39;]#np.random.randint(1, 60, df_ts.shape[0])
+    return(df_ts)
+
+df_ts = create_ts_data(df)</code></pre>
+<p>Create plotly figure:</p>
+<pre class="python"><code># Create toy value for coloring the choropleths (actually this has to be derived from the time series data):
+df[&#39;col&#39;] = np.random.randint(1, 60, df.shape[0])
+
+# create choropleth object:
+choro = go.Choropleth(geojson      = geojson, 
+                      z            = df.col,
+                      locations    = df.district, 
+                      featureidkey = &quot;properties.district&quot;,
+                      selected     = {&#39;marker&#39;: {&#39;opacity&#39;: 1}},
+                      unselected   = {&#39;marker&#39;: {&#39;opacity&#39;: 0.3}}
+                     )
+
+
+# create line plot object:
+linep = px.line(df_ts, x=&#39;tag&#39;, y=&#39;randNumCol&#39;, color=&#39;district&#39;)
+
+# Create a figure with 2 subplots:
+fig = make_subplots(
+    rows=2, cols=1,
+    row_heights=[0.7, 0.3],
+    specs=[[{&quot;type&quot;: &quot;choropleth&quot;}], 
+            [{&quot;type&quot;: &quot;scatter&quot;}]])
+
+fig.add_trace(
+    choro,
+    row=1, col=1
+)
+
+for i in range(len(linep[&#39;data&#39;])):
+    fig.append_trace(linep[&#39;data&#39;][i], col=1, row=2)
+    fig.update_traces(mode=&#39;markers+lines&#39;, col=1, row=2)
+
+fig.update_geos(fitbounds=&quot;locations&quot;, visible=False)
+
+fw = go.FigureWidget(
+    fig
+)
+fw.update_layout(
+    dragmode=&#39;lasso&#39;, 
+    hovermode=&#39;closest&#39;,
+    showlegend=False)
+
+
+# (comment out all the following to see how weird the subplots are coupled on selection events)
+
+# selection events:
+
+# choropleth is the first trace; 
+# every line in line plot is an individual trace (this makes it slow):
+polygons = fw.data[0]
+scatter = fw.data[1:(len(df_ts)+1)]
+
+# function to update the line width on selection 
+# (it works when selecting line points, 
+# when selecting polygons, not the correct lines are selected):
+def update_line(trace, points, selector):
+    if points.point_inds:
+        trace[&#39;line&#39;][&#39;width&#39;] = 4
+#     poly_feats = polygons.geojson[&#39;features&#39;]
+#     district_names = [feature[&#39;properties&#39;][&#39;district&#39;] for feature in poly_feats]
+#     dist_inds = district_names.index(trace[&#39;name&#39;])
+#     fw.data[0].selectedpoints = dist_inds
+
+# try to update polygons when selecting lines, doesn&#39;t work:
+def choro_update(trace, points, selector):
+    if trace[&#39;name&#39;] == &#39;trace 0&#39;:
+        sel_inds = np.array(pd.Series([list(i[&#39;selectedpoints&#39;] or []) for i in scatter]).astype(bool).astype(int))
+        fw.data[0].selectedpoints = sel_inds
+
+# apply select events to the figure widget
+# (not sure if batch_update() changes anything):
+with fw.batch_update():
+    for i in range(len(scatter)):
+        scatter[i].on_selection(update_line)
+    polygons.on_selection(choro_update)
+        
+fw</code></pre>
+<p><img src="plotly_snapshot.png" /></p>
