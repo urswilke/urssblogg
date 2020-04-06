@@ -1,0 +1,2647 @@
+---
+title: Test_netlify_build
+author: Urs Wilke
+date: '2020-04-06'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-06T10:25:23+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>use new package</p>
+<pre class="r"><code>rtweet::emojis</code></pre>
+<pre><code>##      code                                          description
+## 1       😀                                        grinning face
+## 2       😁                       beaming face with smiling eyes
+## 3       😂                               face with tears of joy
+## 4       🤣                        rolling on the floor laughing
+## 5       😃                          grinning face with big eyes
+## 6       😄                      grinning face with smiling eyes
+## 7       😅                             grinning face with sweat
+## 8       😆                              grinning squinting face
+## 9       😉                                         winking face
+## 10      😊                       smiling face with smiling eyes
+## 11      😋                                   face savoring food
+## 12      😎                         smiling face with sunglasses
+## 13      😍                         smiling face with heart-eyes
+## 14      😘                                  face blowing a kiss
+## 15      😗                                         kissing face
+## 16      😙                       kissing face with smiling eyes
+## 17      😚                        kissing face with closed eyes
+## 18      ☺                                         smiling face
+## 19      🙂                                slightly smiling face
+## 20      🤗                                         hugging face
+## 21      🤩                                          star-struck
+## 22      🤔                                        thinking face
+## 23      🤨                             face with raised eyebrow
+## 24      😐                                         neutral face
+## 25      😑                                  expressionless face
+## 26      😶                                   face without mouth
+## 27      🙄                               face with rolling eyes
+## 28      😏                                        smirking face
+## 29      😣                                     persevering face
+## 30      😥                                sad but relieved face
+## 31      😮                                 face with open mouth
+## 32      🤐                                    zipper-mouth face
+## 33      😯                                          hushed face
+## 34      😪                                          sleepy face
+## 35      😫                                           tired face
+## 36      😴                                        sleeping face
+## 37      😌                                        relieved face
+## 38      😛                                     face with tongue
+## 39      😜                             winking face with tongue
+## 40      😝                           squinting face with tongue
+## 41      🤤                                        drooling face
+## 42      😒                                        unamused face
+## 43      😓                             downcast face with sweat
+## 44      😔                                         pensive face
+## 45      😕                                        confused face
+## 46      🙃                                     upside-down face
+## 47      🤑                                     money-mouth face
+## 48      😲                                      astonished face
+## 49      ☹                                        frowning face
+## 50      🙁                               slightly frowning face
+## 51      😖                                      confounded face
+## 52      😞                                    disappointed face
+## 53      😟                                         worried face
+## 54      😤                            face with steam from nose
+## 55      😢                                          crying face
+## 56      😭                                   loudly crying face
+## 57      😦                        frowning face with open mouth
+## 58      😧                                       anguished face
+## 59      😨                                         fearful face
+## 60      😩                                           weary face
+## 61      🤯                                       exploding head
+## 62      😬                                       grimacing face
+## 63      😰                              anxious face with sweat
+## 64      😱                               face screaming in fear
+## 65      😳                                         flushed face
+## 66      🤪                                           crazy face
+## 67      😵                                           dizzy face
+## 68      😡                                         pouting face
+## 69      😠                                           angry face
+## 70      🤬                           face with symbols on mouth
+## 71      😷                               face with medical mask
+## 72      🤒                                face with thermometer
+## 73      🤕                               face with head-bandage
+## 74      🤢                                       nauseated face
+## 75      🤮                                        face vomiting
+## 76      🤧                                        sneezing face
+## 77      😇                               smiling face with halo
+## 78      🤠                                      cowboy hat face
+## 79      🤡                                           clown face
+## 80      🤥                                           lying face
+## 81      🤫                                        shushing face
+## 82      🤭                            face with hand over mouth
+## 83      🧐                                    face with monocle
+## 84      🤓                                            nerd face
+## 85      😈                              smiling face with horns
+## 86      👿                                angry face with horns
+## 87      👹                                                 ogre
+## 88      👺                                               goblin
+## 89      💀                                                skull
+## 90      ☠                                 skull and crossbones
+## 91      👻                                                ghost
+## 92      👽                                                alien
+## 93      👾                                        alien monster
+## 94      🤖                                           robot face
+## 95      💩                                          pile of poo
+## 96      😺                                    grinning cat face
+## 97      😸                  grinning cat face with smiling eyes
+## 98      😹                           cat face with tears of joy
+## 99      😻                     smiling cat face with heart-eyes
+## 100     😼                              cat face with wry smile
+## 101     😽                                     kissing cat face
+## 102     🙀                                       weary cat face
+## 103     😿                                      crying cat face
+## 104     😾                                     pouting cat face
+## 105     🙈                                   see-no-evil monkey
+## 106     🙉                                  hear-no-evil monkey
+## 107     🙊                                 speak-no-evil monkey
+## 108     👶                                                 baby
+## 109    👶🏻                                 light skin tone baby
+## 110    👶🏼                          medium-light skin tone baby
+## 111    👶🏽                                medium skin tone baby
+## 112    👶🏾                           medium-dark skin tone baby
+## 113    👶🏿                                  dark skin tone baby
+## 114     🧒                                                child
+## 115    🧒🏻                                light skin tone child
+## 116    🧒🏼                         medium-light skin tone child
+## 117    🧒🏽                               medium skin tone child
+## 118    🧒🏾                          medium-dark skin tone child
+## 119    🧒🏿                                 dark skin tone child
+## 120     👦                                                  boy
+## 121    👦🏻                                  light skin tone boy
+## 122    👦🏼                           medium-light skin tone boy
+## 123    👦🏽                                 medium skin tone boy
+## 124    👦🏾                            medium-dark skin tone boy
+## 125    👦🏿                                   dark skin tone boy
+## 126     👧                                                 girl
+## 127    👧🏻                                 light skin tone girl
+## 128    👧🏼                          medium-light skin tone girl
+## 129    👧🏽                                medium skin tone girl
+## 130    👧🏾                           medium-dark skin tone girl
+## 131    👧🏿                                  dark skin tone girl
+## 132     🧑                                                adult
+## 133    🧑🏻                                light skin tone adult
+## 134    🧑🏼                         medium-light skin tone adult
+## 135    🧑🏽                               medium skin tone adult
+## 136    🧑🏾                          medium-dark skin tone adult
+## 137    🧑🏿                                 dark skin tone adult
+## 138     👨                                                  man
+## 139    👨🏻                                  light skin tone man
+## 140    👨🏼                           medium-light skin tone man
+## 141    👨🏽                                 medium skin tone man
+## 142    👨🏾                            medium-dark skin tone man
+## 143    👨🏿                                   dark skin tone man
+## 144     👩                                                woman
+## 145    👩🏻                                light skin tone woman
+## 146    👩🏼                         medium-light skin tone woman
+## 147    👩🏽                               medium skin tone woman
+## 148    👩🏾                          medium-dark skin tone woman
+## 149    👩🏿                                 dark skin tone woman
+## 150     🧓                                          older adult
+## 151    🧓🏻                          light skin tone older adult
+## 152    🧓🏼                   medium-light skin tone older adult
+## 153    🧓🏽                         medium skin tone older adult
+## 154    🧓🏾                    medium-dark skin tone older adult
+## 155    🧓🏿                           dark skin tone older adult
+## 156     👴                                              old man
+## 157    👴🏻                              light skin tone old man
+## 158    👴🏼                       medium-light skin tone old man
+## 159    👴🏽                             medium skin tone old man
+## 160    👴🏾                        medium-dark skin tone old man
+## 161    👴🏿                               dark skin tone old man
+## 162     👵                                            old woman
+## 163    👵🏻                            light skin tone old woman
+## 164    👵🏼                     medium-light skin tone old woman
+## 165    👵🏽                           medium skin tone old woman
+## 166    👵🏾                      medium-dark skin tone old woman
+## 167    👵🏿                             dark skin tone old woman
+## 168    👨‍⚕️                                    man health worker
+## 169   👨🏻‍⚕️                    light skin tone man health worker
+## 170   👨🏼‍⚕️             medium-light skin tone man health worker
+## 171   👨🏽‍⚕️                   medium skin tone man health worker
+## 172   👨🏾‍⚕️              medium-dark skin tone man health worker
+## 173   👨🏿‍⚕️                     dark skin tone man health worker
+## 174    👩‍⚕️                                  woman health worker
+## 175   👩🏻‍⚕️                  light skin tone woman health worker
+## 176   👩🏼‍⚕️           medium-light skin tone woman health worker
+## 177   👩🏽‍⚕️                 medium skin tone woman health worker
+## 178   👩🏾‍⚕️            medium-dark skin tone woman health worker
+## 179   👩🏿‍⚕️                   dark skin tone woman health worker
+## 180    👨‍🎓                                          man student
+## 181   👨🏻‍🎓                          light skin tone man student
+## 182   👨🏼‍🎓                   medium-light skin tone man student
+## 183   👨🏽‍🎓                         medium skin tone man student
+## 184   👨🏾‍🎓                    medium-dark skin tone man student
+## 185   👨🏿‍🎓                           dark skin tone man student
+## 186    👩‍🎓                                        woman student
+## 187   👩🏻‍🎓                        light skin tone woman student
+## 188   👩🏼‍🎓                 medium-light skin tone woman student
+## 189   👩🏽‍🎓                       medium skin tone woman student
+## 190   👩🏾‍🎓                  medium-dark skin tone woman student
+## 191   👩🏿‍🎓                         dark skin tone woman student
+## 192    👨‍🏫                                          man teacher
+## 193   👨🏻‍🏫                          light skin tone man teacher
+## 194   👨🏼‍🏫                   medium-light skin tone man teacher
+## 195   👨🏽‍🏫                         medium skin tone man teacher
+## 196   👨🏾‍🏫                    medium-dark skin tone man teacher
+## 197   👨🏿‍🏫                           dark skin tone man teacher
+## 198    👩‍🏫                                        woman teacher
+## 199   👩🏻‍🏫                        light skin tone woman teacher
+## 200   👩🏼‍🏫                 medium-light skin tone woman teacher
+## 201   👩🏽‍🏫                       medium skin tone woman teacher
+## 202   👩🏾‍🏫                  medium-dark skin tone woman teacher
+## 203   👩🏿‍🏫                         dark skin tone woman teacher
+## 204    👨‍⚖️                                            man judge
+## 205   👨🏻‍⚖️                            light skin tone man judge
+## 206   👨🏼‍⚖️                     medium-light skin tone man judge
+## 207   👨🏽‍⚖️                           medium skin tone man judge
+## 208   👨🏾‍⚖️                      medium-dark skin tone man judge
+## 209   👨🏿‍⚖️                             dark skin tone man judge
+## 210    👩‍⚖️                                          woman judge
+## 211   👩🏻‍⚖️                          light skin tone woman judge
+## 212   👩🏼‍⚖️                   medium-light skin tone woman judge
+## 213   👩🏽‍⚖️                         medium skin tone woman judge
+## 214   👩🏾‍⚖️                    medium-dark skin tone woman judge
+## 215   👩🏿‍⚖️                           dark skin tone woman judge
+## 216    👨‍🌾                                           man farmer
+## 217   👨🏻‍🌾                           light skin tone man farmer
+## 218   👨🏼‍🌾                    medium-light skin tone man farmer
+## 219   👨🏽‍🌾                          medium skin tone man farmer
+## 220   👨🏾‍🌾                     medium-dark skin tone man farmer
+## 221   👨🏿‍🌾                            dark skin tone man farmer
+## 222    👩‍🌾                                         woman farmer
+## 223   👩🏻‍🌾                         light skin tone woman farmer
+## 224   👩🏼‍🌾                  medium-light skin tone woman farmer
+## 225   👩🏽‍🌾                        medium skin tone woman farmer
+## 226   👩🏾‍🌾                   medium-dark skin tone woman farmer
+## 227   👩🏿‍🌾                          dark skin tone woman farmer
+## 228    👨‍🍳                                             man cook
+## 229   👨🏻‍🍳                             light skin tone man cook
+## 230   👨🏼‍🍳                      medium-light skin tone man cook
+## 231   👨🏽‍🍳                            medium skin tone man cook
+## 232   👨🏾‍🍳                       medium-dark skin tone man cook
+## 233   👨🏿‍🍳                              dark skin tone man cook
+## 234    👩‍🍳                                           woman cook
+## 235   👩🏻‍🍳                           light skin tone woman cook
+## 236   👩🏼‍🍳                    medium-light skin tone woman cook
+## 237   👩🏽‍🍳                          medium skin tone woman cook
+## 238   👩🏾‍🍳                     medium-dark skin tone woman cook
+## 239   👩🏿‍🍳                            dark skin tone woman cook
+## 240    👨‍🔧                                         man mechanic
+## 241   👨🏻‍🔧                         light skin tone man mechanic
+## 242   👨🏼‍🔧                  medium-light skin tone man mechanic
+## 243   👨🏽‍🔧                        medium skin tone man mechanic
+## 244   👨🏾‍🔧                   medium-dark skin tone man mechanic
+## 245   👨🏿‍🔧                          dark skin tone man mechanic
+## 246    👩‍🔧                                       woman mechanic
+## 247   👩🏻‍🔧                       light skin tone woman mechanic
+## 248   👩🏼‍🔧                medium-light skin tone woman mechanic
+## 249   👩🏽‍🔧                      medium skin tone woman mechanic
+## 250   👩🏾‍🔧                 medium-dark skin tone woman mechanic
+## 251   👩🏿‍🔧                        dark skin tone woman mechanic
+## 252    👨‍🏭                                   man factory worker
+## 253   👨🏻‍🏭                   light skin tone man factory worker
+## 254   👨🏼‍🏭            medium-light skin tone man factory worker
+## 255   👨🏽‍🏭                  medium skin tone man factory worker
+## 256   👨🏾‍🏭             medium-dark skin tone man factory worker
+## 257   👨🏿‍🏭                    dark skin tone man factory worker
+## 258    👩‍🏭                                 woman factory worker
+## 259   👩🏻‍🏭                 light skin tone woman factory worker
+## 260   👩🏼‍🏭          medium-light skin tone woman factory worker
+## 261   👩🏽‍🏭                medium skin tone woman factory worker
+## 262   👩🏾‍🏭           medium-dark skin tone woman factory worker
+## 263   👩🏿‍🏭                  dark skin tone woman factory worker
+## 264    👨‍💼                                    man office worker
+## 265   👨🏻‍💼                    light skin tone man office worker
+## 266   👨🏼‍💼             medium-light skin tone man office worker
+## 267   👨🏽‍💼                   medium skin tone man office worker
+## 268   👨🏾‍💼              medium-dark skin tone man office worker
+## 269   👨🏿‍💼                     dark skin tone man office worker
+## 270    👩‍💼                                  woman office worker
+## 271   👩🏻‍💼                  light skin tone woman office worker
+## 272   👩🏼‍💼           medium-light skin tone woman office worker
+## 273   👩🏽‍💼                 medium skin tone woman office worker
+## 274   👩🏾‍💼            medium-dark skin tone woman office worker
+## 275   👩🏿‍💼                   dark skin tone woman office worker
+## 276    👨‍🔬                                        man scientist
+## 277   👨🏻‍🔬                        light skin tone man scientist
+## 278   👨🏼‍🔬                 medium-light skin tone man scientist
+## 279   👨🏽‍🔬                       medium skin tone man scientist
+## 280   👨🏾‍🔬                  medium-dark skin tone man scientist
+## 281   👨🏿‍🔬                         dark skin tone man scientist
+## 282    👩‍🔬                                      woman scientist
+## 283   👩🏻‍🔬                      light skin tone woman scientist
+## 284   👩🏼‍🔬               medium-light skin tone woman scientist
+## 285   👩🏽‍🔬                     medium skin tone woman scientist
+## 286   👩🏾‍🔬                medium-dark skin tone woman scientist
+## 287   👩🏿‍🔬                       dark skin tone woman scientist
+## 288    👨‍💻                                     man technologist
+## 289   👨🏻‍💻                     light skin tone man technologist
+## 290   👨🏼‍💻              medium-light skin tone man technologist
+## 291   👨🏽‍💻                    medium skin tone man technologist
+## 292   👨🏾‍💻               medium-dark skin tone man technologist
+## 293   👨🏿‍💻                      dark skin tone man technologist
+## 294    👩‍💻                                   woman technologist
+## 295   👩🏻‍💻                   light skin tone woman technologist
+## 296   👩🏼‍💻            medium-light skin tone woman technologist
+## 297   👩🏽‍💻                  medium skin tone woman technologist
+## 298   👩🏾‍💻             medium-dark skin tone woman technologist
+## 299   👩🏿‍💻                    dark skin tone woman technologist
+## 300    👨‍🎤                                           man singer
+## 301   👨🏻‍🎤                           light skin tone man singer
+## 302   👨🏼‍🎤                    medium-light skin tone man singer
+## 303   👨🏽‍🎤                          medium skin tone man singer
+## 304   👨🏾‍🎤                     medium-dark skin tone man singer
+## 305   👨🏿‍🎤                            dark skin tone man singer
+## 306    👩‍🎤                                         woman singer
+## 307   👩🏻‍🎤                         light skin tone woman singer
+## 308   👩🏼‍🎤                  medium-light skin tone woman singer
+## 309   👩🏽‍🎤                        medium skin tone woman singer
+## 310   👩🏾‍🎤                   medium-dark skin tone woman singer
+## 311   👩🏿‍🎤                          dark skin tone woman singer
+## 312    👨‍🎨                                           man artist
+## 313   👨🏻‍🎨                           light skin tone man artist
+## 314   👨🏼‍🎨                    medium-light skin tone man artist
+## 315   👨🏽‍🎨                          medium skin tone man artist
+## 316   👨🏾‍🎨                     medium-dark skin tone man artist
+## 317   👨🏿‍🎨                            dark skin tone man artist
+## 318    👩‍🎨                                         woman artist
+## 319   👩🏻‍🎨                         light skin tone woman artist
+## 320   👩🏼‍🎨                  medium-light skin tone woman artist
+## 321   👩🏽‍🎨                        medium skin tone woman artist
+## 322   👩🏾‍🎨                   medium-dark skin tone woman artist
+## 323   👩🏿‍🎨                          dark skin tone woman artist
+## 324    👨‍✈️                                            man pilot
+## 325   👨🏻‍✈️                            light skin tone man pilot
+## 326   👨🏼‍✈️                     medium-light skin tone man pilot
+## 327   👨🏽‍✈️                           medium skin tone man pilot
+## 328   👨🏾‍✈️                      medium-dark skin tone man pilot
+## 329   👨🏿‍✈️                             dark skin tone man pilot
+## 330    👩‍✈️                                          woman pilot
+## 331   👩🏻‍✈️                          light skin tone woman pilot
+## 332   👩🏼‍✈️                   medium-light skin tone woman pilot
+## 333   👩🏽‍✈️                         medium skin tone woman pilot
+## 334   👩🏾‍✈️                    medium-dark skin tone woman pilot
+## 335   👩🏿‍✈️                           dark skin tone woman pilot
+## 336    👨‍🚀                                        man astronaut
+## 337   👨🏻‍🚀                        light skin tone man astronaut
+## 338   👨🏼‍🚀                 medium-light skin tone man astronaut
+## 339   👨🏽‍🚀                       medium skin tone man astronaut
+## 340   👨🏾‍🚀                  medium-dark skin tone man astronaut
+## 341   👨🏿‍🚀                         dark skin tone man astronaut
+## 342    👩‍🚀                                      woman astronaut
+## 343   👩🏻‍🚀                      light skin tone woman astronaut
+## 344   👩🏼‍🚀               medium-light skin tone woman astronaut
+## 345   👩🏽‍🚀                     medium skin tone woman astronaut
+## 346   👩🏾‍🚀                medium-dark skin tone woman astronaut
+## 347   👩🏿‍🚀                       dark skin tone woman astronaut
+## 348    👨‍🚒                                      man firefighter
+## 349   👨🏻‍🚒                      light skin tone man firefighter
+## 350   👨🏼‍🚒               medium-light skin tone man firefighter
+## 351   👨🏽‍🚒                     medium skin tone man firefighter
+## 352   👨🏾‍🚒                medium-dark skin tone man firefighter
+## 353   👨🏿‍🚒                       dark skin tone man firefighter
+## 354    👩‍🚒                                    woman firefighter
+## 355   👩🏻‍🚒                    light skin tone woman firefighter
+## 356   👩🏼‍🚒             medium-light skin tone woman firefighter
+## 357   👩🏽‍🚒                   medium skin tone woman firefighter
+## 358   👩🏾‍🚒              medium-dark skin tone woman firefighter
+## 359   👩🏿‍🚒                     dark skin tone woman firefighter
+## 360     👮                                       police officer
+## 361    👮🏻                       light skin tone police officer
+## 362    👮🏼                medium-light skin tone police officer
+## 363    👮🏽                      medium skin tone police officer
+## 364    👮🏾                 medium-dark skin tone police officer
+## 365    👮🏿                        dark skin tone police officer
+## 366    👮‍♂️                                   man police officer
+## 367   👮🏻‍♂️                   light skin tone man police officer
+## 368   👮🏼‍♂️            medium-light skin tone man police officer
+## 369   👮🏽‍♂️                  medium skin tone man police officer
+## 370   👮🏾‍♂️             medium-dark skin tone man police officer
+## 371   👮🏿‍♂️                    dark skin tone man police officer
+## 372    👮‍♀️                                 woman police officer
+## 373   👮🏻‍♀️                 light skin tone woman police officer
+## 374   👮🏼‍♀️          medium-light skin tone woman police officer
+## 375   👮🏽‍♀️                medium skin tone woman police officer
+## 376   👮🏾‍♀️           medium-dark skin tone woman police officer
+## 377   👮🏿‍♀️                  dark skin tone woman police officer
+## 378     🕵                                            detective
+## 379    🕵🏻                            light skin tone detective
+## 380    🕵🏼                     medium-light skin tone detective
+## 381    🕵🏽                           medium skin tone detective
+## 382    🕵🏾                      medium-dark skin tone detective
+## 383    🕵🏿                             dark skin tone detective
+## 384    🕵️‍♂️                                        man detective
+## 385   🕵🏻‍♂️                        light skin tone man detective
+## 386   🕵🏼‍♂️                 medium-light skin tone man detective
+## 387   🕵🏽‍♂️                       medium skin tone man detective
+## 388   🕵🏾‍♂️                  medium-dark skin tone man detective
+## 389   🕵🏿‍♂️                         dark skin tone man detective
+## 390    🕵️‍♀️                                      woman detective
+## 391   🕵🏻‍♀️                      light skin tone woman detective
+## 392   🕵🏼‍♀️               medium-light skin tone woman detective
+## 393   🕵🏽‍♀️                     medium skin tone woman detective
+## 394   🕵🏾‍♀️                medium-dark skin tone woman detective
+## 395   🕵🏿‍♀️                       dark skin tone woman detective
+## 396     💂                                                guard
+## 397    💂🏻                                light skin tone guard
+## 398    💂🏼                         medium-light skin tone guard
+## 399    💂🏽                               medium skin tone guard
+## 400    💂🏾                          medium-dark skin tone guard
+## 401    💂🏿                                 dark skin tone guard
+## 402    💂‍♂️                                            man guard
+## 403   💂🏻‍♂️                            light skin tone man guard
+## 404   💂🏼‍♂️                     medium-light skin tone man guard
+## 405   💂🏽‍♂️                           medium skin tone man guard
+## 406   💂🏾‍♂️                      medium-dark skin tone man guard
+## 407   💂🏿‍♂️                             dark skin tone man guard
+## 408    💂‍♀️                                          woman guard
+## 409   💂🏻‍♀️                          light skin tone woman guard
+## 410   💂🏼‍♀️                   medium-light skin tone woman guard
+## 411   💂🏽‍♀️                         medium skin tone woman guard
+## 412   💂🏾‍♀️                    medium-dark skin tone woman guard
+## 413   💂🏿‍♀️                           dark skin tone woman guard
+## 414     👷                                  construction worker
+## 415    👷🏻                  light skin tone construction worker
+## 416    👷🏼           medium-light skin tone construction worker
+## 417    👷🏽                 medium skin tone construction worker
+## 418    👷🏾            medium-dark skin tone construction worker
+## 419    👷🏿                   dark skin tone construction worker
+## 420    👷‍♂️                              man construction worker
+## 421   👷🏻‍♂️              light skin tone man construction worker
+## 422   👷🏼‍♂️       medium-light skin tone man construction worker
+## 423   👷🏽‍♂️             medium skin tone man construction worker
+## 424   👷🏾‍♂️        medium-dark skin tone man construction worker
+## 425   👷🏿‍♂️               dark skin tone man construction worker
+## 426    👷‍♀️                            woman construction worker
+## 427   👷🏻‍♀️            light skin tone woman construction worker
+## 428   👷🏼‍♀️     medium-light skin tone woman construction worker
+## 429   👷🏽‍♀️           medium skin tone woman construction worker
+## 430   👷🏾‍♀️      medium-dark skin tone woman construction worker
+## 431   👷🏿‍♀️             dark skin tone woman construction worker
+## 432     🤴                                               prince
+## 433    🤴🏻                               light skin tone prince
+## 434    🤴🏼                        medium-light skin tone prince
+## 435    🤴🏽                              medium skin tone prince
+## 436    🤴🏾                         medium-dark skin tone prince
+## 437    🤴🏿                                dark skin tone prince
+## 438     👸                                             princess
+## 439    👸🏻                             light skin tone princess
+## 440    👸🏼                      medium-light skin tone princess
+## 441    👸🏽                            medium skin tone princess
+## 442    👸🏾                       medium-dark skin tone princess
+## 443    👸🏿                              dark skin tone princess
+## 444     👳                                person wearing turban
+## 445    👳🏻                light skin tone person wearing turban
+## 446    👳🏼         medium-light skin tone person wearing turban
+## 447    👳🏽               medium skin tone person wearing turban
+## 448    👳🏾          medium-dark skin tone person wearing turban
+## 449    👳🏿                 dark skin tone person wearing turban
+## 450    👳‍♂️                                   man wearing turban
+## 451   👳🏻‍♂️                   light skin tone man wearing turban
+## 452   👳🏼‍♂️            medium-light skin tone man wearing turban
+## 453   👳🏽‍♂️                  medium skin tone man wearing turban
+## 454   👳🏾‍♂️             medium-dark skin tone man wearing turban
+## 455   👳🏿‍♂️                    dark skin tone man wearing turban
+## 456    👳‍♀️                                 woman wearing turban
+## 457   👳🏻‍♀️                 light skin tone woman wearing turban
+## 458   👳🏼‍♀️          medium-light skin tone woman wearing turban
+## 459   👳🏽‍♀️                medium skin tone woman wearing turban
+## 460   👳🏾‍♀️           medium-dark skin tone woman wearing turban
+## 461   👳🏿‍♀️                  dark skin tone woman wearing turban
+## 462     👲                                 man with Chinese cap
+## 463    👲🏻                 light skin tone man with Chinese cap
+## 464    👲🏼          medium-light skin tone man with Chinese cap
+## 465    👲🏽                medium skin tone man with Chinese cap
+## 466    👲🏾           medium-dark skin tone man with Chinese cap
+## 467    👲🏿                  dark skin tone man with Chinese cap
+## 468     🧕                                 woman with headscarf
+## 469    🧕🏻                 light skin tone woman with headscarf
+## 470    🧕🏼          medium-light skin tone woman with headscarf
+## 471    🧕🏽                medium skin tone woman with headscarf
+## 472    🧕🏾           medium-dark skin tone woman with headscarf
+## 473    🧕🏿                  dark skin tone woman with headscarf
+## 474     🧔                                       bearded person
+## 475    🧔🏻                       light skin tone bearded person
+## 476    🧔🏼                medium-light skin tone bearded person
+## 477    🧔🏽                      medium skin tone bearded person
+## 478    🧔🏾                 medium-dark skin tone bearded person
+## 479    🧔🏿                        dark skin tone bearded person
+## 480     👱                                  blond-haired person
+## 481    👱🏻                  light skin tone blond-haired person
+## 482    👱🏼           medium-light skin tone blond-haired person
+## 483    👱🏽                 medium skin tone blond-haired person
+## 484    👱🏾            medium-dark skin tone blond-haired person
+## 485    👱🏿                   dark skin tone blond-haired person
+## 486    👱‍♂️                                     blond-haired man
+## 487   👱🏻‍♂️                     light skin tone blond-haired man
+## 488   👱🏼‍♂️              medium-light skin tone blond-haired man
+## 489   👱🏽‍♂️                    medium skin tone blond-haired man
+## 490   👱🏾‍♂️               medium-dark skin tone blond-haired man
+## 491   👱🏿‍♂️                      dark skin tone blond-haired man
+## 492    👱‍♀️                                   blond-haired woman
+## 493   👱🏻‍♀️                   light skin tone blond-haired woman
+## 494   👱🏼‍♀️            medium-light skin tone blond-haired woman
+## 495   👱🏽‍♀️                  medium skin tone blond-haired woman
+## 496   👱🏾‍♀️             medium-dark skin tone blond-haired woman
+## 497   👱🏿‍♀️                    dark skin tone blond-haired woman
+## 498     🤵                                        man in tuxedo
+## 499    🤵🏻                        light skin tone man in tuxedo
+## 500    🤵🏼                 medium-light skin tone man in tuxedo
+## 501    🤵🏽                       medium skin tone man in tuxedo
+## 502    🤵🏾                  medium-dark skin tone man in tuxedo
+## 503    🤵🏿                         dark skin tone man in tuxedo
+## 504     👰                                      bride with veil
+## 505    👰🏻                      light skin tone bride with veil
+## 506    👰🏼               medium-light skin tone bride with veil
+## 507    👰🏽                     medium skin tone bride with veil
+## 508    👰🏾                medium-dark skin tone bride with veil
+## 509    👰🏿                       dark skin tone bride with veil
+## 510     🤰                                       pregnant woman
+## 511    🤰🏻                       light skin tone pregnant woman
+## 512    🤰🏼                medium-light skin tone pregnant woman
+## 513    🤰🏽                      medium skin tone pregnant woman
+## 514    🤰🏾                 medium-dark skin tone pregnant woman
+## 515    🤰🏿                        dark skin tone pregnant woman
+## 516     🤱                                       breast-feeding
+## 517    🤱🏻                       light skin tone breast-feeding
+## 518    🤱🏼                medium-light skin tone breast-feeding
+## 519    🤱🏽                      medium skin tone breast-feeding
+## 520    🤱🏾                 medium-dark skin tone breast-feeding
+## 521    🤱🏿                        dark skin tone breast-feeding
+## 522     👼                                           baby angel
+## 523    👼🏻                           light skin tone baby angel
+## 524    👼🏼                    medium-light skin tone baby angel
+## 525    👼🏽                          medium skin tone baby angel
+## 526    👼🏾                     medium-dark skin tone baby angel
+## 527    👼🏿                            dark skin tone baby angel
+## 528     🎅                                          Santa Claus
+## 529    🎅🏻                          light skin tone Santa Claus
+## 530    🎅🏼                   medium-light skin tone Santa Claus
+## 531    🎅🏽                         medium skin tone Santa Claus
+## 532    🎅🏾                    medium-dark skin tone Santa Claus
+## 533    🎅🏿                           dark skin tone Santa Claus
+## 534     🤶                                           Mrs. Claus
+## 535    🤶🏻                           light skin tone Mrs. Claus
+## 536    🤶🏼                    medium-light skin tone Mrs. Claus
+## 537    🤶🏽                          medium skin tone Mrs. Claus
+## 538    🤶🏾                     medium-dark skin tone Mrs. Claus
+## 539    🤶🏿                            dark skin tone Mrs. Claus
+## 540     🧙                                                 mage
+## 541    🧙🏻                                 light skin tone mage
+## 542    🧙🏼                          medium-light skin tone mage
+## 543    🧙🏽                                medium skin tone mage
+## 544    🧙🏾                           medium-dark skin tone mage
+## 545    🧙🏿                                  dark skin tone mage
+## 546    🧙‍♀️                                           woman mage
+## 547   🧙🏻‍♀️                           light skin tone woman mage
+## 548   🧙🏼‍♀️                    medium-light skin tone woman mage
+## 549   🧙🏽‍♀️                          medium skin tone woman mage
+## 550   🧙🏾‍♀️                     medium-dark skin tone woman mage
+## 551   🧙🏿‍♀️                            dark skin tone woman mage
+## 552    🧙‍♂️                                             man mage
+## 553   🧙🏻‍♂️                             light skin tone man mage
+## 554   🧙🏼‍♂️                      medium-light skin tone man mage
+## 555   🧙🏽‍♂️                            medium skin tone man mage
+## 556   🧙🏾‍♂️                       medium-dark skin tone man mage
+## 557   🧙🏿‍♂️                              dark skin tone man mage
+## 558     🧚                                                fairy
+## 559    🧚🏻                                light skin tone fairy
+## 560    🧚🏼                         medium-light skin tone fairy
+## 561    🧚🏽                               medium skin tone fairy
+## 562    🧚🏾                          medium-dark skin tone fairy
+## 563    🧚🏿                                 dark skin tone fairy
+## 564    🧚‍♀️                                          woman fairy
+## 565   🧚🏻‍♀️                          light skin tone woman fairy
+## 566   🧚🏼‍♀️                   medium-light skin tone woman fairy
+## 567   🧚🏽‍♀️                         medium skin tone woman fairy
+## 568   🧚🏾‍♀️                    medium-dark skin tone woman fairy
+## 569   🧚🏿‍♀️                           dark skin tone woman fairy
+## 570    🧚‍♂️                                            man fairy
+## 571   🧚🏻‍♂️                            light skin tone man fairy
+## 572   🧚🏼‍♂️                     medium-light skin tone man fairy
+## 573   🧚🏽‍♂️                           medium skin tone man fairy
+## 574   🧚🏾‍♂️                      medium-dark skin tone man fairy
+## 575   🧚🏿‍♂️                             dark skin tone man fairy
+## 576     🧛                                              vampire
+## 577    🧛🏻                              light skin tone vampire
+## 578    🧛🏼                       medium-light skin tone vampire
+## 579    🧛🏽                             medium skin tone vampire
+## 580    🧛🏾                        medium-dark skin tone vampire
+## 581    🧛🏿                               dark skin tone vampire
+## 582    🧛‍♀️                                        woman vampire
+## 583   🧛🏻‍♀️                        light skin tone woman vampire
+## 584   🧛🏼‍♀️                 medium-light skin tone woman vampire
+## 585   🧛🏽‍♀️                       medium skin tone woman vampire
+## 586   🧛🏾‍♀️                  medium-dark skin tone woman vampire
+## 587   🧛🏿‍♀️                         dark skin tone woman vampire
+## 588    🧛‍♂️                                          man vampire
+## 589   🧛🏻‍♂️                          light skin tone man vampire
+## 590   🧛🏼‍♂️                   medium-light skin tone man vampire
+## 591   🧛🏽‍♂️                         medium skin tone man vampire
+## 592   🧛🏾‍♂️                    medium-dark skin tone man vampire
+## 593   🧛🏿‍♂️                           dark skin tone man vampire
+## 594     🧜                                            merperson
+## 595    🧜🏻                            light skin tone merperson
+## 596    🧜🏼                     medium-light skin tone merperson
+## 597    🧜🏽                           medium skin tone merperson
+## 598    🧜🏾                      medium-dark skin tone merperson
+## 599    🧜🏿                             dark skin tone merperson
+## 600    🧜‍♀️                                              mermaid
+## 601   🧜🏻‍♀️                              light skin tone mermaid
+## 602   🧜🏼‍♀️                       medium-light skin tone mermaid
+## 603   🧜🏽‍♀️                             medium skin tone mermaid
+## 604   🧜🏾‍♀️                        medium-dark skin tone mermaid
+## 605   🧜🏿‍♀️                               dark skin tone mermaid
+## 606    🧜‍♂️                                               merman
+## 607   🧜🏻‍♂️                               light skin tone merman
+## 608   🧜🏼‍♂️                        medium-light skin tone merman
+## 609   🧜🏽‍♂️                              medium skin tone merman
+## 610   🧜🏾‍♂️                         medium-dark skin tone merman
+## 611   🧜🏿‍♂️                                dark skin tone merman
+## 612     🧝                                                  elf
+## 613    🧝🏻                                  light skin tone elf
+## 614    🧝🏼                           medium-light skin tone elf
+## 615    🧝🏽                                 medium skin tone elf
+## 616    🧝🏾                            medium-dark skin tone elf
+## 617    🧝🏿                                   dark skin tone elf
+## 618    🧝‍♀️                                            woman elf
+## 619   🧝🏻‍♀️                            light skin tone woman elf
+## 620   🧝🏼‍♀️                     medium-light skin tone woman elf
+## 621   🧝🏽‍♀️                           medium skin tone woman elf
+## 622   🧝🏾‍♀️                      medium-dark skin tone woman elf
+## 623   🧝🏿‍♀️                             dark skin tone woman elf
+## 624    🧝‍♂️                                              man elf
+## 625   🧝🏻‍♂️                              light skin tone man elf
+## 626   🧝🏼‍♂️                       medium-light skin tone man elf
+## 627   🧝🏽‍♂️                             medium skin tone man elf
+## 628   🧝🏾‍♂️                        medium-dark skin tone man elf
+## 629   🧝🏿‍♂️                               dark skin tone man elf
+## 630     🧞                                                genie
+## 631    🧞‍♀️                                          woman genie
+## 632    🧞‍♂️                                            man genie
+## 633     🧟                                               zombie
+## 634    🧟‍♀️                                         woman zombie
+## 635    🧟‍♂️                                           man zombie
+## 636     🙍                                      person frowning
+## 637    🙍🏻                      light skin tone person frowning
+## 638    🙍🏼               medium-light skin tone person frowning
+## 639    🙍🏽                     medium skin tone person frowning
+## 640    🙍🏾                medium-dark skin tone person frowning
+## 641    🙍🏿                       dark skin tone person frowning
+## 642    🙍‍♂️                                         man frowning
+## 643   🙍🏻‍♂️                         light skin tone man frowning
+## 644   🙍🏼‍♂️                  medium-light skin tone man frowning
+## 645   🙍🏽‍♂️                        medium skin tone man frowning
+## 646   🙍🏾‍♂️                   medium-dark skin tone man frowning
+## 647   🙍🏿‍♂️                          dark skin tone man frowning
+## 648    🙍‍♀️                                       woman frowning
+## 649   🙍🏻‍♀️                       light skin tone woman frowning
+## 650   🙍🏼‍♀️                medium-light skin tone woman frowning
+## 651   🙍🏽‍♀️                      medium skin tone woman frowning
+## 652   🙍🏾‍♀️                 medium-dark skin tone woman frowning
+## 653   🙍🏿‍♀️                        dark skin tone woman frowning
+## 654     🙎                                       person pouting
+## 655    🙎🏻                       light skin tone person pouting
+## 656    🙎🏼                medium-light skin tone person pouting
+## 657    🙎🏽                      medium skin tone person pouting
+## 658    🙎🏾                 medium-dark skin tone person pouting
+## 659    🙎🏿                        dark skin tone person pouting
+## 660    🙎‍♂️                                          man pouting
+## 661   🙎🏻‍♂️                          light skin tone man pouting
+## 662   🙎🏼‍♂️                   medium-light skin tone man pouting
+## 663   🙎🏽‍♂️                         medium skin tone man pouting
+## 664   🙎🏾‍♂️                    medium-dark skin tone man pouting
+## 665   🙎🏿‍♂️                           dark skin tone man pouting
+## 666    🙎‍♀️                                        woman pouting
+## 667   🙎🏻‍♀️                        light skin tone woman pouting
+## 668   🙎🏼‍♀️                 medium-light skin tone woman pouting
+## 669   🙎🏽‍♀️                       medium skin tone woman pouting
+## 670   🙎🏾‍♀️                  medium-dark skin tone woman pouting
+## 671   🙎🏿‍♀️                         dark skin tone woman pouting
+## 672     🙅                                  person gesturing NO
+## 673    🙅🏻                  light skin tone person gesturing NO
+## 674    🙅🏼           medium-light skin tone person gesturing NO
+## 675    🙅🏽                 medium skin tone person gesturing NO
+## 676    🙅🏾            medium-dark skin tone person gesturing NO
+## 677    🙅🏿                   dark skin tone person gesturing NO
+## 678    🙅‍♂️                                     man gesturing NO
+## 679   🙅🏻‍♂️                     light skin tone man gesturing NO
+## 680   🙅🏼‍♂️              medium-light skin tone man gesturing NO
+## 681   🙅🏽‍♂️                    medium skin tone man gesturing NO
+## 682   🙅🏾‍♂️               medium-dark skin tone man gesturing NO
+## 683   🙅🏿‍♂️                      dark skin tone man gesturing NO
+## 684    🙅‍♀️                                   woman gesturing NO
+## 685   🙅🏻‍♀️                   light skin tone woman gesturing NO
+## 686   🙅🏼‍♀️            medium-light skin tone woman gesturing NO
+## 687   🙅🏽‍♀️                  medium skin tone woman gesturing NO
+## 688   🙅🏾‍♀️             medium-dark skin tone woman gesturing NO
+## 689   🙅🏿‍♀️                    dark skin tone woman gesturing NO
+## 690     🙆                                  person gesturing OK
+## 691    🙆🏻                  light skin tone person gesturing OK
+## 692    🙆🏼           medium-light skin tone person gesturing OK
+## 693    🙆🏽                 medium skin tone person gesturing OK
+## 694    🙆🏾            medium-dark skin tone person gesturing OK
+## 695    🙆🏿                   dark skin tone person gesturing OK
+## 696    🙆‍♂️                                     man gesturing OK
+## 697   🙆🏻‍♂️                     light skin tone man gesturing OK
+## 698   🙆🏼‍♂️              medium-light skin tone man gesturing OK
+## 699   🙆🏽‍♂️                    medium skin tone man gesturing OK
+## 700   🙆🏾‍♂️               medium-dark skin tone man gesturing OK
+## 701   🙆🏿‍♂️                      dark skin tone man gesturing OK
+## 702    🙆‍♀️                                   woman gesturing OK
+## 703   🙆🏻‍♀️                   light skin tone woman gesturing OK
+## 704   🙆🏼‍♀️            medium-light skin tone woman gesturing OK
+## 705   🙆🏽‍♀️                  medium skin tone woman gesturing OK
+## 706   🙆🏾‍♀️             medium-dark skin tone woman gesturing OK
+## 707   🙆🏿‍♀️                    dark skin tone woman gesturing OK
+## 708     💁                                  person tipping hand
+## 709    💁🏻                  light skin tone person tipping hand
+## 710    💁🏼           medium-light skin tone person tipping hand
+## 711    💁🏽                 medium skin tone person tipping hand
+## 712    💁🏾            medium-dark skin tone person tipping hand
+## 713    💁🏿                   dark skin tone person tipping hand
+## 714    💁‍♂️                                     man tipping hand
+## 715   💁🏻‍♂️                     light skin tone man tipping hand
+## 716   💁🏼‍♂️              medium-light skin tone man tipping hand
+## 717   💁🏽‍♂️                    medium skin tone man tipping hand
+## 718   💁🏾‍♂️               medium-dark skin tone man tipping hand
+## 719   💁🏿‍♂️                      dark skin tone man tipping hand
+## 720    💁‍♀️                                   woman tipping hand
+## 721   💁🏻‍♀️                   light skin tone woman tipping hand
+## 722   💁🏼‍♀️            medium-light skin tone woman tipping hand
+## 723   💁🏽‍♀️                  medium skin tone woman tipping hand
+## 724   💁🏾‍♀️             medium-dark skin tone woman tipping hand
+## 725   💁🏿‍♀️                    dark skin tone woman tipping hand
+## 726     🙋                                  person raising hand
+## 727    🙋🏻                  light skin tone person raising hand
+## 728    🙋🏼           medium-light skin tone person raising hand
+## 729    🙋🏽                 medium skin tone person raising hand
+## 730    🙋🏾            medium-dark skin tone person raising hand
+## 731    🙋🏿                   dark skin tone person raising hand
+## 732    🙋‍♂️                                     man raising hand
+## 733   🙋🏻‍♂️                     light skin tone man raising hand
+## 734   🙋🏼‍♂️              medium-light skin tone man raising hand
+## 735   🙋🏽‍♂️                    medium skin tone man raising hand
+## 736   🙋🏾‍♂️               medium-dark skin tone man raising hand
+## 737   🙋🏿‍♂️                      dark skin tone man raising hand
+## 738    🙋‍♀️                                   woman raising hand
+## 739   🙋🏻‍♀️                   light skin tone woman raising hand
+## 740   🙋🏼‍♀️            medium-light skin tone woman raising hand
+## 741   🙋🏽‍♀️                  medium skin tone woman raising hand
+## 742   🙋🏾‍♀️             medium-dark skin tone woman raising hand
+## 743   🙋🏿‍♀️                    dark skin tone woman raising hand
+## 744     🙇                                        person bowing
+## 745    🙇🏻                        light skin tone person bowing
+## 746    🙇🏼                 medium-light skin tone person bowing
+## 747    🙇🏽                       medium skin tone person bowing
+## 748    🙇🏾                  medium-dark skin tone person bowing
+## 749    🙇🏿                         dark skin tone person bowing
+## 750    🙇‍♂️                                           man bowing
+## 751   🙇🏻‍♂️                           light skin tone man bowing
+## 752   🙇🏼‍♂️                    medium-light skin tone man bowing
+## 753   🙇🏽‍♂️                          medium skin tone man bowing
+## 754   🙇🏾‍♂️                     medium-dark skin tone man bowing
+## 755   🙇🏿‍♂️                            dark skin tone man bowing
+## 756    🙇‍♀️                                         woman bowing
+## 757   🙇🏻‍♀️                         light skin tone woman bowing
+## 758   🙇🏼‍♀️                  medium-light skin tone woman bowing
+## 759   🙇🏽‍♀️                        medium skin tone woman bowing
+## 760   🙇🏾‍♀️                   medium-dark skin tone woman bowing
+## 761   🙇🏿‍♀️                          dark skin tone woman bowing
+## 762     🤦                                   person facepalming
+## 763    🤦🏻                   light skin tone person facepalming
+## 764    🤦🏼            medium-light skin tone person facepalming
+## 765    🤦🏽                  medium skin tone person facepalming
+## 766    🤦🏾             medium-dark skin tone person facepalming
+## 767    🤦🏿                    dark skin tone person facepalming
+## 768    🤦‍♂️                                      man facepalming
+## 769   🤦🏻‍♂️                      light skin tone man facepalming
+## 770   🤦🏼‍♂️               medium-light skin tone man facepalming
+## 771   🤦🏽‍♂️                     medium skin tone man facepalming
+## 772   🤦🏾‍♂️                medium-dark skin tone man facepalming
+## 773   🤦🏿‍♂️                       dark skin tone man facepalming
+## 774    🤦‍♀️                                    woman facepalming
+## 775   🤦🏻‍♀️                    light skin tone woman facepalming
+## 776   🤦🏼‍♀️             medium-light skin tone woman facepalming
+## 777   🤦🏽‍♀️                   medium skin tone woman facepalming
+## 778   🤦🏾‍♀️              medium-dark skin tone woman facepalming
+## 779   🤦🏿‍♀️                     dark skin tone woman facepalming
+## 780     🤷                                     person shrugging
+## 781    🤷🏻                     light skin tone person shrugging
+## 782    🤷🏼              medium-light skin tone person shrugging
+## 783    🤷🏽                    medium skin tone person shrugging
+## 784    🤷🏾               medium-dark skin tone person shrugging
+## 785    🤷🏿                      dark skin tone person shrugging
+## 786    🤷‍♂️                                        man shrugging
+## 787   🤷🏻‍♂️                        light skin tone man shrugging
+## 788   🤷🏼‍♂️                 medium-light skin tone man shrugging
+## 789   🤷🏽‍♂️                       medium skin tone man shrugging
+## 790   🤷🏾‍♂️                  medium-dark skin tone man shrugging
+## 791   🤷🏿‍♂️                         dark skin tone man shrugging
+## 792    🤷‍♀️                                      woman shrugging
+## 793   🤷🏻‍♀️                      light skin tone woman shrugging
+## 794   🤷🏼‍♀️               medium-light skin tone woman shrugging
+## 795   🤷🏽‍♀️                     medium skin tone woman shrugging
+## 796   🤷🏾‍♀️                medium-dark skin tone woman shrugging
+## 797   🤷🏿‍♀️                       dark skin tone woman shrugging
+## 798     💆                               person getting massage
+## 799    💆🏻               light skin tone person getting massage
+## 800    💆🏼        medium-light skin tone person getting massage
+## 801    💆🏽              medium skin tone person getting massage
+## 802    💆🏾         medium-dark skin tone person getting massage
+## 803    💆🏿                dark skin tone person getting massage
+## 804    💆‍♂️                                  man getting massage
+## 805   💆🏻‍♂️                  light skin tone man getting massage
+## 806   💆🏼‍♂️           medium-light skin tone man getting massage
+## 807   💆🏽‍♂️                 medium skin tone man getting massage
+## 808   💆🏾‍♂️            medium-dark skin tone man getting massage
+## 809   💆🏿‍♂️                   dark skin tone man getting massage
+## 810    💆‍♀️                                woman getting massage
+## 811   💆🏻‍♀️                light skin tone woman getting massage
+## 812   💆🏼‍♀️         medium-light skin tone woman getting massage
+## 813   💆🏽‍♀️               medium skin tone woman getting massage
+## 814   💆🏾‍♀️          medium-dark skin tone woman getting massage
+## 815   💆🏿‍♀️                 dark skin tone woman getting massage
+## 816     💇                               person getting haircut
+## 817    💇🏻               light skin tone person getting haircut
+## 818    💇🏼        medium-light skin tone person getting haircut
+## 819    💇🏽              medium skin tone person getting haircut
+## 820    💇🏾         medium-dark skin tone person getting haircut
+## 821    💇🏿                dark skin tone person getting haircut
+## 822    💇‍♂️                                  man getting haircut
+## 823   💇🏻‍♂️                  light skin tone man getting haircut
+## 824   💇🏼‍♂️           medium-light skin tone man getting haircut
+## 825   💇🏽‍♂️                 medium skin tone man getting haircut
+## 826   💇🏾‍♂️            medium-dark skin tone man getting haircut
+## 827   💇🏿‍♂️                   dark skin tone man getting haircut
+## 828    💇‍♀️                                woman getting haircut
+## 829   💇🏻‍♀️                light skin tone woman getting haircut
+## 830   💇🏼‍♀️         medium-light skin tone woman getting haircut
+## 831   💇🏽‍♀️               medium skin tone woman getting haircut
+## 832   💇🏾‍♀️          medium-dark skin tone woman getting haircut
+## 833   💇🏿‍♀️                 dark skin tone woman getting haircut
+## 834     🚶                                       person walking
+## 835    🚶🏻                       light skin tone person walking
+## 836    🚶🏼                medium-light skin tone person walking
+## 837    🚶🏽                      medium skin tone person walking
+## 838    🚶🏾                 medium-dark skin tone person walking
+## 839    🚶🏿                        dark skin tone person walking
+## 840    🚶‍♂️                                          man walking
+## 841   🚶🏻‍♂️                          light skin tone man walking
+## 842   🚶🏼‍♂️                   medium-light skin tone man walking
+## 843   🚶🏽‍♂️                         medium skin tone man walking
+## 844   🚶🏾‍♂️                    medium-dark skin tone man walking
+## 845   🚶🏿‍♂️                           dark skin tone man walking
+## 846    🚶‍♀️                                        woman walking
+## 847   🚶🏻‍♀️                        light skin tone woman walking
+## 848   🚶🏼‍♀️                 medium-light skin tone woman walking
+## 849   🚶🏽‍♀️                       medium skin tone woman walking
+## 850   🚶🏾‍♀️                  medium-dark skin tone woman walking
+## 851   🚶🏿‍♀️                         dark skin tone woman walking
+## 852     🏃                                       person running
+## 853    🏃🏻                       light skin tone person running
+## 854    🏃🏼                medium-light skin tone person running
+## 855    🏃🏽                      medium skin tone person running
+## 856    🏃🏾                 medium-dark skin tone person running
+## 857    🏃🏿                        dark skin tone person running
+## 858    🏃‍♂️                                          man running
+## 859   🏃🏻‍♂️                          light skin tone man running
+## 860   🏃🏼‍♂️                   medium-light skin tone man running
+## 861   🏃🏽‍♂️                         medium skin tone man running
+## 862   🏃🏾‍♂️                    medium-dark skin tone man running
+## 863   🏃🏿‍♂️                           dark skin tone man running
+## 864    🏃‍♀️                                        woman running
+## 865   🏃🏻‍♀️                        light skin tone woman running
+## 866   🏃🏼‍♀️                 medium-light skin tone woman running
+## 867   🏃🏽‍♀️                       medium skin tone woman running
+## 868   🏃🏾‍♀️                  medium-dark skin tone woman running
+## 869   🏃🏿‍♀️                         dark skin tone woman running
+## 870     💃                                        woman dancing
+## 871    💃🏻                        light skin tone woman dancing
+## 872    💃🏼                 medium-light skin tone woman dancing
+## 873    💃🏽                       medium skin tone woman dancing
+## 874    💃🏾                  medium-dark skin tone woman dancing
+## 875    💃🏿                         dark skin tone woman dancing
+## 876     🕺                                          man dancing
+## 877    🕺🏻                          light skin tone man dancing
+## 878    🕺🏼                   medium-light skin tone man dancing
+## 879    🕺🏽                         medium skin tone man dancing
+## 880    🕺🏾                    medium-dark skin tone man dancing
+## 881    🕺🏿                           dark skin tone man dancing
+## 882     👯                               people with bunny ears
+## 883    👯‍♂️                                  men with bunny ears
+## 884    👯‍♀️                                women with bunny ears
+## 885     🧖                                person in steamy room
+## 886    🧖🏻                light skin tone person in steamy room
+## 887    🧖🏼         medium-light skin tone person in steamy room
+## 888    🧖🏽               medium skin tone person in steamy room
+## 889    🧖🏾          medium-dark skin tone person in steamy room
+## 890    🧖🏿                 dark skin tone person in steamy room
+## 891    🧖‍♀️                                 woman in steamy room
+## 892   🧖🏻‍♀️                 light skin tone woman in steamy room
+## 893   🧖🏼‍♀️          medium-light skin tone woman in steamy room
+## 894   🧖🏽‍♀️                medium skin tone woman in steamy room
+## 895   🧖🏾‍♀️           medium-dark skin tone woman in steamy room
+## 896   🧖🏿‍♀️                  dark skin tone woman in steamy room
+## 897    🧖‍♂️                                   man in steamy room
+## 898   🧖🏻‍♂️                   light skin tone man in steamy room
+## 899   🧖🏼‍♂️            medium-light skin tone man in steamy room
+## 900   🧖🏽‍♂️                  medium skin tone man in steamy room
+## 901   🧖🏾‍♂️             medium-dark skin tone man in steamy room
+## 902   🧖🏿‍♂️                    dark skin tone man in steamy room
+## 903     🧗                                      person climbing
+## 904    🧗🏻                      light skin tone person climbing
+## 905    🧗🏼               medium-light skin tone person climbing
+## 906    🧗🏽                     medium skin tone person climbing
+## 907    🧗🏾                medium-dark skin tone person climbing
+## 908    🧗🏿                       dark skin tone person climbing
+## 909    🧗‍♀️                                       woman climbing
+## 910   🧗🏻‍♀️                       light skin tone woman climbing
+## 911   🧗🏼‍♀️                medium-light skin tone woman climbing
+## 912   🧗🏽‍♀️                      medium skin tone woman climbing
+## 913   🧗🏾‍♀️                 medium-dark skin tone woman climbing
+## 914   🧗🏿‍♀️                        dark skin tone woman climbing
+## 915    🧗‍♂️                                         man climbing
+## 916   🧗🏻‍♂️                         light skin tone man climbing
+## 917   🧗🏼‍♂️                  medium-light skin tone man climbing
+## 918   🧗🏽‍♂️                        medium skin tone man climbing
+## 919   🧗🏾‍♂️                   medium-dark skin tone man climbing
+## 920   🧗🏿‍♂️                          dark skin tone man climbing
+## 921     🧘                             person in lotus position
+## 922    🧘🏻             light skin tone person in lotus position
+## 923    🧘🏼      medium-light skin tone person in lotus position
+## 924    🧘🏽            medium skin tone person in lotus position
+## 925    🧘🏾       medium-dark skin tone person in lotus position
+## 926    🧘🏿              dark skin tone person in lotus position
+## 927    🧘‍♀️                              woman in lotus position
+## 928   🧘🏻‍♀️              light skin tone woman in lotus position
+## 929   🧘🏼‍♀️       medium-light skin tone woman in lotus position
+## 930   🧘🏽‍♀️             medium skin tone woman in lotus position
+## 931   🧘🏾‍♀️        medium-dark skin tone woman in lotus position
+## 932   🧘🏿‍♀️               dark skin tone woman in lotus position
+## 933    🧘‍♂️                                man in lotus position
+## 934   🧘🏻‍♂️                light skin tone man in lotus position
+## 935   🧘🏼‍♂️         medium-light skin tone man in lotus position
+## 936   🧘🏽‍♂️               medium skin tone man in lotus position
+## 937   🧘🏾‍♂️          medium-dark skin tone man in lotus position
+## 938   🧘🏿‍♂️                 dark skin tone man in lotus position
+## 939     🛀                                   person taking bath
+## 940    🛀🏻                   light skin tone person taking bath
+## 941    🛀🏼            medium-light skin tone person taking bath
+## 942    🛀🏽                  medium skin tone person taking bath
+## 943    🛀🏾             medium-dark skin tone person taking bath
+## 944    🛀🏿                    dark skin tone person taking bath
+## 945     🛌                                        person in bed
+## 946    🛌🏻                        light skin tone person in bed
+## 947    🛌🏼                 medium-light skin tone person in bed
+## 948    🛌🏽                       medium skin tone person in bed
+## 949    🛌🏾                  medium-dark skin tone person in bed
+## 950    🛌🏿                         dark skin tone person in bed
+## 951     🕴                               man in suit levitating
+## 952    🕴🏻               light skin tone man in suit levitating
+## 953    🕴🏼        medium-light skin tone man in suit levitating
+## 954    🕴🏽              medium skin tone man in suit levitating
+## 955    🕴🏾         medium-dark skin tone man in suit levitating
+## 956    🕴🏿                dark skin tone man in suit levitating
+## 957     🗣                                        speaking head
+## 958     👤                                   bust in silhouette
+## 959     👥                                  busts in silhouette
+## 960     🤺                                       person fencing
+## 961     🏇                                         horse racing
+## 962    🏇🏻                         light skin tone horse racing
+## 963    🏇🏼                  medium-light skin tone horse racing
+## 964    🏇🏽                        medium skin tone horse racing
+## 965    🏇🏾                   medium-dark skin tone horse racing
+## 966    🏇🏿                          dark skin tone horse racing
+## 967     ⛷                                                skier
+## 968     🏂                                          snowboarder
+## 969    🏂🏻                          light skin tone snowboarder
+## 970    🏂🏼                   medium-light skin tone snowboarder
+## 971    🏂🏽                         medium skin tone snowboarder
+## 972    🏂🏾                    medium-dark skin tone snowboarder
+## 973    🏂🏿                           dark skin tone snowboarder
+## 974     🏌                                       person golfing
+## 975    🏌🏻                       light skin tone person golfing
+## 976    🏌🏼                medium-light skin tone person golfing
+## 977    🏌🏽                      medium skin tone person golfing
+## 978    🏌🏾                 medium-dark skin tone person golfing
+## 979    🏌🏿                        dark skin tone person golfing
+## 980    🏌️‍♂️                                          man golfing
+## 981   🏌🏻‍♂️                          light skin tone man golfing
+## 982   🏌🏼‍♂️                   medium-light skin tone man golfing
+## 983   🏌🏽‍♂️                         medium skin tone man golfing
+## 984   🏌🏾‍♂️                    medium-dark skin tone man golfing
+## 985   🏌🏿‍♂️                           dark skin tone man golfing
+## 986    🏌️‍♀️                                        woman golfing
+## 987   🏌🏻‍♀️                        light skin tone woman golfing
+## 988   🏌🏼‍♀️                 medium-light skin tone woman golfing
+## 989   🏌🏽‍♀️                       medium skin tone woman golfing
+## 990   🏌🏾‍♀️                  medium-dark skin tone woman golfing
+## 991   🏌🏿‍♀️                         dark skin tone woman golfing
+## 992     🏄                                       person surfing
+## 993    🏄🏻                       light skin tone person surfing
+## 994    🏄🏼                medium-light skin tone person surfing
+## 995    🏄🏽                      medium skin tone person surfing
+## 996    🏄🏾                 medium-dark skin tone person surfing
+## 997    🏄🏿                        dark skin tone person surfing
+## 998    🏄‍♂️                                          man surfing
+## 999   🏄🏻‍♂️                          light skin tone man surfing
+## 1000  🏄🏼‍♂️                   medium-light skin tone man surfing
+## 1001  🏄🏽‍♂️                         medium skin tone man surfing
+## 1002  🏄🏾‍♂️                    medium-dark skin tone man surfing
+## 1003  🏄🏿‍♂️                           dark skin tone man surfing
+## 1004   🏄‍♀️                                        woman surfing
+## 1005  🏄🏻‍♀️                        light skin tone woman surfing
+## 1006  🏄🏼‍♀️                 medium-light skin tone woman surfing
+## 1007  🏄🏽‍♀️                       medium skin tone woman surfing
+## 1008  🏄🏾‍♀️                  medium-dark skin tone woman surfing
+## 1009  🏄🏿‍♀️                         dark skin tone woman surfing
+## 1010    🚣                                   person rowing boat
+## 1011   🚣🏻                   light skin tone person rowing boat
+## 1012   🚣🏼            medium-light skin tone person rowing boat
+## 1013   🚣🏽                  medium skin tone person rowing boat
+## 1014   🚣🏾             medium-dark skin tone person rowing boat
+## 1015   🚣🏿                    dark skin tone person rowing boat
+## 1016   🚣‍♂️                                      man rowing boat
+## 1017  🚣🏻‍♂️                      light skin tone man rowing boat
+## 1018  🚣🏼‍♂️               medium-light skin tone man rowing boat
+## 1019  🚣🏽‍♂️                     medium skin tone man rowing boat
+## 1020  🚣🏾‍♂️                medium-dark skin tone man rowing boat
+## 1021  🚣🏿‍♂️                       dark skin tone man rowing boat
+## 1022   🚣‍♀️                                    woman rowing boat
+## 1023  🚣🏻‍♀️                    light skin tone woman rowing boat
+## 1024  🚣🏼‍♀️             medium-light skin tone woman rowing boat
+## 1025  🚣🏽‍♀️                   medium skin tone woman rowing boat
+## 1026  🚣🏾‍♀️              medium-dark skin tone woman rowing boat
+## 1027  🚣🏿‍♀️                     dark skin tone woman rowing boat
+## 1028    🏊                                      person swimming
+## 1029   🏊🏻                      light skin tone person swimming
+## 1030   🏊🏼               medium-light skin tone person swimming
+## 1031   🏊🏽                     medium skin tone person swimming
+## 1032   🏊🏾                medium-dark skin tone person swimming
+## 1033   🏊🏿                       dark skin tone person swimming
+## 1034   🏊‍♂️                                         man swimming
+## 1035  🏊🏻‍♂️                         light skin tone man swimming
+## 1036  🏊🏼‍♂️                  medium-light skin tone man swimming
+## 1037  🏊🏽‍♂️                        medium skin tone man swimming
+## 1038  🏊🏾‍♂️                   medium-dark skin tone man swimming
+## 1039  🏊🏿‍♂️                          dark skin tone man swimming
+## 1040   🏊‍♀️                                       woman swimming
+## 1041  🏊🏻‍♀️                       light skin tone woman swimming
+## 1042  🏊🏼‍♀️                medium-light skin tone woman swimming
+## 1043  🏊🏽‍♀️                      medium skin tone woman swimming
+## 1044  🏊🏾‍♀️                 medium-dark skin tone woman swimming
+## 1045  🏊🏿‍♀️                        dark skin tone woman swimming
+## 1046    ⛹                                 person bouncing ball
+## 1047   ⛹🏻                 light skin tone person bouncing ball
+## 1048   ⛹🏼          medium-light skin tone person bouncing ball
+## 1049   ⛹🏽                medium skin tone person bouncing ball
+## 1050   ⛹🏾           medium-dark skin tone person bouncing ball
+## 1051   ⛹🏿                  dark skin tone person bouncing ball
+## 1052   ⛹️‍♂️                                    man bouncing ball
+## 1053  ⛹🏻‍♂️                    light skin tone man bouncing ball
+## 1054  ⛹🏼‍♂️             medium-light skin tone man bouncing ball
+## 1055  ⛹🏽‍♂️                   medium skin tone man bouncing ball
+## 1056  ⛹🏾‍♂️              medium-dark skin tone man bouncing ball
+## 1057  ⛹🏿‍♂️                     dark skin tone man bouncing ball
+## 1058   ⛹️‍♀️                                  woman bouncing ball
+## 1059  ⛹🏻‍♀️                  light skin tone woman bouncing ball
+## 1060  ⛹🏼‍♀️           medium-light skin tone woman bouncing ball
+## 1061  ⛹🏽‍♀️                 medium skin tone woman bouncing ball
+## 1062  ⛹🏾‍♀️            medium-dark skin tone woman bouncing ball
+## 1063  ⛹🏿‍♀️                   dark skin tone woman bouncing ball
+## 1064    🏋                               person lifting weights
+## 1065   🏋🏻               light skin tone person lifting weights
+## 1066   🏋🏼        medium-light skin tone person lifting weights
+## 1067   🏋🏽              medium skin tone person lifting weights
+## 1068   🏋🏾         medium-dark skin tone person lifting weights
+## 1069   🏋🏿                dark skin tone person lifting weights
+## 1070   🏋️‍♂️                                  man lifting weights
+## 1071  🏋🏻‍♂️                  light skin tone man lifting weights
+## 1072  🏋🏼‍♂️           medium-light skin tone man lifting weights
+## 1073  🏋🏽‍♂️                 medium skin tone man lifting weights
+## 1074  🏋🏾‍♂️            medium-dark skin tone man lifting weights
+## 1075  🏋🏿‍♂️                   dark skin tone man lifting weights
+## 1076   🏋️‍♀️                                woman lifting weights
+## 1077  🏋🏻‍♀️                light skin tone woman lifting weights
+## 1078  🏋🏼‍♀️         medium-light skin tone woman lifting weights
+## 1079  🏋🏽‍♀️               medium skin tone woman lifting weights
+## 1080  🏋🏾‍♀️          medium-dark skin tone woman lifting weights
+## 1081  🏋🏿‍♀️                 dark skin tone woman lifting weights
+## 1082    🚴                                        person biking
+## 1083   🚴🏻                        light skin tone person biking
+## 1084   🚴🏼                 medium-light skin tone person biking
+## 1085   🚴🏽                       medium skin tone person biking
+## 1086   🚴🏾                  medium-dark skin tone person biking
+## 1087   🚴🏿                         dark skin tone person biking
+## 1088   🚴‍♂️                                           man biking
+## 1089  🚴🏻‍♂️                           light skin tone man biking
+## 1090  🚴🏼‍♂️                    medium-light skin tone man biking
+## 1091  🚴🏽‍♂️                          medium skin tone man biking
+## 1092  🚴🏾‍♂️                     medium-dark skin tone man biking
+## 1093  🚴🏿‍♂️                            dark skin tone man biking
+## 1094   🚴‍♀️                                         woman biking
+## 1095  🚴🏻‍♀️                         light skin tone woman biking
+## 1096  🚴🏼‍♀️                  medium-light skin tone woman biking
+## 1097  🚴🏽‍♀️                        medium skin tone woman biking
+## 1098  🚴🏾‍♀️                   medium-dark skin tone woman biking
+## 1099  🚴🏿‍♀️                          dark skin tone woman biking
+## 1100    🚵                               person mountain biking
+## 1101   🚵🏻               light skin tone person mountain biking
+## 1102   🚵🏼        medium-light skin tone person mountain biking
+## 1103   🚵🏽              medium skin tone person mountain biking
+## 1104   🚵🏾         medium-dark skin tone person mountain biking
+## 1105   🚵🏿                dark skin tone person mountain biking
+## 1106   🚵‍♂️                                  man mountain biking
+## 1107  🚵🏻‍♂️                  light skin tone man mountain biking
+## 1108  🚵🏼‍♂️           medium-light skin tone man mountain biking
+## 1109  🚵🏽‍♂️                 medium skin tone man mountain biking
+## 1110  🚵🏾‍♂️            medium-dark skin tone man mountain biking
+## 1111  🚵🏿‍♂️                   dark skin tone man mountain biking
+## 1112   🚵‍♀️                                woman mountain biking
+## 1113  🚵🏻‍♀️                light skin tone woman mountain biking
+## 1114  🚵🏼‍♀️         medium-light skin tone woman mountain biking
+## 1115  🚵🏽‍♀️               medium skin tone woman mountain biking
+## 1116  🚵🏾‍♀️          medium-dark skin tone woman mountain biking
+## 1117  🚵🏿‍♀️                 dark skin tone woman mountain biking
+## 1118    🏎                                           racing car
+## 1119    🏍                                           motorcycle
+## 1120    🤸                                  person cartwheeling
+## 1121   🤸🏻                  light skin tone person cartwheeling
+## 1122   🤸🏼           medium-light skin tone person cartwheeling
+## 1123   🤸🏽                 medium skin tone person cartwheeling
+## 1124   🤸🏾            medium-dark skin tone person cartwheeling
+## 1125   🤸🏿                   dark skin tone person cartwheeling
+## 1126   🤸‍♂️                                     man cartwheeling
+## 1127  🤸🏻‍♂️                     light skin tone man cartwheeling
+## 1128  🤸🏼‍♂️              medium-light skin tone man cartwheeling
+## 1129  🤸🏽‍♂️                    medium skin tone man cartwheeling
+## 1130  🤸🏾‍♂️               medium-dark skin tone man cartwheeling
+## 1131  🤸🏿‍♂️                      dark skin tone man cartwheeling
+## 1132   🤸‍♀️                                   woman cartwheeling
+## 1133  🤸🏻‍♀️                   light skin tone woman cartwheeling
+## 1134  🤸🏼‍♀️            medium-light skin tone woman cartwheeling
+## 1135  🤸🏽‍♀️                  medium skin tone woman cartwheeling
+## 1136  🤸🏾‍♀️             medium-dark skin tone woman cartwheeling
+## 1137  🤸🏿‍♀️                    dark skin tone woman cartwheeling
+## 1138    🤼                                     people wrestling
+## 1139   🤼‍♂️                                        men wrestling
+## 1140   🤼‍♀️                                      women wrestling
+## 1141    🤽                            person playing water polo
+## 1142   🤽🏻            light skin tone person playing water polo
+## 1143   🤽🏼     medium-light skin tone person playing water polo
+## 1144   🤽🏽           medium skin tone person playing water polo
+## 1145   🤽🏾      medium-dark skin tone person playing water polo
+## 1146   🤽🏿             dark skin tone person playing water polo
+## 1147   🤽‍♂️                               man playing water polo
+## 1148  🤽🏻‍♂️               light skin tone man playing water polo
+## 1149  🤽🏼‍♂️        medium-light skin tone man playing water polo
+## 1150  🤽🏽‍♂️              medium skin tone man playing water polo
+## 1151  🤽🏾‍♂️         medium-dark skin tone man playing water polo
+## 1152  🤽🏿‍♂️                dark skin tone man playing water polo
+## 1153   🤽‍♀️                             woman playing water polo
+## 1154  🤽🏻‍♀️             light skin tone woman playing water polo
+## 1155  🤽🏼‍♀️      medium-light skin tone woman playing water polo
+## 1156  🤽🏽‍♀️            medium skin tone woman playing water polo
+## 1157  🤽🏾‍♀️       medium-dark skin tone woman playing water polo
+## 1158  🤽🏿‍♀️              dark skin tone woman playing water polo
+## 1159    🤾                              person playing handball
+## 1160   🤾🏻              light skin tone person playing handball
+## 1161   🤾🏼       medium-light skin tone person playing handball
+## 1162   🤾🏽             medium skin tone person playing handball
+## 1163   🤾🏾        medium-dark skin tone person playing handball
+## 1164   🤾🏿               dark skin tone person playing handball
+## 1165   🤾‍♂️                                 man playing handball
+## 1166  🤾🏻‍♂️                 light skin tone man playing handball
+## 1167  🤾🏼‍♂️          medium-light skin tone man playing handball
+## 1168  🤾🏽‍♂️                medium skin tone man playing handball
+## 1169  🤾🏾‍♂️           medium-dark skin tone man playing handball
+## 1170  🤾🏿‍♂️                  dark skin tone man playing handball
+## 1171   🤾‍♀️                               woman playing handball
+## 1172  🤾🏻‍♀️               light skin tone woman playing handball
+## 1173  🤾🏼‍♀️        medium-light skin tone woman playing handball
+## 1174  🤾🏽‍♀️              medium skin tone woman playing handball
+## 1175  🤾🏾‍♀️         medium-dark skin tone woman playing handball
+## 1176  🤾🏿‍♀️                dark skin tone woman playing handball
+## 1177    🤹                                      person juggling
+## 1178   🤹🏻                      light skin tone person juggling
+## 1179   🤹🏼               medium-light skin tone person juggling
+## 1180   🤹🏽                     medium skin tone person juggling
+## 1181   🤹🏾                medium-dark skin tone person juggling
+## 1182   🤹🏿                       dark skin tone person juggling
+## 1183   🤹‍♂️                                         man juggling
+## 1184  🤹🏻‍♂️                         light skin tone man juggling
+## 1185  🤹🏼‍♂️                  medium-light skin tone man juggling
+## 1186  🤹🏽‍♂️                        medium skin tone man juggling
+## 1187  🤹🏾‍♂️                   medium-dark skin tone man juggling
+## 1188  🤹🏿‍♂️                          dark skin tone man juggling
+## 1189   🤹‍♀️                                       woman juggling
+## 1190  🤹🏻‍♀️                       light skin tone woman juggling
+## 1191  🤹🏼‍♀️                medium-light skin tone woman juggling
+## 1192  🤹🏽‍♀️                      medium skin tone woman juggling
+## 1193  🤹🏾‍♀️                 medium-dark skin tone woman juggling
+## 1194  🤹🏿‍♀️                        dark skin tone woman juggling
+## 1195    👫                          man and woman holding hands
+## 1196    👬                                two men holding hands
+## 1197    👭                              two women holding hands
+## 1198    💏                                                 kiss
+## 1199 👩‍❤️‍💋‍👨                                      woman, man kiss
+## 1200 👨‍❤️‍💋‍👨                                        man, man kiss
+## 1201 👩‍❤️‍💋‍👩                                    woman, woman kiss
+## 1202    💑                                    couple with heart
+## 1203  👩‍❤️‍👨                         woman, man couple with heart
+## 1204  👨‍❤️‍👨                           man, man couple with heart
+## 1205  👩‍❤️‍👩                       woman, woman couple with heart
+## 1206    👪                                               family
+## 1207  👨‍👩‍👦                               man, woman, boy family
+## 1208  👨‍👩‍👧                              man, woman, girl family
+## 1209 👨‍👩‍👧‍👦                         man, woman, girl, boy family
+## 1210 👨‍👩‍👦‍👦                          man, woman, boy, boy family
+## 1211 👨‍👩‍👧‍👧                        man, woman, girl, girl family
+## 1212  👨‍👨‍👦                                 man, man, boy family
+## 1213  👨‍👨‍👧                                man, man, girl family
+## 1214 👨‍👨‍👧‍👦                           man, man, girl, boy family
+## 1215 👨‍👨‍👦‍👦                            man, man, boy, boy family
+## 1216 👨‍👨‍👧‍👧                          man, man, girl, girl family
+## 1217  👩‍👩‍👦                             woman, woman, boy family
+## 1218  👩‍👩‍👧                            woman, woman, girl family
+## 1219 👩‍👩‍👧‍👦                       woman, woman, girl, boy family
+## 1220 👩‍👩‍👦‍👦                        woman, woman, boy, boy family
+## 1221 👩‍👩‍👧‍👧                      woman, woman, girl, girl family
+## 1222   👨‍👦                                      man, boy family
+## 1223  👨‍👦‍👦                                 man, boy, boy family
+## 1224   👨‍👧                                     man, girl family
+## 1225  👨‍👧‍👦                                man, girl, boy family
+## 1226  👨‍👧‍👧                               man, girl, girl family
+## 1227   👩‍👦                                    woman, boy family
+## 1228  👩‍👦‍👦                               woman, boy, boy family
+## 1229   👩‍👧                                   woman, girl family
+## 1230  👩‍👧‍👦                              woman, girl, boy family
+## 1231  👩‍👧‍👧                             woman, girl, girl family
+## 1232    🤳                                               selfie
+## 1233   🤳🏻                               light skin tone selfie
+## 1234   🤳🏼                        medium-light skin tone selfie
+## 1235   🤳🏽                              medium skin tone selfie
+## 1236   🤳🏾                         medium-dark skin tone selfie
+## 1237   🤳🏿                                dark skin tone selfie
+## 1238    💪                                        flexed biceps
+## 1239   💪🏻                        light skin tone flexed biceps
+## 1240   💪🏼                 medium-light skin tone flexed biceps
+## 1241   💪🏽                       medium skin tone flexed biceps
+## 1242   💪🏾                  medium-dark skin tone flexed biceps
+## 1243   💪🏿                         dark skin tone flexed biceps
+## 1244    👈                         backhand index pointing left
+## 1245   👈🏻         light skin tone backhand index pointing left
+## 1246   👈🏼  medium-light skin tone backhand index pointing left
+## 1247   👈🏽        medium skin tone backhand index pointing left
+## 1248   👈🏾   medium-dark skin tone backhand index pointing left
+## 1249   👈🏿          dark skin tone backhand index pointing left
+## 1250    👉                        backhand index pointing right
+## 1251   👉🏻        light skin tone backhand index pointing right
+## 1252   👉🏼 medium-light skin tone backhand index pointing right
+## 1253   👉🏽       medium skin tone backhand index pointing right
+## 1254   👉🏾  medium-dark skin tone backhand index pointing right
+## 1255   👉🏿         dark skin tone backhand index pointing right
+## 1256    ☝                                    index pointing up
+## 1257   ☝🏻                    light skin tone index pointing up
+## 1258   ☝🏼             medium-light skin tone index pointing up
+## 1259   ☝🏽                   medium skin tone index pointing up
+## 1260   ☝🏾              medium-dark skin tone index pointing up
+## 1261   ☝🏿                     dark skin tone index pointing up
+## 1262    👆                           backhand index pointing up
+## 1263   👆🏻           light skin tone backhand index pointing up
+## 1264   👆🏼    medium-light skin tone backhand index pointing up
+## 1265   👆🏽          medium skin tone backhand index pointing up
+## 1266   👆🏾     medium-dark skin tone backhand index pointing up
+## 1267   👆🏿            dark skin tone backhand index pointing up
+## 1268    🖕                                        middle finger
+## 1269   🖕🏻                        light skin tone middle finger
+## 1270   🖕🏼                 medium-light skin tone middle finger
+## 1271   🖕🏽                       medium skin tone middle finger
+## 1272   🖕🏾                  medium-dark skin tone middle finger
+## 1273   🖕🏿                         dark skin tone middle finger
+## 1274    👇                         backhand index pointing down
+## 1275   👇🏻         light skin tone backhand index pointing down
+## 1276   👇🏼  medium-light skin tone backhand index pointing down
+## 1277   👇🏽        medium skin tone backhand index pointing down
+## 1278   👇🏾   medium-dark skin tone backhand index pointing down
+## 1279   👇🏿          dark skin tone backhand index pointing down
+## 1280    ✌                                         victory hand
+## 1281   ✌🏻                         light skin tone victory hand
+## 1282   ✌🏼                  medium-light skin tone victory hand
+## 1283   ✌🏽                        medium skin tone victory hand
+## 1284   ✌🏾                   medium-dark skin tone victory hand
+## 1285   ✌🏿                          dark skin tone victory hand
+## 1286    🤞                                      crossed fingers
+## 1287   🤞🏻                      light skin tone crossed fingers
+## 1288   🤞🏼               medium-light skin tone crossed fingers
+## 1289   🤞🏽                     medium skin tone crossed fingers
+## 1290   🤞🏾                medium-dark skin tone crossed fingers
+## 1291   🤞🏿                       dark skin tone crossed fingers
+## 1292    🖖                                        vulcan salute
+## 1293   🖖🏻                        light skin tone vulcan salute
+## 1294   🖖🏼                 medium-light skin tone vulcan salute
+## 1295   🖖🏽                       medium skin tone vulcan salute
+## 1296   🖖🏾                  medium-dark skin tone vulcan salute
+## 1297   🖖🏿                         dark skin tone vulcan salute
+## 1298    🤘                                    sign of the horns
+## 1299   🤘🏻                    light skin tone sign of the horns
+## 1300   🤘🏼             medium-light skin tone sign of the horns
+## 1301   🤘🏽                   medium skin tone sign of the horns
+## 1302   🤘🏾              medium-dark skin tone sign of the horns
+## 1303   🤘🏿                     dark skin tone sign of the horns
+## 1304    🤙                                         call me hand
+## 1305   🤙🏻                         light skin tone call me hand
+## 1306   🤙🏼                  medium-light skin tone call me hand
+## 1307   🤙🏽                        medium skin tone call me hand
+## 1308   🤙🏾                   medium-dark skin tone call me hand
+## 1309   🤙🏿                          dark skin tone call me hand
+## 1310    🖐                            hand with fingers splayed
+## 1311   🖐🏻            light skin tone hand with fingers splayed
+## 1312   🖐🏼     medium-light skin tone hand with fingers splayed
+## 1313   🖐🏽           medium skin tone hand with fingers splayed
+## 1314   🖐🏾      medium-dark skin tone hand with fingers splayed
+## 1315   🖐🏿             dark skin tone hand with fingers splayed
+## 1316    ✋                                          raised hand
+## 1317   ✋🏻                          light skin tone raised hand
+## 1318   ✋🏼                   medium-light skin tone raised hand
+## 1319   ✋🏽                         medium skin tone raised hand
+## 1320   ✋🏾                    medium-dark skin tone raised hand
+## 1321   ✋🏿                           dark skin tone raised hand
+## 1322    👌                                              OK hand
+## 1323   👌🏻                              light skin tone OK hand
+## 1324   👌🏼                       medium-light skin tone OK hand
+## 1325   👌🏽                             medium skin tone OK hand
+## 1326   👌🏾                        medium-dark skin tone OK hand
+## 1327   👌🏿                               dark skin tone OK hand
+## 1328    👍                                            thumbs up
+## 1329   👍🏻                            light skin tone thumbs up
+## 1330   👍🏼                     medium-light skin tone thumbs up
+## 1331   👍🏽                           medium skin tone thumbs up
+## 1332   👍🏾                      medium-dark skin tone thumbs up
+## 1333   👍🏿                             dark skin tone thumbs up
+## 1334    👎                                          thumbs down
+## 1335   👎🏻                          light skin tone thumbs down
+## 1336   👎🏼                   medium-light skin tone thumbs down
+## 1337   👎🏽                         medium skin tone thumbs down
+## 1338   👎🏾                    medium-dark skin tone thumbs down
+## 1339   👎🏿                           dark skin tone thumbs down
+## 1340    ✊                                          raised fist
+## 1341   ✊🏻                          light skin tone raised fist
+## 1342   ✊🏼                   medium-light skin tone raised fist
+## 1343   ✊🏽                         medium skin tone raised fist
+## 1344   ✊🏾                    medium-dark skin tone raised fist
+## 1345   ✊🏿                           dark skin tone raised fist
+## 1346    👊                                        oncoming fist
+## 1347   👊🏻                        light skin tone oncoming fist
+## 1348   👊🏼                 medium-light skin tone oncoming fist
+## 1349   👊🏽                       medium skin tone oncoming fist
+## 1350   👊🏾                  medium-dark skin tone oncoming fist
+## 1351   👊🏿                         dark skin tone oncoming fist
+## 1352    🤛                                     left-facing fist
+## 1353   🤛🏻                     light skin tone left-facing fist
+## 1354   🤛🏼              medium-light skin tone left-facing fist
+## 1355   🤛🏽                    medium skin tone left-facing fist
+## 1356   🤛🏾               medium-dark skin tone left-facing fist
+## 1357   🤛🏿                      dark skin tone left-facing fist
+## 1358    🤜                                    right-facing fist
+## 1359   🤜🏻                    light skin tone right-facing fist
+## 1360   🤜🏼             medium-light skin tone right-facing fist
+## 1361   🤜🏽                   medium skin tone right-facing fist
+## 1362   🤜🏾              medium-dark skin tone right-facing fist
+## 1363   🤜🏿                     dark skin tone right-facing fist
+## 1364    🤚                                  raised back of hand
+## 1365   🤚🏻                  light skin tone raised back of hand
+## 1366   🤚🏼           medium-light skin tone raised back of hand
+## 1367   🤚🏽                 medium skin tone raised back of hand
+## 1368   🤚🏾            medium-dark skin tone raised back of hand
+## 1369   🤚🏿                   dark skin tone raised back of hand
+## 1370    👋                                          waving hand
+## 1371   👋🏻                          light skin tone waving hand
+## 1372   👋🏼                   medium-light skin tone waving hand
+## 1373   👋🏽                         medium skin tone waving hand
+## 1374   👋🏾                    medium-dark skin tone waving hand
+## 1375   👋🏿                           dark skin tone waving hand
+## 1376    🤟                                     love-you gesture
+## 1377   🤟🏻                     light skin tone love-you gesture
+## 1378   🤟🏼              medium-light skin tone love-you gesture
+## 1379   🤟🏽                    medium skin tone love-you gesture
+## 1380   🤟🏾               medium-dark skin tone love-you gesture
+## 1381   🤟🏿                      dark skin tone love-you gesture
+## 1382    ✍                                         writing hand
+## 1383   ✍🏻                         light skin tone writing hand
+## 1384   ✍🏼                  medium-light skin tone writing hand
+## 1385   ✍🏽                        medium skin tone writing hand
+## 1386   ✍🏾                   medium-dark skin tone writing hand
+## 1387   ✍🏿                          dark skin tone writing hand
+## 1388    👏                                       clapping hands
+## 1389   👏🏻                       light skin tone clapping hands
+## 1390   👏🏼                medium-light skin tone clapping hands
+## 1391   👏🏽                      medium skin tone clapping hands
+## 1392   👏🏾                 medium-dark skin tone clapping hands
+## 1393   👏🏿                        dark skin tone clapping hands
+## 1394    👐                                           open hands
+## 1395   👐🏻                           light skin tone open hands
+## 1396   👐🏼                    medium-light skin tone open hands
+## 1397   👐🏽                          medium skin tone open hands
+## 1398   👐🏾                     medium-dark skin tone open hands
+## 1399   👐🏿                            dark skin tone open hands
+## 1400    🙌                                        raising hands
+## 1401   🙌🏻                        light skin tone raising hands
+## 1402   🙌🏼                 medium-light skin tone raising hands
+## 1403   🙌🏽                       medium skin tone raising hands
+## 1404   🙌🏾                  medium-dark skin tone raising hands
+## 1405   🙌🏿                         dark skin tone raising hands
+## 1406    🤲                                    palms up together
+## 1407   🤲🏻                    light skin tone palms up together
+## 1408   🤲🏼             medium-light skin tone palms up together
+## 1409   🤲🏽                   medium skin tone palms up together
+## 1410   🤲🏾              medium-dark skin tone palms up together
+## 1411   🤲🏿                     dark skin tone palms up together
+## 1412    🙏                                         folded hands
+## 1413   🙏🏻                         light skin tone folded hands
+## 1414   🙏🏼                  medium-light skin tone folded hands
+## 1415   🙏🏽                        medium skin tone folded hands
+## 1416   🙏🏾                   medium-dark skin tone folded hands
+## 1417   🙏🏿                          dark skin tone folded hands
+## 1418    🤝                                            handshake
+## 1419    💅                                          nail polish
+## 1420   💅🏻                          light skin tone nail polish
+## 1421   💅🏼                   medium-light skin tone nail polish
+## 1422   💅🏽                         medium skin tone nail polish
+## 1423   💅🏾                    medium-dark skin tone nail polish
+## 1424   💅🏿                           dark skin tone nail polish
+## 1425    👂                                                  ear
+## 1426   👂🏻                                  light skin tone ear
+## 1427   👂🏼                           medium-light skin tone ear
+## 1428   👂🏽                                 medium skin tone ear
+## 1429   👂🏾                            medium-dark skin tone ear
+## 1430   👂🏿                                   dark skin tone ear
+## 1431    👃                                                 nose
+## 1432   👃🏻                                 light skin tone nose
+## 1433   👃🏼                          medium-light skin tone nose
+## 1434   👃🏽                                medium skin tone nose
+## 1435   👃🏾                           medium-dark skin tone nose
+## 1436   👃🏿                                  dark skin tone nose
+## 1437    👣                                           footprints
+## 1438    👀                                                 eyes
+## 1439    👁                                                  eye
+## 1440   👁️‍🗨️                                 eye in speech bubble
+## 1441    🧠                                                brain
+## 1442    👅                                               tongue
+## 1443    👄                                                mouth
+## 1444    💋                                            kiss mark
+## 1445    💘                                     heart with arrow
+## 1446    ❤                                            red heart
+## 1447    💓                                        beating heart
+## 1448    💔                                         broken heart
+## 1449    💕                                           two hearts
+## 1450    💖                                      sparkling heart
+## 1451    💗                                        growing heart
+## 1452    💙                                           blue heart
+## 1453    💚                                          green heart
+## 1454    💛                                         yellow heart
+## 1455    🧡                                         orange heart
+## 1456    💜                                         purple heart
+## 1457    🖤                                          black heart
+## 1458    💝                                    heart with ribbon
+## 1459    💞                                     revolving hearts
+## 1460    💟                                     heart decoration
+## 1461    ❣                              heavy heart exclamation
+## 1462    💌                                          love letter
+## 1463    💤                                                  zzz
+## 1464    💢                                         anger symbol
+## 1465    💣                                                 bomb
+## 1466    💥                                            collision
+## 1467    💦                                       sweat droplets
+## 1468    💨                                         dashing away
+## 1469    💫                                                dizzy
+## 1470    💬                                       speech balloon
+## 1471    🗨                                   left speech bubble
+## 1472    🗯                                   right anger bubble
+## 1473    💭                                      thought balloon
+## 1474    🕳                                                 hole
+## 1475    👓                                              glasses
+## 1476    🕶                                           sunglasses
+## 1477    👔                                              necktie
+## 1478    👕                                              t-shirt
+## 1479    👖                                                jeans
+## 1480    🧣                                                scarf
+## 1481    🧤                                               gloves
+## 1482    🧥                                                 coat
+## 1483    🧦                                                socks
+## 1484    👗                                                dress
+## 1485    👘                                               kimono
+## 1486    👙                                               bikini
+## 1487    👚                                      woman’s clothes
+## 1488    👛                                                purse
+## 1489    👜                                              handbag
+## 1490    👝                                           clutch bag
+## 1491    🛍                                        shopping bags
+## 1492    🎒                                      school backpack
+## 1493    👞                                           man’s shoe
+## 1494    👟                                         running shoe
+## 1495    👠                                     high-heeled shoe
+## 1496    👡                                       woman’s sandal
+## 1497    👢                                         woman’s boot
+## 1498    👑                                                crown
+## 1499    👒                                          woman’s hat
+## 1500    🎩                                              top hat
+## 1501    🎓                                       graduation cap
+## 1502    🧢                                           billed cap
+## 1503    ⛑                               rescue worker’s helmet
+## 1504    📿                                         prayer beads
+## 1505    💄                                             lipstick
+## 1506    💍                                                 ring
+## 1507    💎                                            gem stone
+## 1508    🐵                                          monkey face
+## 1509    🐒                                               monkey
+## 1510    🦍                                              gorilla
+## 1511    🐶                                             dog face
+## 1512    🐕                                                  dog
+## 1513    🐩                                               poodle
+## 1514    🐺                                            wolf face
+## 1515    🦊                                             fox face
+## 1516    🐱                                             cat face
+## 1517    🐈                                                  cat
+## 1518    🦁                                            lion face
+## 1519    🐯                                           tiger face
+## 1520    🐅                                                tiger
+## 1521    🐆                                              leopard
+## 1522    🐴                                           horse face
+## 1523    🐎                                                horse
+## 1524    🦄                                         unicorn face
+## 1525    🦓                                                zebra
+## 1526    🦌                                                 deer
+## 1527    🐮                                             cow face
+## 1528    🐂                                                   ox
+## 1529    🐃                                        water buffalo
+## 1530    🐄                                                  cow
+## 1531    🐷                                             pig face
+## 1532    🐖                                                  pig
+## 1533    🐗                                                 boar
+## 1534    🐽                                             pig nose
+## 1535    🐏                                                  ram
+## 1536    🐑                                                  ewe
+## 1537    🐐                                                 goat
+## 1538    🐪                                                camel
+## 1539    🐫                                       two-hump camel
+## 1540    🦒                                              giraffe
+## 1541    🐘                                             elephant
+## 1542    🦏                                           rhinoceros
+## 1543    🐭                                           mouse face
+## 1544    🐁                                                mouse
+## 1545    🐀                                                  rat
+## 1546    🐹                                         hamster face
+## 1547    🐰                                          rabbit face
+## 1548    🐇                                               rabbit
+## 1549    🐿                                             chipmunk
+## 1550    🦔                                             hedgehog
+## 1551    🦇                                                  bat
+## 1552    🐻                                            bear face
+## 1553    🐨                                                koala
+## 1554    🐼                                           panda face
+## 1555    🐾                                           paw prints
+## 1556    🦃                                               turkey
+## 1557    🐔                                              chicken
+## 1558    🐓                                              rooster
+## 1559    🐣                                       hatching chick
+## 1560    🐤                                           baby chick
+## 1561    🐥                              front-facing baby chick
+## 1562    🐦                                                 bird
+## 1563    🐧                                              penguin
+## 1564    🕊                                                 dove
+## 1565    🦅                                                eagle
+## 1566    🦆                                                 duck
+## 1567    🦉                                                  owl
+## 1568    🐸                                            frog face
+## 1569    🐊                                            crocodile
+## 1570    🐢                                               turtle
+## 1571    🦎                                               lizard
+## 1572    🐍                                                snake
+## 1573    🐲                                          dragon face
+## 1574    🐉                                               dragon
+## 1575    🦕                                             sauropod
+## 1576    🦖                                                T-Rex
+## 1577    🐳                                       spouting whale
+## 1578    🐋                                                whale
+## 1579    🐬                                              dolphin
+## 1580    🐟                                                 fish
+## 1581    🐠                                        tropical fish
+## 1582    🐡                                             blowfish
+## 1583    🦈                                                shark
+## 1584    🐙                                              octopus
+## 1585    🐚                                         spiral shell
+## 1586    🦀                                                 crab
+## 1587    🦐                                               shrimp
+## 1588    🦑                                                squid
+## 1589    🐌                                                snail
+## 1590    🦋                                            butterfly
+## 1591    🐛                                                  bug
+## 1592    🐜                                                  ant
+## 1593    🐝                                             honeybee
+## 1594    🐞                                          lady beetle
+## 1595    🦗                                              cricket
+## 1596    🕷                                               spider
+## 1597    🕸                                           spider web
+## 1598    🦂                                             scorpion
+## 1599    💐                                              bouquet
+## 1600    🌸                                       cherry blossom
+## 1601    💮                                         white flower
+## 1602    🏵                                              rosette
+## 1603    🌹                                                 rose
+## 1604    🥀                                        wilted flower
+## 1605    🌺                                             hibiscus
+## 1606    🌻                                            sunflower
+## 1607    🌼                                              blossom
+## 1608    🌷                                                tulip
+## 1609    🌱                                             seedling
+## 1610    🌲                                       evergreen tree
+## 1611    🌳                                       deciduous tree
+## 1612    🌴                                            palm tree
+## 1613    🌵                                               cactus
+## 1614    🌾                                        sheaf of rice
+## 1615    🌿                                                 herb
+## 1616    ☘                                             shamrock
+## 1617    🍀                                     four leaf clover
+## 1618    🍁                                           maple leaf
+## 1619    🍂                                          fallen leaf
+## 1620    🍃                              leaf fluttering in wind
+## 1621    🍇                                               grapes
+## 1622    🍈                                                melon
+## 1623    🍉                                           watermelon
+## 1624    🍊                                            tangerine
+## 1625    🍋                                                lemon
+## 1626    🍌                                               banana
+## 1627    🍍                                            pineapple
+## 1628    🍎                                            red apple
+## 1629    🍏                                          green apple
+## 1630    🍐                                                 pear
+## 1631    🍑                                                peach
+## 1632    🍒                                             cherries
+## 1633    🍓                                           strawberry
+## 1634    🥝                                           kiwi fruit
+## 1635    🍅                                               tomato
+## 1636    🥥                                              coconut
+## 1637    🥑                                              avocado
+## 1638    🍆                                             eggplant
+## 1639    🥔                                               potato
+## 1640    🥕                                               carrot
+## 1641    🌽                                          ear of corn
+## 1642    🌶                                           hot pepper
+## 1643    🥒                                             cucumber
+## 1644    🥦                                             broccoli
+## 1645    🍄                                             mushroom
+## 1646    🥜                                              peanuts
+## 1647    🌰                                             chestnut
+## 1648    🍞                                                bread
+## 1649    🥐                                            croissant
+## 1650    🥖                                       baguette bread
+## 1651    🥨                                              pretzel
+## 1652    🥞                                             pancakes
+## 1653    🧀                                         cheese wedge
+## 1654    🍖                                         meat on bone
+## 1655    🍗                                          poultry leg
+## 1656    🥩                                          cut of meat
+## 1657    🥓                                                bacon
+## 1658    🍔                                            hamburger
+## 1659    🍟                                         french fries
+## 1660    🍕                                                pizza
+## 1661    🌭                                              hot dog
+## 1662    🥪                                             sandwich
+## 1663    🌮                                                 taco
+## 1664    🌯                                              burrito
+## 1665    🥙                                    stuffed flatbread
+## 1666    🥚                                                  egg
+## 1667    🍳                                              cooking
+## 1668    🥘                                  shallow pan of food
+## 1669    🍲                                          pot of food
+## 1670    🥣                                      bowl with spoon
+## 1671    🥗                                          green salad
+## 1672    🍿                                              popcorn
+## 1673    🥫                                          canned food
+## 1674    🍱                                            bento box
+## 1675    🍘                                         rice cracker
+## 1676    🍙                                            rice ball
+## 1677    🍚                                          cooked rice
+## 1678    🍛                                           curry rice
+## 1679    🍜                                        steaming bowl
+## 1680    🍝                                            spaghetti
+## 1681    🍠                                 roasted sweet potato
+## 1682    🍢                                                 oden
+## 1683    🍣                                                sushi
+## 1684    🍤                                         fried shrimp
+## 1685    🍥                                 fish cake with swirl
+## 1686    🍡                                                dango
+## 1687    🥟                                             dumpling
+## 1688    🥠                                       fortune cookie
+## 1689    🥡                                          takeout box
+## 1690    🍦                                       soft ice cream
+## 1691    🍧                                           shaved ice
+## 1692    🍨                                            ice cream
+## 1693    🍩                                             doughnut
+## 1694    🍪                                               cookie
+## 1695    🎂                                        birthday cake
+## 1696    🍰                                            shortcake
+## 1697    🥧                                                  pie
+## 1698    🍫                                        chocolate bar
+## 1699    🍬                                                candy
+## 1700    🍭                                             lollipop
+## 1701    🍮                                              custard
+## 1702    🍯                                            honey pot
+## 1703    🍼                                          baby bottle
+## 1704    🥛                                        glass of milk
+## 1705    ☕                                         hot beverage
+## 1706    🍵                                teacup without handle
+## 1707    🍶                                                 sake
+## 1708    🍾                             bottle with popping cork
+## 1709    🍷                                           wine glass
+## 1710    🍸                                       cocktail glass
+## 1711    🍹                                       tropical drink
+## 1712    🍺                                             beer mug
+## 1713    🍻                                   clinking beer mugs
+## 1714    🥂                                     clinking glasses
+## 1715    🥃                                        tumbler glass
+## 1716    🥤                                       cup with straw
+## 1717    🥢                                           chopsticks
+## 1718    🍽                            fork and knife with plate
+## 1719    🍴                                       fork and knife
+## 1720    🥄                                                spoon
+## 1721    🔪                                        kitchen knife
+## 1722    🏺                                              amphora
+## 1723    🌍                          globe showing Europe-Africa
+## 1724    🌎                               globe showing Americas
+## 1725    🌏                         globe showing Asia-Australia
+## 1726    🌐                                 globe with meridians
+## 1727    🗺                                            world map
+## 1728    🗾                                         map of Japan
+## 1729    🏔                                 snow-capped mountain
+## 1730    ⛰                                             mountain
+## 1731    🌋                                              volcano
+## 1732    🗻                                           mount fuji
+## 1733    🏕                                              camping
+## 1734    🏖                                  beach with umbrella
+## 1735    🏜                                               desert
+## 1736    🏝                                        desert island
+## 1737    🏞                                        national park
+## 1738    🏟                                              stadium
+## 1739    🏛                                   classical building
+## 1740    🏗                                building construction
+## 1741    🏘                                               houses
+## 1742    🏙                                            cityscape
+## 1743    🏚                                       derelict house
+## 1744    🏠                                                house
+## 1745    🏡                                    house with garden
+## 1746    🏢                                      office building
+## 1747    🏣                                 Japanese post office
+## 1748    🏤                                          post office
+## 1749    🏥                                             hospital
+## 1750    🏦                                                 bank
+## 1751    🏨                                                hotel
+## 1752    🏩                                           love hotel
+## 1753    🏪                                    convenience store
+## 1754    🏫                                               school
+## 1755    🏬                                     department store
+## 1756    🏭                                              factory
+## 1757    🏯                                      Japanese castle
+## 1758    🏰                                               castle
+## 1759    💒                                              wedding
+## 1760    🗼                                          Tokyo tower
+## 1761    🗽                                    Statue of Liberty
+## 1762    ⛪                                               church
+## 1763    🕌                                               mosque
+## 1764    🕍                                            synagogue
+## 1765    ⛩                                        shinto shrine
+## 1766    🕋                                                kaaba
+## 1767    ⛲                                             fountain
+## 1768    ⛺                                                 tent
+## 1769    🌁                                                foggy
+## 1770    🌃                                     night with stars
+## 1771    🌄                               sunrise over mountains
+## 1772    🌅                                              sunrise
+## 1773    🌆                                    cityscape at dusk
+## 1774    🌇                                               sunset
+## 1775    🌉                                      bridge at night
+## 1776    ♨                                          hot springs
+## 1777    🌌                                            milky way
+## 1778    🎠                                       carousel horse
+## 1779    🎡                                         ferris wheel
+## 1780    🎢                                       roller coaster
+## 1781    💈                                          barber pole
+## 1782    🎪                                          circus tent
+## 1783    🎭                                      performing arts
+## 1784    🖼                                       framed picture
+## 1785    🎨                                       artist palette
+## 1786    🎰                                         slot machine
+## 1787    🚂                                           locomotive
+## 1788    🚃                                          railway car
+## 1789    🚄                                     high-speed train
+## 1790    🚅                                         bullet train
+## 1791    🚆                                                train
+## 1792    🚇                                                metro
+## 1793    🚈                                           light rail
+## 1794    🚉                                              station
+## 1795    🚊                                                 tram
+## 1796    🚝                                             monorail
+## 1797    🚞                                     mountain railway
+## 1798    🚋                                             tram car
+## 1799    🚌                                                  bus
+## 1800    🚍                                         oncoming bus
+## 1801    🚎                                           trolleybus
+## 1802    🚐                                              minibus
+## 1803    🚑                                            ambulance
+## 1804    🚒                                          fire engine
+## 1805    🚓                                           police car
+## 1806    🚔                                  oncoming police car
+## 1807    🚕                                                 taxi
+## 1808    🚖                                        oncoming taxi
+## 1809    🚗                                           automobile
+## 1810    🚘                                  oncoming automobile
+## 1811    🚙                                sport utility vehicle
+## 1812    🚚                                       delivery truck
+## 1813    🚛                                    articulated lorry
+## 1814    🚜                                              tractor
+## 1815    🚲                                              bicycle
+## 1816    🛴                                         kick scooter
+## 1817    🛵                                        motor scooter
+## 1818    🚏                                             bus stop
+## 1819    🛣                                             motorway
+## 1820    🛤                                        railway track
+## 1821    ⛽                                            fuel pump
+## 1822    🚨                                     police car light
+## 1823    🚥                             horizontal traffic light
+## 1824    🚦                               vertical traffic light
+## 1825    🚧                                         construction
+## 1826    🛑                                            stop sign
+## 1827    ⚓                                               anchor
+## 1828    ⛵                                             sailboat
+## 1829    🛶                                                canoe
+## 1830    🚤                                            speedboat
+## 1831    🛳                                       passenger ship
+## 1832    ⛴                                                ferry
+## 1833    🛥                                           motor boat
+## 1834    🚢                                                 ship
+## 1835    ✈                                             airplane
+## 1836    🛩                                       small airplane
+## 1837    🛫                                   airplane departure
+## 1838    🛬                                     airplane arrival
+## 1839    💺                                                 seat
+## 1840    🚁                                           helicopter
+## 1841    🚟                                   suspension railway
+## 1842    🚠                                    mountain cableway
+## 1843    🚡                                       aerial tramway
+## 1844    🛰                                            satellite
+## 1845    🚀                                               rocket
+## 1846    🛸                                        flying saucer
+## 1847    🛎                                         bellhop bell
+## 1848    🚪                                                 door
+## 1849    🛏                                                  bed
+## 1850    🛋                                       couch and lamp
+## 1851    🚽                                               toilet
+## 1852    🚿                                               shower
+## 1853    🛁                                              bathtub
+## 1854    ⌛                                       hourglass done
+## 1855    ⏳                                   hourglass not done
+## 1856    ⌚                                                watch
+## 1857    ⏰                                          alarm clock
+## 1858    ⏱                                            stopwatch
+## 1859    ⏲                                          timer clock
+## 1860    🕰                                    mantelpiece clock
+## 1861    🕛                                       twelve o’clock
+## 1862    🕧                                        twelve-thirty
+## 1863    🕐                                          one o’clock
+## 1864    🕜                                           one-thirty
+## 1865    🕑                                          two o’clock
+## 1866    🕝                                           two-thirty
+## 1867    🕒                                        three o’clock
+## 1868    🕞                                         three-thirty
+## 1869    🕓                                         four o’clock
+## 1870    🕟                                          four-thirty
+## 1871    🕔                                         five o’clock
+## 1872    🕠                                          five-thirty
+## 1873    🕕                                          six o’clock
+## 1874    🕡                                           six-thirty
+## 1875    🕖                                        seven o’clock
+## 1876    🕢                                         seven-thirty
+## 1877    🕗                                        eight o’clock
+## 1878    🕣                                         eight-thirty
+## 1879    🕘                                         nine o’clock
+## 1880    🕤                                          nine-thirty
+## 1881    🕙                                          ten o’clock
+## 1882    🕥                                           ten-thirty
+## 1883    🕚                                       eleven o’clock
+## 1884    🕦                                        eleven-thirty
+## 1885    🌑                                             new moon
+## 1886    🌒                                 waxing crescent moon
+## 1887    🌓                                   first quarter moon
+## 1888    🌔                                  waxing gibbous moon
+## 1889    🌕                                            full moon
+## 1890    🌖                                  waning gibbous moon
+## 1891    🌗                                    last quarter moon
+## 1892    🌘                                 waning crescent moon
+## 1893    🌙                                        crescent moon
+## 1894    🌚                                        new moon face
+## 1895    🌛                              first quarter moon face
+## 1896    🌜                               last quarter moon face
+## 1897    🌡                                          thermometer
+## 1898    ☀                                                  sun
+## 1899    🌝                                       full moon face
+## 1900    🌞                                        sun with face
+## 1901    ⭐                                    white medium star
+## 1902    🌟                                         glowing star
+## 1903    🌠                                        shooting star
+## 1904    ☁                                                cloud
+## 1905    ⛅                                     sun behind cloud
+## 1906    ⛈                        cloud with lightning and rain
+## 1907    🌤                               sun behind small cloud
+## 1908    🌥                               sun behind large cloud
+## 1909    🌦                                sun behind rain cloud
+## 1910    🌧                                      cloud with rain
+## 1911    🌨                                      cloud with snow
+## 1912    🌩                                 cloud with lightning
+## 1913    🌪                                              tornado
+## 1914    🌫                                                  fog
+## 1915    🌬                                            wind face
+## 1916    🌀                                              cyclone
+## 1917    🌈                                              rainbow
+## 1918    🌂                                      closed umbrella
+## 1919    ☂                                             umbrella
+## 1920    ☔                             umbrella with rain drops
+## 1921    ⛱                                   umbrella on ground
+## 1922    ⚡                                         high voltage
+## 1923    ❄                                            snowflake
+## 1924    ☃                                              snowman
+## 1925    ⛄                                 snowman without snow
+## 1926    ☄                                                comet
+## 1927    🔥                                                 fire
+## 1928    💧                                              droplet
+## 1929    🌊                                           water wave
+## 1930    🎃                                       jack-o-lantern
+## 1931    🎄                                       Christmas tree
+## 1932    🎆                                            fireworks
+## 1933    🎇                                             sparkler
+## 1934    ✨                                             sparkles
+## 1935    🎈                                              balloon
+## 1936    🎉                                         party popper
+## 1937    🎊                                        confetti ball
+## 1938    🎋                                        tanabata tree
+## 1939    🎍                                      pine decoration
+## 1940    🎎                                       Japanese dolls
+## 1941    🎏                                        carp streamer
+## 1942    🎐                                           wind chime
+## 1943    🎑                                moon viewing ceremony
+## 1944    🎀                                               ribbon
+## 1945    🎁                                         wrapped gift
+## 1946    🎗                                      reminder ribbon
+## 1947    🎟                                    admission tickets
+## 1948    🎫                                               ticket
+## 1949    🎖                                       military medal
+## 1950    🏆                                               trophy
+## 1951    🏅                                         sports medal
+## 1952    🥇                                      1st place medal
+## 1953    🥈                                      2nd place medal
+## 1954    🥉                                      3rd place medal
+## 1955    ⚽                                          soccer ball
+## 1956    ⚾                                             baseball
+## 1957    🏀                                           basketball
+## 1958    🏐                                           volleyball
+## 1959    🏈                                    american football
+## 1960    🏉                                       rugby football
+## 1961    🎾                                               tennis
+## 1962    🎱                                          pool 8 ball
+## 1963    🎳                                              bowling
+## 1964    🏏                                         cricket game
+## 1965    🏑                                         field hockey
+## 1966    🏒                                           ice hockey
+## 1967    🏓                                            ping pong
+## 1968    🏸                                            badminton
+## 1969    🥊                                         boxing glove
+## 1970    🥋                                 martial arts uniform
+## 1971    🥅                                             goal net
+## 1972    🎯                                           direct hit
+## 1973    ⛳                                         flag in hole
+## 1974    ⛸                                            ice skate
+## 1975    🎣                                         fishing pole
+## 1976    🎽                                        running shirt
+## 1977    🎿                                                 skis
+## 1978    🛷                                                 sled
+## 1979    🥌                                        curling stone
+## 1980    🎮                                           video game
+## 1981    🕹                                             joystick
+## 1982    🎲                                             game die
+## 1983    ♠                                           spade suit
+## 1984    ♥                                           heart suit
+## 1985    ♦                                         diamond suit
+## 1986    ♣                                            club suit
+## 1987    🃏                                                joker
+## 1988    🀄                                   mahjong red dragon
+## 1989    🎴                                 flower playing cards
+## 1990    🔇                                        muted speaker
+## 1991    🔈                                   speaker low volume
+## 1992    🔉                                speaker medium volume
+## 1993    🔊                                  speaker high volume
+## 1994    📢                                          loudspeaker
+## 1995    📣                                            megaphone
+## 1996    📯                                          postal horn
+## 1997    🔔                                                 bell
+## 1998    🔕                                      bell with slash
+## 1999    🎼                                        musical score
+## 2000    🎵                                         musical note
+## 2001    🎶                                        musical notes
+## 2002    🎙                                    studio microphone
+## 2003    🎚                                         level slider
+## 2004    🎛                                        control knobs
+## 2005    🎤                                           microphone
+## 2006    🎧                                            headphone
+## 2007    📻                                                radio
+## 2008    🎷                                            saxophone
+## 2009    🎸                                               guitar
+## 2010    🎹                                     musical keyboard
+## 2011    🎺                                              trumpet
+## 2012    🎻                                               violin
+## 2013    🥁                                                 drum
+## 2014    📱                                         mobile phone
+## 2015    📲                              mobile phone with arrow
+## 2016    ☎                                            telephone
+## 2017    📞                                   telephone receiver
+## 2018    📟                                                pager
+## 2019    📠                                          fax machine
+## 2020    🔋                                              battery
+## 2021    🔌                                        electric plug
+## 2022    💻                                      laptop computer
+## 2023    🖥                                     desktop computer
+## 2024    🖨                                              printer
+## 2025    ⌨                                             keyboard
+## 2026    🖱                                       computer mouse
+## 2027    🖲                                            trackball
+## 2028    💽                                        computer disk
+## 2029    💾                                          floppy disk
+## 2030    💿                                         optical disk
+## 2031    📀                                                  dvd
+## 2032    🎥                                         movie camera
+## 2033    🎞                                          film frames
+## 2034    📽                                       film projector
+## 2035    🎬                                        clapper board
+## 2036    📺                                           television
+## 2037    📷                                               camera
+## 2038    📸                                    camera with flash
+## 2039    📹                                         video camera
+## 2040    📼                                        videocassette
+## 2041    🔍                         magnifying glass tilted left
+## 2042    🔎                        magnifying glass tilted right
+## 2043    🔬                                           microscope
+## 2044    🔭                                            telescope
+## 2045    📡                                    satellite antenna
+## 2046    🕯                                               candle
+## 2047    💡                                           light bulb
+## 2048    🔦                                           flashlight
+## 2049    🏮                                    red paper lantern
+## 2050    📔                       notebook with decorative cover
+## 2051    📕                                          closed book
+## 2052    📖                                            open book
+## 2053    📗                                           green book
+## 2054    📘                                            blue book
+## 2055    📙                                          orange book
+## 2056    📚                                                books
+## 2057    📓                                             notebook
+## 2058    📒                                               ledger
+## 2059    📃                                       page with curl
+## 2060    📜                                               scroll
+## 2061    📄                                       page facing up
+## 2062    📰                                            newspaper
+## 2063    🗞                                  rolled-up newspaper
+## 2064    📑                                        bookmark tabs
+## 2065    🔖                                             bookmark
+## 2066    🏷                                                label
+## 2067    💰                                            money bag
+## 2068    💴                                         yen banknote
+## 2069    💵                                      dollar banknote
+## 2070    💶                                        euro banknote
+## 2071    💷                                       pound banknote
+## 2072    💸                                     money with wings
+## 2073    💳                                          credit card
+## 2074    💹                            chart increasing with yen
+## 2075    💱                                    currency exchange
+## 2076    💲                                    heavy dollar sign
+## 2077    ✉                                             envelope
+## 2078    📧                                               e-mail
+## 2079    📨                                    incoming envelope
+## 2080    📩                                  envelope with arrow
+## 2081    📤                                          outbox tray
+## 2082    📥                                           inbox tray
+## 2083    📦                                              package
+## 2084    📫                      closed mailbox with raised flag
+## 2085    📪                     closed mailbox with lowered flag
+## 2086    📬                        open mailbox with raised flag
+## 2087    📭                       open mailbox with lowered flag
+## 2088    📮                                              postbox
+## 2089    🗳                               ballot box with ballot
+## 2090    ✏                                               pencil
+## 2091    ✒                                            black nib
+## 2092    🖋                                         fountain pen
+## 2093    🖊                                                  pen
+## 2094    🖌                                           paintbrush
+## 2095    🖍                                               crayon
+## 2096    📝                                                 memo
+## 2097    💼                                            briefcase
+## 2098    📁                                          file folder
+## 2099    📂                                     open file folder
+## 2100    🗂                                  card index dividers
+## 2101    📅                                             calendar
+## 2102    📆                                    tear-off calendar
+## 2103    🗒                                       spiral notepad
+## 2104    🗓                                      spiral calendar
+## 2105    📇                                           card index
+## 2106    📈                                     chart increasing
+## 2107    📉                                     chart decreasing
+## 2108    📊                                            bar chart
+## 2109    📋                                            clipboard
+## 2110    📌                                              pushpin
+## 2111    📍                                        round pushpin
+## 2112    📎                                            paperclip
+## 2113    🖇                                    linked paperclips
+## 2114    📏                                       straight ruler
+## 2115    📐                                     triangular ruler
+## 2116    ✂                                             scissors
+## 2117    🗃                                        card file box
+## 2118    🗄                                         file cabinet
+## 2119    🗑                                          wastebasket
+## 2120    🔒                                               locked
+## 2121    🔓                                             unlocked
+## 2122    🔏                                      locked with pen
+## 2123    🔐                                      locked with key
+## 2124    🔑                                                  key
+## 2125    🗝                                              old key
+## 2126    🔨                                               hammer
+## 2127    ⛏                                                 pick
+## 2128    ⚒                                      hammer and pick
+## 2129    🛠                                    hammer and wrench
+## 2130    🗡                                               dagger
+## 2131    ⚔                                       crossed swords
+## 2132    🔫                                               pistol
+## 2133    🏹                                        bow and arrow
+## 2134    🛡                                               shield
+## 2135    🔧                                               wrench
+## 2136    🔩                                         nut and bolt
+## 2137    ⚙                                                 gear
+## 2138    🗜                                                clamp
+## 2139    ⚗                                              alembic
+## 2140    ⚖                                        balance scale
+## 2141    🔗                                                 link
+## 2142    ⛓                                               chains
+## 2143    💉                                              syringe
+## 2144    💊                                                 pill
+## 2145    🚬                                            cigarette
+## 2146    ⚰                                               coffin
+## 2147    ⚱                                          funeral urn
+## 2148    🗿                                                 moai
+## 2149    🛢                                             oil drum
+## 2150    🔮                                         crystal ball
+## 2151    🛒                                        shopping cart
+## 2152    🏧                                             ATM sign
+## 2153    🚮                                   litter in bin sign
+## 2154    🚰                                        potable water
+## 2155    ♿                                    wheelchair symbol
+## 2156    🚹                                           men’s room
+## 2157    🚺                                         women’s room
+## 2158    🚻                                             restroom
+## 2159    🚼                                          baby symbol
+## 2160    🚾                                         water closet
+## 2161    🛂                                     passport control
+## 2162    🛃                                              customs
+## 2163    🛄                                        baggage claim
+## 2164    🛅                                         left luggage
+## 2165    ⚠                                              warning
+## 2166    🚸                                    children crossing
+## 2167    ⛔                                             no entry
+## 2168    🚫                                           prohibited
+## 2169    🚳                                          no bicycles
+## 2170    🚭                                           no smoking
+## 2171    🚯                                         no littering
+## 2172    🚱                                    non-potable water
+## 2173    🚷                                       no pedestrians
+## 2174    📵                                     no mobile phones
+## 2175    🔞                                no one under eighteen
+## 2176    ☢                                          radioactive
+## 2177    ☣                                            biohazard
+## 2178    ⬆                                             up arrow
+## 2179    ↗                                       up-right arrow
+## 2180    ➡                                          right arrow
+## 2181    ↘                                     down-right arrow
+## 2182    ⬇                                           down arrow
+## 2183    ↙                                      down-left arrow
+## 2184    ⬅                                           left arrow
+## 2185    ↖                                        up-left arrow
+## 2186    ↕                                        up-down arrow
+## 2187    ↔                                     left-right arrow
+## 2188    ↩                             right arrow curving left
+## 2189    ↪                             left arrow curving right
+## 2190    ⤴                               right arrow curving up
+## 2191    ⤵                             right arrow curving down
+## 2192    🔃                            clockwise vertical arrows
+## 2193    🔄                       counterclockwise arrows button
+## 2194    🔙                                           BACK arrow
+## 2195    🔚                                            END arrow
+## 2196    🔛                                            ON! arrow
+## 2197    🔜                                           SOON arrow
+## 2198    🔝                                            TOP arrow
+## 2199    🛐                                     place of worship
+## 2200    ⚛                                          atom symbol
+## 2201    🕉                                                   om
+## 2202    ✡                                        star of David
+## 2203    ☸                                      wheel of dharma
+## 2204    ☯                                             yin yang
+## 2205    ✝                                          latin cross
+## 2206    ☦                                       orthodox cross
+## 2207    ☪                                    star and crescent
+## 2208    ☮                                         peace symbol
+## 2209    🕎                                              menorah
+## 2210    🔯                              dotted six-pointed star
+## 2211    ♈                                                Aries
+## 2212    ♉                                               Taurus
+## 2213    ♊                                               Gemini
+## 2214    ♋                                               Cancer
+## 2215    ♌                                                  Leo
+## 2216    ♍                                                Virgo
+## 2217    ♎                                                Libra
+## 2218    ♏                                             Scorpius
+## 2219    ♐                                          Sagittarius
+## 2220    ♑                                            Capricorn
+## 2221    ♒                                             Aquarius
+## 2222    ♓                                               Pisces
+## 2223    ⛎                                            Ophiuchus
+## 2224    🔀                                shuffle tracks button
+## 2225    🔁                                        repeat button
+## 2226    🔂                                 repeat single button
+## 2227    ▶                                          play button
+## 2228    ⏩                                  fast-forward button
+## 2229    ⏭                                    next track button
+## 2230    ⏯                                 play or pause button
+## 2231    ◀                                       reverse button
+## 2232    ⏪                                  fast reverse button
+## 2233    ⏮                                    last track button
+## 2234    🔼                                            up button
+## 2235    ⏫                                       fast up button
+## 2236    🔽                                          down button
+## 2237    ⏬                                     fast down button
+## 2238    ⏸                                         pause button
+## 2239    ⏹                                          stop button
+## 2240    ⏺                                        record button
+## 2241    ⏏                                         eject button
+## 2242    🎦                                               cinema
+## 2243    🔅                                           dim button
+## 2244    🔆                                        bright button
+## 2245    📶                                         antenna bars
+## 2246    📳                                       vibration mode
+## 2247    📴                                     mobile phone off
+## 2248    ♀                                          female sign
+## 2249    ♂                                            male sign
+## 2250    ⚕                                       medical symbol
+## 2251    ♻                                     recycling symbol
+## 2252    ⚜                                         fleur-de-lis
+## 2253    🔱                                       trident emblem
+## 2254    📛                                           name badge
+## 2255    🔰                         Japanese symbol for beginner
+## 2256    ⭕                                   heavy large circle
+## 2257    ✅                               white heavy check mark
+## 2258    ☑                                ballot box with check
+## 2259    ✔                                     heavy check mark
+## 2260    ✖                               heavy multiplication x
+## 2261    ❌                                           cross mark
+## 2262    ❎                                    cross mark button
+## 2263    ➕                                      heavy plus sign
+## 2264    ➖                                     heavy minus sign
+## 2265    ➗                                  heavy division sign
+## 2266    ➰                                           curly loop
+## 2267    ➿                                    double curly loop
+## 2268   〽                                part alternation mark
+## 2269    ✳                                eight-spoked asterisk
+## 2270    ✴                                   eight-pointed star
+## 2271    ❇                                              sparkle
+## 2272    ‼                              double exclamation mark
+## 2273    ⁉                            exclamation question mark
+## 2274    ❓                                        question mark
+## 2275    ❔                                  white question mark
+## 2276    ❕                               white exclamation mark
+## 2277    ❗                                     exclamation mark
+## 2278   〰                                            wavy dash
+## 2279    ©                                            copyright
+## 2280    ®                                           registered
+## 2281    ™                                           trade mark
+## 2282    #️⃣                                             # keycap
+## 2283    *️⃣                                             * keycap
+## 2284    0️⃣                                             0 keycap
+## 2285    1️⃣                                             1 keycap
+## 2286    2️⃣                                             2 keycap
+## 2287    3️⃣                                             3 keycap
+## 2288    4️⃣                                             4 keycap
+## 2289    5️⃣                                             5 keycap
+## 2290    6️⃣                                             6 keycap
+## 2291    7️⃣                                             7 keycap
+## 2292    8️⃣                                             8 keycap
+## 2293    9️⃣                                             9 keycap
+## 2294    🔟                                            keycap 10
+## 2295    💯                                       hundred points
+## 2296    🔠                                input latin uppercase
+## 2297    🔡                                input latin lowercase
+## 2298    🔢                                        input numbers
+## 2299    🔣                                        input symbols
+## 2300    🔤                                  input latin letters
+## 2301    🅰                                A button (blood type)
+## 2302    🆎                               AB button (blood type)
+## 2303    🅱                                B button (blood type)
+## 2304    🆑                                            CL button
+## 2305    🆒                                          COOL button
+## 2306    🆓                                          FREE button
+## 2307    ℹ                                          information
+## 2308    🆔                                            ID button
+## 2309    Ⓜ                                            circled M
+## 2310    🆕                                           NEW button
+## 2311    🆖                                            NG button
+## 2312    🅾                                O button (blood type)
+## 2313    🆗                                            OK button
+## 2314    🅿                                             P button
+## 2315    🆘                                           SOS button
+## 2316    🆙                                           UP! button
+## 2317    🆚                                            VS button
+## 2318    🈁                               Japanese “here” button
+## 2319    🈂                     Japanese “service charge” button
+## 2320    🈷                     Japanese “monthly amount” button
+## 2321    🈶                 Japanese “not free of charge” button
+## 2322    🈯                           Japanese “reserved” button
+## 2323    🉐                            Japanese “bargain” button
+## 2324    🈹                           Japanese “discount” button
+## 2325    🈚                     Japanese “free of charge” button
+## 2326    🈲                         Japanese “prohibited” button
+## 2327    🉑                         Japanese “acceptable” button
+## 2328    🈸                        Japanese “application” button
+## 2329    🈴                      Japanese “passing grade” button
+## 2330    🈳                            Japanese “vacancy” button
+## 2331   ㊗                    Japanese “congratulations” button
+## 2332   ㊙                             Japanese “secret” button
+## 2333    🈺                  Japanese “open for business” button
+## 2334    🈵                         Japanese “no vacancy” button
+## 2335    ▪                                   black small square
+## 2336    ▫                                   white small square
+## 2337    ◻                                  white medium square
+## 2338    ◼                                  black medium square
+## 2339    ◽                            white medium-small square
+## 2340    ◾                            black medium-small square
+## 2341    ⬛                                   black large square
+## 2342    ⬜                                   white large square
+## 2343    🔶                                 large orange diamond
+## 2344    🔷                                   large blue diamond
+## 2345    🔸                                 small orange diamond
+## 2346    🔹                                   small blue diamond
+## 2347    🔺                              red triangle pointed up
+## 2348    🔻                            red triangle pointed down
+## 2349    💠                                   diamond with a dot
+## 2350    🔘                                         radio button
+## 2351    🔲                                  black square button
+## 2352    🔳                                  white square button
+## 2353    ⚪                                         white circle
+## 2354    ⚫                                         black circle
+## 2355    🔴                                           red circle
+## 2356    🔵                                          blue circle
+## 2357    🏁                                       chequered flag
+## 2358    🚩                                      triangular flag
+## 2359    🎌                                        crossed flags
+## 2360    🏴                                           black flag
+## 2361    🏳                                           white flag
+## 2362   🏳️‍🌈                                         rainbow flag
+## 2363   🇦🇨                                     Ascension Island
+## 2364   🇦🇩                                              Andorra
+## 2365   🇦🇪                                 United Arab Emirates
+## 2366   🇦🇫                                          Afghanistan
+## 2367   🇦🇬                                    Antigua &amp; Barbuda
+## 2368   🇦🇮                                             Anguilla
+## 2369   🇦🇱                                              Albania
+## 2370   🇦🇲                                              Armenia
+## 2371   🇦🇴                                               Angola
+## 2372   🇦🇶                                           Antarctica
+## 2373   🇦🇷                                            Argentina
+## 2374   🇦🇸                                       American Samoa
+## 2375   🇦🇹                                              Austria
+## 2376   🇦🇺                                            Australia
+## 2377   🇦🇼                                                Aruba
+## 2378   🇦🇽                                        Åland Islands
+## 2379   🇦🇿                                           Azerbaijan
+## 2380   🇧🇦                                 Bosnia &amp; Herzegovina
+## 2381   🇧🇧                                             Barbados
+## 2382   🇧🇩                                           Bangladesh
+## 2383   🇧🇪                                              Belgium
+## 2384   🇧🇫                                         Burkina Faso
+## 2385   🇧🇬                                             Bulgaria
+## 2386   🇧🇭                                              Bahrain
+## 2387   🇧🇮                                              Burundi
+## 2388   🇧🇯                                                Benin
+## 2389   🇧🇱                                       St. Barthélemy
+## 2390   🇧🇲                                              Bermuda
+## 2391   🇧🇳                                               Brunei
+## 2392   🇧🇴                                              Bolivia
+## 2393   🇧🇶                                Caribbean Netherlands
+## 2394   🇧🇷                                               Brazil
+## 2395   🇧🇸                                              Bahamas
+## 2396   🇧🇹                                               Bhutan
+## 2397   🇧🇻                                        Bouvet Island
+## 2398   🇧🇼                                             Botswana
+## 2399   🇧🇾                                              Belarus
+## 2400   🇧🇿                                               Belize
+## 2401   🇨🇦                                               Canada
+## 2402   🇨🇨                              Cocos (Keeling) Islands
+## 2403   🇨🇩                                     Congo - Kinshasa
+## 2404   🇨🇫                             Central African Republic
+## 2405   🇨🇬                                  Congo - Brazzaville
+## 2406   🇨🇭                                          Switzerland
+## 2407   🇨🇮                                        Côte d’Ivoire
+## 2408   🇨🇰                                         Cook Islands
+## 2409   🇨🇱                                                Chile
+## 2410   🇨🇲                                             Cameroon
+## 2411   🇨🇳                                                China
+## 2412   🇨🇴                                             Colombia
+## 2413   🇨🇵                                    Clipperton Island
+## 2414   🇨🇷                                           Costa Rica
+## 2415   🇨🇺                                                 Cuba
+## 2416   🇨🇻                                           Cape Verde
+## 2417   🇨🇼                                              Curaçao
+## 2418   🇨🇽                                     Christmas Island
+## 2419   🇨🇾                                               Cyprus
+## 2420   🇨🇿                                              Czechia
+## 2421   🇩🇪                                              Germany
+## 2422   🇩🇬                                         Diego Garcia
+## 2423   🇩🇯                                             Djibouti
+## 2424   🇩🇰                                              Denmark
+## 2425   🇩🇲                                             Dominica
+## 2426   🇩🇴                                   Dominican Republic
+## 2427   🇩🇿                                              Algeria
+## 2428   🇪🇦                                      Ceuta &amp; Melilla
+## 2429   🇪🇨                                              Ecuador
+## 2430   🇪🇪                                              Estonia
+## 2431   🇪🇬                                                Egypt
+## 2432   🇪🇭                                       Western Sahara
+## 2433   🇪🇷                                              Eritrea
+## 2434   🇪🇸                                                Spain
+## 2435   🇪🇹                                             Ethiopia
+## 2436   🇪🇺                                       European Union
+## 2437   🇫🇮                                              Finland
+## 2438   🇫🇯                                                 Fiji
+## 2439   🇫🇰                                     Falkland Islands
+## 2440   🇫🇲                                           Micronesia
+## 2441   🇫🇴                                        Faroe Islands
+## 2442   🇫🇷                                               France
+## 2443   🇬🇦                                                Gabon
+## 2444   🇬🇧                                       United Kingdom
+## 2445   🇬🇩                                              Grenada
+## 2446   🇬🇪                                              Georgia
+## 2447   🇬🇫                                        French Guiana
+## 2448   🇬🇬                                             Guernsey
+## 2449   🇬🇭                                                Ghana
+## 2450   🇬🇮                                            Gibraltar
+## 2451   🇬🇱                                            Greenland
+## 2452   🇬🇲                                               Gambia
+## 2453   🇬🇳                                               Guinea
+## 2454   🇬🇵                                           Guadeloupe
+## 2455   🇬🇶                                    Equatorial Guinea
+## 2456   🇬🇷                                               Greece
+## 2457   🇬🇸               South Georgia &amp; South Sandwich Islands
+## 2458   🇬🇹                                            Guatemala
+## 2459   🇬🇺                                                 Guam
+## 2460   🇬🇼                                        Guinea-Bissau
+## 2461   🇬🇾                                               Guyana
+## 2462   🇭🇰                                  Hong Kong SAR China
+## 2463   🇭🇲                             Heard &amp; McDonald Islands
+## 2464   🇭🇳                                             Honduras
+## 2465   🇭🇷                                              Croatia
+## 2466   🇭🇹                                                Haiti
+## 2467   🇭🇺                                              Hungary
+## 2468   🇮🇨                                       Canary Islands
+## 2469   🇮🇩                                            Indonesia
+## 2470   🇮🇪                                              Ireland
+## 2471   🇮🇱                                               Israel
+## 2472   🇮🇲                                          Isle of Man
+## 2473   🇮🇳                                                India
+## 2474   🇮🇴                       British Indian Ocean Territory
+## 2475   🇮🇶                                                 Iraq
+## 2476   🇮🇷                                                 Iran
+## 2477   🇮🇸                                              Iceland
+## 2478   🇮🇹                                                Italy
+## 2479   🇯🇪                                               Jersey
+## 2480   🇯🇲                                              Jamaica
+## 2481   🇯🇴                                               Jordan
+## 2482   🇯🇵                                                Japan
+## 2483   🇰🇪                                                Kenya
+## 2484   🇰🇬                                           Kyrgyzstan
+## 2485   🇰🇭                                             Cambodia
+## 2486   🇰🇮                                             Kiribati
+## 2487   🇰🇲                                              Comoros
+## 2488   🇰🇳                                    St. Kitts &amp; Nevis
+## 2489   🇰🇵                                          North Korea
+## 2490   🇰🇷                                          South Korea
+## 2491   🇰🇼                                               Kuwait
+## 2492   🇰🇾                                       Cayman Islands
+## 2493   🇰🇿                                           Kazakhstan
+## 2494   🇱🇦                                                 Laos
+## 2495   🇱🇧                                              Lebanon
+## 2496   🇱🇨                                            St. Lucia
+## 2497   🇱🇮                                        Liechtenstein
+## 2498   🇱🇰                                            Sri Lanka
+## 2499   🇱🇷                                              Liberia
+## 2500   🇱🇸                                              Lesotho
+## 2501   🇱🇹                                            Lithuania
+## 2502   🇱🇺                                           Luxembourg
+## 2503   🇱🇻                                               Latvia
+## 2504   🇱🇾                                                Libya
+## 2505   🇲🇦                                              Morocco
+## 2506   🇲🇨                                               Monaco
+## 2507   🇲🇩                                              Moldova
+## 2508   🇲🇪                                           Montenegro
+## 2509   🇲🇫                                           St. Martin
+## 2510   🇲🇬                                           Madagascar
+## 2511   🇲🇭                                     Marshall Islands
+## 2512   🇲🇰                                            Macedonia
+## 2513   🇲🇱                                                 Mali
+## 2514   🇲🇲                                      Myanmar (Burma)
+## 2515   🇲🇳                                             Mongolia
+## 2516   🇲🇴                                      Macau SAR China
+## 2517   🇲🇵                             Northern Mariana Islands
+## 2518   🇲🇶                                           Martinique
+## 2519   🇲🇷                                           Mauritania
+## 2520   🇲🇸                                           Montserrat
+## 2521   🇲🇹                                                Malta
+## 2522   🇲🇺                                            Mauritius
+## 2523   🇲🇻                                             Maldives
+## 2524   🇲🇼                                               Malawi
+## 2525   🇲🇽                                               Mexico
+## 2526   🇲🇾                                             Malaysia
+## 2527   🇲🇿                                           Mozambique
+## 2528   🇳🇦                                              Namibia
+## 2529   🇳🇨                                        New Caledonia
+## 2530   🇳🇪                                                Niger
+## 2531   🇳🇫                                       Norfolk Island
+## 2532   🇳🇬                                              Nigeria
+## 2533   🇳🇮                                            Nicaragua
+## 2534   🇳🇱                                          Netherlands
+## 2535   🇳🇴                                               Norway
+## 2536   🇳🇵                                                Nepal
+## 2537   🇳🇷                                                Nauru
+## 2538   🇳🇺                                                 Niue
+## 2539   🇳🇿                                          New Zealand
+## 2540   🇴🇲                                                 Oman
+## 2541   🇵🇦                                               Panama
+## 2542   🇵🇪                                                 Peru
+## 2543   🇵🇫                                     French Polynesia
+## 2544   🇵🇬                                     Papua New Guinea
+## 2545   🇵🇭                                          Philippines
+## 2546   🇵🇰                                             Pakistan
+## 2547   🇵🇱                                               Poland
+## 2548   🇵🇲                                St. Pierre &amp; Miquelon
+## 2549   🇵🇳                                     Pitcairn Islands
+## 2550   🇵🇷                                          Puerto Rico
+## 2551   🇵🇸                              Palestinian Territories
+## 2552   🇵🇹                                             Portugal
+## 2553   🇵🇼                                                Palau
+## 2554   🇵🇾                                             Paraguay
+## 2555   🇶🇦                                                Qatar
+## 2556   🇷🇪                                              Réunion
+## 2557   🇷🇴                                              Romania
+## 2558   🇷🇸                                               Serbia
+## 2559   🇷🇺                                               Russia
+## 2560   🇷🇼                                               Rwanda
+## 2561   🇸🇦                                         Saudi Arabia
+## 2562   🇸🇧                                      Solomon Islands
+## 2563   🇸🇨                                           Seychelles
+## 2564   🇸🇩                                                Sudan
+## 2565   🇸🇪                                               Sweden
+## 2566   🇸🇬                                            Singapore
+## 2567   🇸🇭                                           St. Helena
+## 2568   🇸🇮                                             Slovenia
+## 2569   🇸🇯                                 Svalbard &amp; Jan Mayen
+## 2570   🇸🇰                                             Slovakia
+## 2571   🇸🇱                                         Sierra Leone
+## 2572   🇸🇲                                           San Marino
+## 2573   🇸🇳                                              Senegal
+## 2574   🇸🇴                                              Somalia
+## 2575   🇸🇷                                             Suriname
+## 2576   🇸🇸                                          South Sudan
+## 2577   🇸🇹                                  São Tomé &amp; Príncipe
+## 2578   🇸🇻                                          El Salvador
+## 2579   🇸🇽                                         Sint Maarten
+## 2580   🇸🇾                                                Syria
+## 2581   🇸🇿                                            Swaziland
+## 2582   🇹🇦                                     Tristan da Cunha
+## 2583   🇹🇨                               Turks &amp; Caicos Islands
+## 2584   🇹🇩                                                 Chad
+## 2585   🇹🇫                          French Southern Territories
+## 2586   🇹🇬                                                 Togo
+## 2587   🇹🇭                                             Thailand
+## 2588   🇹🇯                                           Tajikistan
+## 2589   🇹🇰                                              Tokelau
+## 2590   🇹🇱                                          Timor-Leste
+## 2591   🇹🇲                                         Turkmenistan
+## 2592   🇹🇳                                              Tunisia
+## 2593   🇹🇴                                                Tonga
+## 2594   🇹🇷                                               Turkey
+## 2595   🇹🇹                                    Trinidad &amp; Tobago
+## 2596   🇹🇻                                               Tuvalu
+## 2597   🇹🇼                                               Taiwan
+## 2598   🇹🇿                                             Tanzania
+## 2599   🇺🇦                                              Ukraine
+## 2600   🇺🇬                                               Uganda
+## 2601   🇺🇲                                U.S. Outlying Islands
+## 2602   🇺🇳                                       United Nations
+## 2603   🇺🇸                                        United States
+## 2604   🇺🇾                                              Uruguay
+## 2605   🇺🇿                                           Uzbekistan
+## 2606   🇻🇦                                         Vatican City
+## 2607   🇻🇨                             St. Vincent &amp; Grenadines
+## 2608   🇻🇪                                            Venezuela
+## 2609   🇻🇬                               British Virgin Islands
+## 2610   🇻🇮                                  U.S. Virgin Islands
+## 2611   🇻🇳                                              Vietnam
+## 2612   🇻🇺                                              Vanuatu
+## 2613   🇼🇫                                      Wallis &amp; Futuna
+## 2614   🇼🇸                                                Samoa
+## 2615   🇽🇰                                               Kosovo
+## 2616   🇾🇪                                                Yemen
+## 2617   🇾🇹                                              Mayotte
+## 2618   🇿🇦                                         South Africa
+## 2619   🇿🇲                                               Zambia
+## 2620   🇿🇼                                             Zimbabwe
+## 2621    🏴󠁧󠁢󠁥󠁮󠁧󠁿                                              England
+## 2622    🏴󠁧󠁢󠁳󠁣󠁴󠁿                                             Scotland
+## 2623    🏴󠁧󠁢󠁷󠁬󠁳󠁿                                                Wales</code></pre>
