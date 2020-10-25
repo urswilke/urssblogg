@@ -79,7 +79,7 @@ while (TRUE) {
 ```
 
 *Instead of the* `poll()` *method mido also [provides](https://mido.readthedocs.io/en/latest/ports.html#input-ports) 
-a* `receive()` *method which should be more appropriate for this action. However, I wasn't able to get this working without making my PC stuck and having to restart R.*
+a* `receive()` *method which should be more appropriate for this action. However, I wasn't able to get this working without making my PC stuck and having to restart RStudio.*
 
 ### print out the recorded data
 
