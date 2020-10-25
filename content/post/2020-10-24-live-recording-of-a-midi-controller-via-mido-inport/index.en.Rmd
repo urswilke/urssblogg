@@ -1,0 +1,107 @@
+---
+title: Live Recording of a Midi Controller via Mido Inport
+author: Urs Wilke
+date: '2020-10-24'
+slug: []
+categories: []
+tags:
+  - midi
+  - reticulate
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-10-24T23:10:55+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = FALSE,
+  comment = "#>"
+)
+```
+
+## motivation
+
+I was made aware of the idea to import live data of a midi controller through this blog post:
+
+```{r echo=FALSE, eval=TRUE}
+blogdown::shortcode('tweet', '1306695952175169539')
+```
+
+## mido controller input via mido
+
+
+To run this on your machine, you need to install the R package [reticulate](https://rstudio.github.io/reticulate/#installation) and the python package [mido](https://mido.readthedocs.io/en/latest/installing.html).
+
+
+### Import mido
+
+```{r load_mido}
+reticulate::use_python("/home/chief/anaconda3/bin/python", required = T)
+
+mido <- reticulate::import("mido")
+```
+
+### Connect to inport
+
+You need to connect your midi controller to the computer. In case you don't have one and want to try this out you can also run a virtual midi controller, for example [VMPK](https://sourceforge.net/projects/vmpk/). In this example I connected a Nektar Impact LX 61.
+
+```{r connect}
+# In order to obtain all the inports available, just type
+# mido$get_input_names()
+# in your console
+inport  <- mido$open_input("Impact LX61+:Impact LX61+ MIDI 1 20:0")
+```
+
+### Live record data
+
+Now we are all set up to record the midi messages coming in via the input port.
+
+We just create empty vectors and append the midi messages and the times when they arrive in an endless loop until we send a keyboard interrupt:
+
+```{r read_data}
+msgs <- c()
+times <- c()
+while (TRUE) {
+  t <- Sys.time()
+  msg <- inport$poll()
+  # only record the midi message when it's not empty:
+  if (!is.null(msg)) {
+    msgs <<- append(msgs, as.character(msg))
+    times <<- append(times, t)
+  }
+}
+```
+
+*Instead of the* `poll()` *method mido also [provides](https://mido.readthedocs.io/en/latest/ports.html#input-ports) 
+a* `receive()` *method which should be more appropriate for this action. However, I wasn't able to get this working without making my PC stuck and having to restart R.*
+
+### Print out the recorded data
+
+After interrupting the loop above the data is in an R vector msgs. Here I show a small example of the resulting data when a C note is played twice and the pitch wheel is turned a bit:
+
+```{r print_data}
+# Set time precision value for printing to milliseconds:
+op <- options(digits.secs = 3)
+# Print out the recorded data:
+data.frame(times, msgs)
+#>                     times                                          msgs
+#> 1 2020-10-24 14:04:31.611 note_on channel=15 note=60 velocity=81 time=0
+#> 2 2020-10-24 14:04:31.742 note_off channel=15 note=60 velocity=0 time=0
+#> 3 2020-10-24 14:04:31.981 note_on channel=15 note=60 velocity=78 time=0
+#> 4 2020-10-24 14:04:32.117 note_off channel=15 note=60 velocity=0 time=0
+#> 5 2020-10-24 14:04:33.927        pitchwheel channel=15 pitch=128 time=0
+#> 6 2020-10-24 14:04:33.938        pitchwheel channel=15 pitch=384 time=0
+#> 7 2020-10-24 14:04:33.960        pitchwheel channel=15 pitch=512 time=0
+#> 8 2020-10-24 14:04:33.992        pitchwheel channel=15 pitch=128 time=0
+#> 9 2020-10-24 14:04:34.003          pitchwheel channel=15 pitch=0 time=0
+
+```
+

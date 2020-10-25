@@ -1,0 +1,84 @@
+---
+title: Live Recording of a Midi Controller via Mido Inport
+author: Urs Wilke
+date: '2020-10-24'
+slug: []
+categories: []
+tags:
+  - midi
+  - reticulate
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-10-24T23:10:55+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="motivation" class="section level2">
+<h2>motivation</h2>
+<p>I was made aware of the idea to import live data of a midi controller through this blog post:</p>
+{{% tweet "1306695952175169539" %}}
+</div>
+<div id="mido-controller-input-via-mido" class="section level2">
+<h2>mido controller input via mido</h2>
+<p>To run this on your machine, you need to install the R package <a href="https://rstudio.github.io/reticulate/#installation">reticulate</a> and the python package <a href="https://mido.readthedocs.io/en/latest/installing.html">mido</a>.</p>
+<div id="import-mido" class="section level3">
+<h3>Import mido</h3>
+<pre class="r"><code>reticulate::use_python(&quot;/home/chief/anaconda3/bin/python&quot;, required = T)
+
+mido &lt;- reticulate::import(&quot;mido&quot;)</code></pre>
+</div>
+<div id="connect-to-inport" class="section level3">
+<h3>Connect to inport</h3>
+<p>You need to connect your midi controller to the computer. In case you don’t have one and want to try this out you can also run a virtual midi controller, for example <a href="https://sourceforge.net/projects/vmpk/">VMPK</a>. In this example I connected a Nektar Impact LX 61.</p>
+<pre class="r"><code># In order to obtain all the inports available, just type
+# mido$get_input_names()
+# in your console
+inport  &lt;- mido$open_input(&quot;Impact LX61+:Impact LX61+ MIDI 1 20:0&quot;)</code></pre>
+</div>
+<div id="live-record-data" class="section level3">
+<h3>Live record data</h3>
+<p>Now we are all set up to record the midi messages coming in via the input port.</p>
+<p>We just create empty vectors and append the midi messages and the times when they arrive in an endless loop until we send a keyboard interrupt:</p>
+<pre class="r"><code>msgs &lt;- c()
+times &lt;- c()
+while (TRUE) {
+  t &lt;- Sys.time()
+  msg &lt;- inport$poll()
+  # only record the midi message when it&#39;s not empty:
+  if (!is.null(msg)) {
+    msgs &lt;&lt;- append(msgs, as.character(msg))
+    times &lt;&lt;- append(times, t)
+  }
+}</code></pre>
+<p><em>Instead of the</em> <code>poll()</code> <em>method mido also <a href="https://mido.readthedocs.io/en/latest/ports.html#input-ports">provides</a>
+a</em> <code>receive()</code> <em>method which should be more appropriate for this action. However, I wasn’t able to get this working without making my PC stuck and having to restart R.</em></p>
+</div>
+<div id="print-out-the-recorded-data" class="section level3">
+<h3>Print out the recorded data</h3>
+<p>After interrupting the loop above the data is in an R vector msgs. Here I show a small example of the resulting data when a C note is played twice and the pitch wheel is turned a bit:</p>
+<pre class="r"><code># Set time precision value for printing to milliseconds:
+op &lt;- options(digits.secs = 3)
+# Print out the recorded data:
+data.frame(times, msgs)
+#&gt;                     times                                          msgs
+#&gt; 1 2020-10-24 14:04:31.611 note_on channel=15 note=60 velocity=81 time=0
+#&gt; 2 2020-10-24 14:04:31.742 note_off channel=15 note=60 velocity=0 time=0
+#&gt; 3 2020-10-24 14:04:31.981 note_on channel=15 note=60 velocity=78 time=0
+#&gt; 4 2020-10-24 14:04:32.117 note_off channel=15 note=60 velocity=0 time=0
+#&gt; 5 2020-10-24 14:04:33.927        pitchwheel channel=15 pitch=128 time=0
+#&gt; 6 2020-10-24 14:04:33.938        pitchwheel channel=15 pitch=384 time=0
+#&gt; 7 2020-10-24 14:04:33.960        pitchwheel channel=15 pitch=512 time=0
+#&gt; 8 2020-10-24 14:04:33.992        pitchwheel channel=15 pitch=128 time=0
+#&gt; 9 2020-10-24 14:04:34.003          pitchwheel channel=15 pitch=0 time=0
+</code></pre>
+</div>
+</div>
