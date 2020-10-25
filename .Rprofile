@@ -1,3 +1,4 @@
+source("renv/activate.R")
 # https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/
 
 
