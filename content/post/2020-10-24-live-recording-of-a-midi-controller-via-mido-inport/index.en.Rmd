@@ -44,8 +44,6 @@ To run this on your machine, you need to install the R package [reticulate](http
 ### import mido
 
 ```{r load_mido}
-reticulate::use_python("/home/chief/anaconda3/bin/python", required = T)
-
 mido <- reticulate::import("mido")
 ```
 

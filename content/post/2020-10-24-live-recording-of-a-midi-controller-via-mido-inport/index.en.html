@@ -24,7 +24,7 @@ projects: []
 
 <div id="motivation" class="section level2">
 <h2>motivation</h2>
-<p>I was made aware of the idea to import live data of a midi controller through this blog post:</p>
+<p>I got the idea to import live data of a midi controller through this blog post:</p>
 {{% tweet "1306695952175169539" %}}
 </div>
 <div id="mido-controller-input-via-mido" class="section level2">
@@ -32,9 +32,7 @@ projects: []
 <p>To run this on your machine, you need to install the R package <a href="https://rstudio.github.io/reticulate/#installation">reticulate</a> and the python package <a href="https://mido.readthedocs.io/en/latest/installing.html">mido</a>.</p>
 <div id="import-mido" class="section level3">
 <h3>import mido</h3>
-<pre class="r"><code>reticulate::use_python(&quot;/home/chief/anaconda3/bin/python&quot;, required = T)
-
-mido &lt;- reticulate::import(&quot;mido&quot;)</code></pre>
+<pre class="r"><code>mido &lt;- reticulate::import(&quot;mido&quot;)</code></pre>
 </div>
 <div id="connect-to-inport" class="section level3">
 <h3>connect to inport</h3>
