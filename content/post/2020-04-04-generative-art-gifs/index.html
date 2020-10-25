@@ -205,6 +205,10 @@ when creating the simplex noise:</p>
                            y + perturb,
                            z + perturb)) %&gt;%
   group_split(z, keep = FALSE)</code></pre>
+<pre><code>## Warning: The `keep` argument of `group_split()` is deprecated as of dplyr 1.0.0.
+## Please use the `.keep` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
 <p>Now we can create our gif as above:</p>
 <pre class="r"><code>animation::saveGIF(
   {
