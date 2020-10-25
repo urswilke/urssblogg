@@ -41,7 +41,7 @@ blogdown::shortcode('tweet', '1306695952175169539')
 To run this on your machine, you need to install the R package [reticulate](https://rstudio.github.io/reticulate/#installation) and the python package [mido](https://mido.readthedocs.io/en/latest/installing.html).
 
 
-### Import mido
+### import mido
 
 ```{r load_mido}
 reticulate::use_python("/home/chief/anaconda3/bin/python", required = T)
@@ -49,7 +49,7 @@ reticulate::use_python("/home/chief/anaconda3/bin/python", required = T)
 mido <- reticulate::import("mido")
 ```
 
-### Connect to inport
+### connect to inport
 
 You need to connect your midi controller to the computer. In case you don't have one and want to try this out you can also run a virtual midi controller, for example [VMPK](https://sourceforge.net/projects/vmpk/). In this example I connected a Nektar Impact LX 61.
 
@@ -60,7 +60,7 @@ You need to connect your midi controller to the computer. In case you don't have
 inport  <- mido$open_input("Impact LX61+:Impact LX61+ MIDI 1 20:0")
 ```
 
-### Live record data
+### live record midi controller
 
 Now we are all set up to record the midi messages coming in via the input port.
 
@@ -83,7 +83,7 @@ while (TRUE) {
 *Instead of the* `poll()` *method mido also [provides](https://mido.readthedocs.io/en/latest/ports.html#input-ports) 
 a* `receive()` *method which should be more appropriate for this action. However, I wasn't able to get this working without making my PC stuck and having to restart R.*
 
-### Print out the recorded data
+### print out the recorded data
 
 After interrupting the loop above the data is in an R vector msgs. Here I show a small example of the resulting data when a C note is played twice and the pitch wheel is turned a bit:
 

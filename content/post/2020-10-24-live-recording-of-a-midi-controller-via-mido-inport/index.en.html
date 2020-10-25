@@ -15,7 +15,7 @@ featured: no
 image:
   caption: ''
   focal_point: ''
-  preview_only: no
+  preview_only: true
 projects: []
 ---
 
@@ -31,21 +31,21 @@ projects: []
 <h2>mido controller input via mido</h2>
 <p>To run this on your machine, you need to install the R package <a href="https://rstudio.github.io/reticulate/#installation">reticulate</a> and the python package <a href="https://mido.readthedocs.io/en/latest/installing.html">mido</a>.</p>
 <div id="import-mido" class="section level3">
-<h3>Import mido</h3>
+<h3>import mido</h3>
 <pre class="r"><code>reticulate::use_python(&quot;/home/chief/anaconda3/bin/python&quot;, required = T)
 
 mido &lt;- reticulate::import(&quot;mido&quot;)</code></pre>
 </div>
 <div id="connect-to-inport" class="section level3">
-<h3>Connect to inport</h3>
+<h3>connect to inport</h3>
 <p>You need to connect your midi controller to the computer. In case you don’t have one and want to try this out you can also run a virtual midi controller, for example <a href="https://sourceforge.net/projects/vmpk/">VMPK</a>. In this example I connected a Nektar Impact LX 61.</p>
 <pre class="r"><code># In order to obtain all the inports available, just type
 # mido$get_input_names()
 # in your console
 inport  &lt;- mido$open_input(&quot;Impact LX61+:Impact LX61+ MIDI 1 20:0&quot;)</code></pre>
 </div>
-<div id="live-record-data" class="section level3">
-<h3>Live record data</h3>
+<div id="live-record-midi-controller" class="section level3">
+<h3>live record midi controller</h3>
 <p>Now we are all set up to record the midi messages coming in via the input port.</p>
 <p>We just create empty vectors and append the midi messages and the times when they arrive in an endless loop until we send a keyboard interrupt:</p>
 <pre class="r"><code>msgs &lt;- c()
@@ -63,7 +63,7 @@ while (TRUE) {
 a</em> <code>receive()</code> <em>method which should be more appropriate for this action. However, I wasn’t able to get this working without making my PC stuck and having to restart R.</em></p>
 </div>
 <div id="print-out-the-recorded-data" class="section level3">
-<h3>Print out the recorded data</h3>
+<h3>print out the recorded data</h3>
 <p>After interrupting the loop above the data is in an R vector msgs. Here I show a small example of the resulting data when a C note is played twice and the pitch wheel is turned a bit:</p>
 <pre class="r"><code># Set time precision value for printing to milliseconds:
 op &lt;- options(digits.secs = 3)
