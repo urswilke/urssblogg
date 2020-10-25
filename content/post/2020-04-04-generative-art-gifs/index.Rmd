@@ -67,6 +67,8 @@ grid_simplex <- grid %>%
 
 *GIF based on plot method with increasing wave frequencies*
 
+The function `ambient::gen_waves()` can generate wave patterns from this 2-dimensional simplex grid.
+
 Create list of grids based on an increasing sequence of frequencies (we take the same simplex noise `perturb` defined before):
 
 ```{r grid_list}
@@ -136,8 +138,8 @@ ggplot_ambient <- function(long_grid, pal) {
 #          dpi = 300)
 ```
 
-Now we can produce the gif with ggplot in the same way as the first method
-with plot :
+Now we can produce the gif with ggplot in the same way as before
+with plot:
 
 ```{r ggplot_gif, eval=FALSE}
 animation::saveGIF(

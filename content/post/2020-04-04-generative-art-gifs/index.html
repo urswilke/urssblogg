@@ -58,6 +58,7 @@ anim_width = 400</code></pre>
 <div id="where-are-we" class="section level2">
 <h2>Where are we?</h2>
 <p><em>GIF based on plot method with increasing wave frequencies</em></p>
+<p>The function <code>ambient::gen_waves()</code> can generate wave patterns from this 2-dimensional simplex grid.</p>
 <p>Create list of grids based on an increasing sequence of frequencies (we take the same simplex noise <code>perturb</code> defined before):</p>
 <pre class="r"><code>freqs &lt;- seq(1, 3, length.out = 50)
 
@@ -111,8 +112,8 @@ as.raster() plot method).</p>
 #          height = anim_width/300, 
 #          width = anim_height/300, 
 #          dpi = 300)</code></pre>
-<p>Now we can produce the gif with ggplot in the same way as the first method
-with plot :</p>
+<p>Now we can produce the gif with ggplot in the same way as before
+with plot:</p>
 <pre class="r"><code>animation::saveGIF(
   {
     c(grid_list, rev(grid_list)) %&gt;% map(~ggplot_ambient(.x, &quot;scico::berlin&quot;))
