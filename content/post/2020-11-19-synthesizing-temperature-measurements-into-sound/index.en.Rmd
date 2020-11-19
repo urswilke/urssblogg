@@ -37,7 +37,7 @@ idea of his project called CHOEUR AQUATIQUE (the *Underwater Choir*) and hiring 
 
 
 ```{r, echo=FALSE}
-graphviz_code <- readr::read_file("graph_complete.gv")
+graphviz_code <- readr::read_file("https://gist.githubusercontent.com/urswilke/9176fb739147c835f5d99aa01da7ee96/raw/f7fe3e9ba94dacdc74244f13dde61a8f96a8c90a/graph_complete.gv")
 widgetframe::frameWidget(DiagrammeR::grViz(graphviz_code))
 ```
 
