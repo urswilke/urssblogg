@@ -1,0 +1,43 @@
+---
+title: 'Synthesizing Temperature Measurements into Sound '
+author: Urs Wilke
+date: '2020-11-19'
+slug: []
+categories: []
+tags:
+  - midi
+  - rstats
+  - reticulate
+  - ggplot
+  - python
+  - arduino
+  - fluidsynth
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-11-19T14:31:07+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Introduction 
+
+If you're interested in arduino, midi audio or sound synthesis this blog post
+might interest you. It will give an overview over the [Chaos
+Machine](https://gitlab.com/urswilke/chaos_machine_code) code repository. This
+repository is the result of the artist and my friend Axel Crettenand having the
+idea of his project called CHOEUR AQUATIQUE (the *Underwater Choir*) and hiring me to develop the code.
+  
+## Technical description
+
+
+
+```{r, echo=FALSE}
+graphviz_code <- readr::read_file("graph_complete.gv")
+widgetframe::frameWidget(DiagrammeR::grViz(graphviz_code))
+```
+
