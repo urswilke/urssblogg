@@ -27,43 +27,104 @@ projects: []
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="/rmarkdown-libs/pymjs/pym.v1.js"></script>
 <script src="/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+<link href="/rmarkdown-libs/vembedr/css/vembedr.css" rel="stylesheet" />
 
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>Interested in arduino, midi audio or sound synthesis? This blog post
-might interest you.</p>
+might interest you. Or you just have some spare minutes to watch and listen
+to and read about a project where live data is translated to sound. The cool thing is that
+all the software used is completely free of charge. The only money spent was on
+the hardware (a micro-controller and some thermometers connected to the PC), which is not very expensive. All that’s audio-related is completely free.</p>
 <p>It will give an overview over the <a href="https://gitlab.com/urswilke/chaos_machine_code">Chaos
 Machine</a> code repository. This
 repository is the result of the artist and my friend Axel Crettenand having the
 idea of his project called CHOEUR AQUATIQUE (the <em>Underwater Choir</em>) and hiring
 me to develop the code.</p>
-<p>As we live in different cities and traveling is difficult we decided it’s best to make a public repository with the instructions for Axel to reconstruct the machine himself. This article is to briefly introduce you to the project.</p>
-<p>To get an idea how the machine sounds so far please have a listen to the generated mp3 file in this <a href="https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data">folder</a>. This file is the synthesization of the midi file in this folder</p>
+<p>As we live in different cities and traveling is difficult due to Covid-19 we decided it’s best to make a public repository with the instructions for Axel to reconstruct the machine himself.
+And with the possibility that somebody else is interested I was more motivated to write a good documentation. :) This article is to briefly introduce you to the project.</p>
+<p>To get an idea how the machine sounds so far please have a listen to the generated mp3 file in this <a href="https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data">folder</a> (or scroll to the audio player at the bottom of this article). This file is the synthesization of the midi file in this folder.</p>
 </div>
 <div id="technical-description" class="section level2">
 <h2>Technical description</h2>
-<p>Basically, the machine translates temperature measurements into sound in real time. It consists of a micro-controller that receives the measured temperatures of multiple thermometers and then sends these to the computer with arduino code (see <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino">here</a>). On the PC a python program (see <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb">here</a>) runs that reads the sent temperature data. Then it translates the temperature differences into midi notes of a chosen scale. The midi nodes are sent to fluidsynth which finally synthesizes the midi notes to sound.</p>
-<div id="chaos-machine" class="section level3">
-<h3>Chaos Machine</h3>
+<p>Basically, the machine translates temperature measurements into sound in real time. It consists of a micro-controller that receives the measured temperatures of multiple thermometers and then sends these to the computer with arduino code (see <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino">here</a>). On the PC a python program (see <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb">here</a>) runs a main loop where the sent temperature data is read. There it also translates the temperature differences into midi notes of a chosen scale. The midi nodes are sent to fluidsynth which finally synthesizes the midi notes to sound.</p>
+<div id="main-steps-in-the-chaos-machine" class="section level3">
+<h3>Main steps in the chaos machine</h3>
 <ul>
 <li>hover (mouse-over) to see description</li>
 <li>click on clickable nodes (not all) to view source code file</li>
 </ul>
 <div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/post/2020-11-19-synthesizing-temperature-measurements-into-sound/index.en_files/figure-html//widgets/widget_unnamed-chunk-1.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="complete-repository" class="section level3">
-<h3>Complete repository</h3>
-<p>The execution of the code produces output files. These are then processed for visualization of the notes and audio file output. Furthermore, there are some auxiliary functions. The following diagram depicts how these programs interact with each other.</p>
-<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/2020-11-19-synthesizing-temperature-measurements-into-sound/index.en_files/figure-html//widgets/widget_unnamed-chunk-2.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p>The main interfaces are the serial connection between python and the arduino on the one hand. On the other hand, the midi format can either be synthesized directly with a midi port or by rendering the midi to audio files. This is done by fluidsynth using an sf2 soundfont that stores audio information for midi notes.</p>
 </div>
-<div id="live-plotter" class="section level3">
-<h3>Live plotter</h3>
-<video width="289" height="198" controls>
-<source src="vid.mp4" type="video/mp4">
-</video>
+<div id="bigger-picture" class="section level3">
+<h3>Bigger picture</h3>
+<p>Watch here if you’re interested in a deeper understanding of the available tools in the project and arduino / midi in general.</p>
+<p>The execution of the code produces output files. These are then processed for visualization of the notes and audio file output. Furthermore, there are some auxiliary functions. The following diagram depicts how these programs can be used and how the terms roughly interact with each other.</p>
+<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/post/2020-11-19-synthesizing-temperature-measurements-into-sound/index.en_files/figure-html//widgets/widget_unnamed-chunk-2.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="live-plotter" class="section level4">
+<h4>Live plotter</h4>
+<p>Perhaps it’s best to start with the data sent by the micro-controller. It’s really easy to program a <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R">live plotter in R</a> with the package <a href="https://github.com/r-arduino/arduinor">arduinor</a>. This yields an app shown here:</p>
+<pre class="r"><code>vembedr::embed_url(&quot;https://www.youtube.com/watch?v=HDclBWmdEOw&quot;)</code></pre>
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/HDclBWmdEOw" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
 </div>
+</div>
+<p>showing how I touched 4 of the 5 thermometers briefly after stating the measurements.</p>
+</div>
+<div id="output-files" class="section level4">
+<h4>Output files</h4>
+<p>The main python programm produces</p>
+<ul>
+<li>csv output files of
+<ul>
+<li>the temperatures from the serial connection</li>
+<li>the calculated temperature differences</li>
+<li>the derived midi notes, as well as</li>
+</ul></li>
+<li>a midi file
+<ul>
+<li>which is then transformed to audio files by fluidsynth using the specified sf2 soundfont</li>
+<li>furthermore, the midi file can be transformed to a musescore mscz file which can then be animated to this <a href="https://www.youtube.com/watch?v=XNDlgnyYGto">beauty</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="python-loop-data" class="section level4">
+<h4>Python loop data</h4>
+<p>The data in the csv files is produced during the loop. Only look into that if you’re interested in detail in the dictionary data structures that are used in the main loop. This data can be visualized as follows:</p>
+<p><img src="csv_vis-1.png" width="336" /></p>
+</div>
+<div id="midi-files" class="section level4">
+<h4>Midi files</h4>
+<p>Probably it’s more interesting to look at the piano roll visualization of the
+midi file that’s also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued.</p>
+<p><img src="midi_piano_roll-1.png" width="336" /></p>
+</div>
+<div id="audio-files" class="section level4">
+<h4>Audio files</h4>
+<p>The midi files can be rendered to audio files also using fluidsynth and a soundfont.</p>
+<p>You can listen to the result here:</p>
+</div>
+<div id="play-mp3" class="section level4">
+<h4>Play mp3</h4>
+<audio controls="">
+<source src="live_record.mp3" type="audio/mp3"/>
+</audio>
+</div>
+<div id="musescore" class="section level4">
+<h4>Musescore</h4>
+<p>the midi file can be transformed to the musescore format by running</p>
+<pre class="bash"><code>mscore3 live_record.mid -o output_file.mscz</code></pre>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Also checkout the cool animation of the midi data on the <a href="https://musescore.com/user/36624930/scores/6458979">musescore</a> webpage by clicking play (make sure to choose the funky piano roll animation by clicking on the piano key symbol!)<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>

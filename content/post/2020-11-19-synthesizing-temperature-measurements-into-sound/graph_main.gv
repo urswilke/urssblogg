@@ -18,7 +18,7 @@ digraph workflow {
     fillcolor="#dddddd99", 
     penwidth=4, 
     color = "#ffffff55",
-    
+    width = 2.5
   ];
   edge [
     fontname = "helvetica", 
@@ -99,48 +99,7 @@ During the loop the data is recorded in lists and when it has finished the data 
     sf2 -> fluidsynth;
     {rank=same; fluidsynth sf2}
   }
-  subgraph cluster_output_files {
-  label = < <B>output files</B> >;
-  fontsize = 30;
-  bgcolor = "#ffd080" 
-  color = "#b25605" 
-  fontcolor = "#b25605" 
-  midifile [
-    shape = cylinder,
-    label = "live_record.mid",
-    tooltip = "midi file written by temperatures_to_midi.ipynb",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data/"
-  ];
-  prelim_mp3 [
-    label = "test.mp3"
-    shape = cylinder;
-    tooltip = "resulting mp3 file, when the midifile test.mid is rendered by fluidsynth with the specified soundfont",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/preliminary_study/"
-  ];
-  mp3 [
-    label = "live_record.mp3"
-    shape = cylinder;
-    tooltip = "resulting mp3 file, when the midifile live_record.mid (written by temperatures_to_midi.ipynb) is rendered by fluidsynth with the specified soundfont"
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data/"
-  ];
-  csv [shape = cylinder];
-  prelim_audio [
-    shape=cylinder, 
-    label="test.mid",
-    tooltip = "midi file written by preliminary_study.Rmd",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/preliminary_study/"
-  ]
-  prelim_audio -> prelim_mp3
-  midifile -> mp3
-
-
-  {rank=same;prelim_audio, midifile}
-}
-python -> csv [color = "#4f93ba"];
-python -> midifile [color = "#4f93ba"];
-fluidsynth -> mp3 [style = dashed, color = "#f07531"]
-fluidsynth -> prelim_mp3 [style = dashed, color = "#f07531"]
-
+  
   
   mp -> fluidsynth;
   mc -> sc [
@@ -177,64 +136,7 @@ S: 1, ID: 40255662332332138251, T: 21.25; S: 2, ID: 402552102282332138209, T: 21
   }
   
 
-  subgraph cluster_R {
-  # https://stackoverflow.com/questions/6824431/placing-clusters-on-the-same-rank-in-graphviz
-  label = < <B>R</B> >;
-  fontsize = 30;
-  bgcolor = "#87d5ff"
-  color = "#217ca3"
-  fontcolor = "#217ca3"
-  newrank=true;
-  csv -> "plot_csv_data.R";
-  "plot_midifile.Rmd" [
-    shape=box, 
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/plot_midifile/plot_midifile.md"
-    tooltip = "In this document, a piano roll visualization is produced of the midifile written at the end of the python notebook. And I will promote the two packages I wrote:
-* The python package [miditapyr](https://github.com/urswilke/miditapyr/) can tabulate midifile data (read in by [mido](github.com/mido/mido)) in dataframes.
-* The R package [pyramidi](https://github.com/urswilke/pyramidi/) can transform these dataframes to a wide format that allows for an easy way to plot piano roll plots."
-  ]
-  "plot_csv_data.R" [
-    shape=box, 
-    tooltip = "script to plot the data in the csv files written in python/temperatures_to_midi.ipynb"
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/plot_csv_data/plot_csv_data.md"
-  ]
-  plotter [
-    label = "live_plotter.R",
-    shape=box, 
-    tooltip = "script to plot the serial data in real time",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/live_plotter/live_plotter.R"
-  ]
-  #&#8226; after the real-time loop, csv, midi and mp3 files are generated<br ALIGN = "LEFT"/>
-  prelim [
-    shape=box, 
-    label="preliminary_study.Rmd", 
-    URL="https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/preliminary_study/preliminary_study.md"
-    tooltip="This is a preliminary study to translate temperature measurements into sound. 
-* Fake temperaure curves are generated
-* pairwise differences are calculated
-* these differnces are mapped to midi notes 
-* this information is saved to a midi file
-* which is synthesized to an audiofile"
-  ];
-  #  {rank=same; midifile [group = g3] csv [group = g3] }
-  edge[style=invis];
-  python -> plotter;
-  plotter -> prelim;
-  prelim -> "plot_midifile.Rmd";
-  "plot_midifile.Rmd" -> "plot_csv_data.R";
-  "plot_midifile.Rmd" -> "plot_csv_data.R";
-}
-
-{rank=same; python plotter}
-#{rank=same; prelim prelim_audio}
-sc -> plotter;
-midifile -> "plot_midifile.Rmd"
   
-prelim -> prelim_audio
-edge[style=invis];
-midifile -> csv;
-
-
   
   mc -> sc [ weight = 100, style=invis]
   sc -> python [
