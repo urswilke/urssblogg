@@ -30,10 +30,10 @@ Interested in arduino, midi audio or sound synthesis? This blog post
 might interest you. Or you just have some spare minutes to watch and listen 
 to and read about a project where live data is translated to sound. The cool thing is that
 all the software used is completely free of charge. The only money spent was on 
-the hardware (a micro-controller and some thermometers connected to the PC), which is not very expensive. All that's audio-related is completely free.
+the hardware (a microcontroller and some thermometers connected to the PC), which is not very expensive. All the software (microcontroller, programming, data management and audio-related) is completely free.
 
 
-It will give an overview over the [Chaos
+The article will give an overview over the [Chaos
 Machine](https://gitlab.com/urswilke/chaos_machine_code) code repository. This
 repository is the result of the artist and my friend Axel Crettenand having the
 idea of his project called CHOEUR AQUATIQUE (the *Underwater Choir*) and hiring
@@ -47,7 +47,7 @@ To get an idea how the machine sounds so far please have a listen to the generat
 
 ## Technical description
 
-Basically, the machine translates temperature measurements into sound in real time. It consists of a micro-controller that receives the measured temperatures of multiple thermometers and then sends these to the computer with arduino code (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino)). On the PC a python program (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb)) runs a main loop where the sent temperature data is read. There it also translates the temperature differences into midi notes of a chosen scale. The midi nodes are sent to fluidsynth which finally synthesizes the midi notes to sound.  
+Basically, the machine translates temperature measurements into sound in real time. The [arduino code sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino) uploaded to the microcontroller reads the measured temperatures of multiple thermometers and then sends these to the computer. On the PC a python program (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb)) runs a main loop where the sent temperature data is again read in. Then the temperature differences are translated into midi notes of a chosen scale. The midi nodes are then sent to fluidsynth which finally synthesizes the midi notes to sound.  
 
 
 ### Main steps in the chaos machine
@@ -59,7 +59,7 @@ Basically, the machine translates temperature measurements into sound in real ti
 # graphviz_code <- readr::read_file("https://gist.githubusercontent.com/urswilke/d49ccbf043bf2452f5bb9197e014d196/raw/6e60ffd6db1f755c990ce914a1afd8763988b644/graph_main.gv")
 graphviz_code <- readr::read_file("graph_main.gv")
 
-widgetframe::frameWidget(DiagrammeR::grViz(graphviz_code))
+widgetframe::frameableWidget(DiagrammeR::grViz(graphviz_code))
 ```
 
 The main interfaces are the serial connection between python and the arduino on the one hand. On the other hand, the midi format can either be synthesized directly with a midi port or by rendering the midi to audio files. This is done by fluidsynth using an sf2 soundfont that stores audio information for midi notes.
@@ -79,13 +79,14 @@ graph_html$sizingPolicy$viewer$fill <- FALSE
 # save svg:
 # https://stackoverflow.com/questions/42737645/how-to-export-images-of-diagrammer-in-r
 
-widgetframe::frameWidget(graph_html)
+
+widgetframe::frameableWidget(graph_html)
 ```
 
 
 #### Live plotter
 
-Perhaps it's best to start with the data sent by the micro-controller. It's really easy to program a [live plotter in R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R) with the package [arduinor](https://github.com/r-arduino/arduinor). This yields an app shown here:
+Perhaps it's best to start with the data sent by the microcontroller. It's really easy to program a [live plotter in R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R) with the package [arduinor](https://github.com/r-arduino/arduinor). This yields an app shown here:
 
 ```{r}
 vembedr::embed_url("https://www.youtube.com/watch?v=HDclBWmdEOw")
@@ -110,18 +111,18 @@ The main python programm produces
 The data in the csv files is produced during the loop. Only look into that if you're interested in detail in the dictionary data structures that are used in the main loop. This data can be visualized as follows:
 
 ```{r echo=FALSE}
-knitr::include_graphics("csv_vis-1.png")
+knitr::include_graphics("csv_vis.svg")
 ```
 
 
 #### Midi files
 
 Probably it's more interesting to look at the piano roll visualization of the 
-midi file that's also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued.
+midi file that's also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued (notes not played omitted on the y-axis).
 
 
 ```{r echo=FALSE}
-knitr::include_graphics("midi_piano_roll-1.png")
+knitr::include_graphics("midi_piano_roll-1.svg")
 ```
 
 
