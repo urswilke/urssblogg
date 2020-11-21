@@ -130,9 +130,9 @@ S: 1, ID: 40255662332332138251, T: 21.25; S: 2, ID: 402552102282332138209, T: 21
   subgraph cluster_speaker {
     label = < <B>speaker</B> >;
     fontsize = 30;
-    # bgcolor="#FFD700:#CCA600";
+    bgcolor="#FFD700:#CCA600";
     # gradients dont work on observable...:
-    bgcolor="#CCA600";
+    # bgcolor="#CCA600";
     speakers [label="🔊🎶"];
   }
   
