@@ -42,7 +42,8 @@ me to develop the code.
 As we live in different cities and traveling is difficult due to Covid-19 we decided it's best to make a public repository with the instructions for Axel to reconstruct the machine himself. 
 And with the possibility that somebody else is interested I was more motivated to write a good documentation. :) This article is to briefly introduce you to the project.
 
-To get an idea how the machine sounds so far please have a listen to the generated mp3 file in this [folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data) (or scroll to the audio player at the bottom of this article). This file is the synthesization of the midi file in this folder.
+To get an idea how the machine sounds so far please have a listen to the generated mp3 file in this [folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data) (or scroll down to the audio player at the bottom of this article). This file is the synthesization of the midi file you can also find there.
+
 
 
 ## Technical description
@@ -88,7 +89,7 @@ widgetframe::frameableWidget(graph_html)
 
 Perhaps it's best to start with the data sent by the microcontroller. It's really easy to program a [live plotter in R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R) with the package [arduinor](https://github.com/r-arduino/arduinor). This yields an app shown here:
 
-```{r}
+```{r, echo=FALSE}
 vembedr::embed_url("https://www.youtube.com/watch?v=HDclBWmdEOw")
 ```
 

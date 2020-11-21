@@ -4,7 +4,7 @@ digraph workflow {
     truecolor=true,
     # the last 2 "00" make it completely transparent here, 
     # thus all that comes before - I don"t care
-    bgcolor="transparent",
+    bgcolor="#ffffff00",
     fontname = "helvetica",
     #splines=ortho,
     concentrate=true
@@ -13,17 +13,18 @@ digraph workflow {
     fontname = "helvetica", 
     style = "rounded,filled,radial", 
     gradientangle=60, 
-    #fillcolor="#dddddd99:#7777772f", 
+    fillcolor="#dddddd99:#7777772f", 
     # gradients dont work on observable...:
-    fillcolor="#dddddd99", 
+    # fillcolor="#dddddd99", 
+    fontsize=25,
     penwidth=4, 
     color = "#ffffff55",
     
   ];
   edge [
     fontname = "helvetica", 
-    penwidth=3, 
-    color="#37373766"
+    penwidth=5, 
+    color="#aaaaaabb"
   ];
   penwidth=5;
   style=rounded
@@ -56,7 +57,7 @@ digraph workflow {
     #graph[style=dotted];
     "functions.py" [
       shape=box, 
-      tooltip = "functions that are imported in the temperatures_to_midi notebook",
+      tooltip = "functions that are imported in the T_to_midi notebook",
       URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/functions.py"
     ]
     python [
@@ -67,8 +68,8 @@ digraph workflow {
 * translate differences to midi notes according to a specified musical scale
 * send the note events to a midi port in real time 
 During the loop the data is recorded in lists and when it has finished the data is written to a midi and csv files. ", 
-      label = "temperatures_to_midi.ipynb",
-      URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/temperatures_to_midi.ipynb"
+      label = "T_to_midi.ipynb",
+      URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/T_to_midi.ipynb"
     ];
     "functions.py" -> python
     mc [
@@ -108,7 +109,7 @@ During the loop the data is recorded in lists and when it has finished the data 
   midifile [
     shape = cylinder,
     label = "live_record.mid",
-    tooltip = "midi file written by temperatures_to_midi.ipynb",
+    tooltip = "midi file written by T_to_midi.ipynb",
     URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data/"
   ];
   prelim_mp3 [
@@ -120,7 +121,7 @@ During the loop the data is recorded in lists and when it has finished the data 
   mp3 [
     label = "live_record.mp3"
     shape = cylinder;
-    tooltip = "resulting mp3 file, when the midifile live_record.mid (written by temperatures_to_midi.ipynb) is rendered by fluidsynth with the specified soundfont"
+    tooltip = "resulting mp3 file, when the midifile live_record.mid (written by T_to_midi.ipynb) is rendered by fluidsynth with the specified soundfont"
     URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data/"
   ];
   csv [shape = cylinder];
@@ -161,8 +162,8 @@ S: 1, ID: 40255662332332138251, T: 21.25; S: 2, ID: 402552102282332138209, T: 21
     label = "midi\nport", 
     shape=diamond, 
     color=grey,
-    tooltip = "The midi port to fluidsynth is set up by the python code in temperatures_to_midi.ipynb",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/temperatures_to_midi.ipynb#Setup_fluidsynth_connection"
+    tooltip = "The midi port to fluidsynth is set up by the python code in T_to_midi.ipynb",
+    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/T_to_midi.ipynb#Setup_fluidsynth_connection"
   ];
   #mc -> sc -> python -> mp -> fluidsynth[ style = invis, weight= 10 ];
   fluidsynth -> speakers
@@ -195,7 +196,7 @@ S: 1, ID: 40255662332332138251, T: 21.25; S: 2, ID: 402552102282332138209, T: 21
   ]
   "plot_csv_data.R" [
     shape=box, 
-    tooltip = "script to plot the data in the csv files written in python/temperatures_to_midi.ipynb"
+    tooltip = "plot the data in the csv files written in python/T_to_midi.ipynb"
     URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/R/plot_csv_data/plot_csv_data.md"
   ]
   plotter [
@@ -241,7 +242,7 @@ midifile -> csv;
     weight = 100, 
     style=invis,
     tooltip = "setup serial connection in arduino",
-    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/temperatures_to_midi.ipynb#Arduino"
+    URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/T_to_midi.ipynb#Arduino"
   ]
   python -> mp [ weight = 100, style=invis]
   mp -> fluidsynth [ weight = 100, style=invis]
