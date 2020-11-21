@@ -122,7 +122,7 @@ midi file that's also generated. In the algorithm a new note is only started if 
 
 
 ```{r echo=FALSE}
-knitr::include_graphics("midi_piano_roll-1.svg")
+knitr::include_graphics("midi_piano_roll.svg")
 ```
 
 
