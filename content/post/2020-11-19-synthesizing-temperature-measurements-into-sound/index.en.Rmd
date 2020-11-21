@@ -52,6 +52,8 @@ Basically, the machine translates temperature measurements into sound in real ti
 
 ### Main steps in the chaos machine
 
+This is an interactive diagram.
+
 * hover (mouse-over) to see description
 * click on clickable nodes (not all) to view source code file
 
@@ -92,7 +94,7 @@ Perhaps it's best to start with the data sent by the microcontroller. It's reall
 vembedr::embed_url("https://www.youtube.com/watch?v=HDclBWmdEOw")
 ```
 
-showing how I touched 4 of the 5 thermometers briefly after stating the measurements.
+showing how I touched 4 of the 5 thermometers briefly after starting the measurements.
 
 #### Output files
 
