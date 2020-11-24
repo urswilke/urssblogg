@@ -90,11 +90,56 @@ widgetframe::frameableWidget(graph_html)
 
 Perhaps it's best to start with the data sent by the microcontroller. It's really easy to program a [live plotter in R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R) with the package [arduinor](https://github.com/r-arduino/arduinor). This yields an app shown here:
 
+
 ```{r, echo=FALSE}
-vembedr::embed_url("https://www.youtube.com/watch?v=HDclBWmdEOw")
+vembedr::embed_url("https://youtu.be/BN-RWrFkblc")
 ```
 
 showing how I touched 4 of the 5 thermometers briefly after starting the measurements.
+
+
+#### Temperatures to midi 
+
+Once the temperatures are measured and sent to rhe PC, python computes all the
+pairwise differences and translates them to midi notes in a given scale. For the
+C major scale this yields 
+
+```{r, echo=FALSE}
+knitr::include_graphics("T_to_midi_Cmaj.svg")
+
+```
+
+where the function maps to the midi notes of the white piano keys. This is explained
+in more detail [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md).
+
+#### Midi to audio 
+
+With fluidsytnth midi notes can be synthesized to audio with a soundfont file.
+The soundfont specifies which sample is played for which midi note. A small
+example how to do that via python can be seen
+[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb). This yields in an increasing sequence of notes of the sound font. 
+[This](https://musical-artifacts.com/artifacts/387) soundfont of choir voices was used.
+You can
+listen to the result in the following audio file:
+
+```{r, echo=FALSE}
+# from https://community.rstudio.com/t/audio-files-in-r-markdown/20874/3
+html_tag_audio <- function(file, type = c("wav", "mp3")) {
+  type <- match.arg(type)
+  htmltools::tags$audio(
+    controls = "",
+    htmltools::tags$source(
+      src = file,
+      type = glue::glue("audio/{type}", type = type)
+    )
+  )
+}
+
+
+html_tag_audio("increasing_sequence.mp3", type = "mp3")
+
+```
+
 
 #### Output files
 
@@ -110,6 +155,7 @@ The main python programm produces
 
 #### Python loop data
 
+
 The data in the csv files is produced during the loop. Only look into that if you're interested in detail in the dictionary data structures that are used in the main loop. This data can be visualized as follows:
 
 ```{r echo=FALSE}
@@ -120,7 +166,8 @@ knitr::include_graphics("csv_vis.svg")
 #### Midi files
 
 Probably it's more interesting to look at the piano roll visualization of the 
-midi file that's also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued (notes not played omitted on the y-axis).
+midi file that's also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued.
+
 
 
 ```{r echo=FALSE}
@@ -139,18 +186,6 @@ You can listen to the result here:
 
 
 ```{r audio, echo=FALSE}
-# from https://community.rstudio.com/t/audio-files-in-r-markdown/20874/3
-html_tag_audio <- function(file, type = c("wav", "mp3")) {
-  type <- match.arg(type)
-  htmltools::tags$audio(
-    controls = "",
-    htmltools::tags$source(
-      src = file,
-      type = glue::glue("audio/{type}", type = type)
-    )
-  )
-}
-
 html_tag_audio("live_record.mp3", type = "mp3")
 ```
 
