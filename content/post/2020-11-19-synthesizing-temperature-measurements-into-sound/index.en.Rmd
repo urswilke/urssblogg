@@ -114,7 +114,7 @@ in more detail [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/mast
 
 #### Midi to audio 
 
-With fluidsytnth midi notes can be synthesized to audio with a soundfont file.
+With fluidsynth midi notes can be synthesized to audio with a soundfont file.
 The soundfont specifies which sample is played for which midi note. A small
 example how to do that via python can be seen
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb). This yields in an increasing sequence of notes of the sound font. 
