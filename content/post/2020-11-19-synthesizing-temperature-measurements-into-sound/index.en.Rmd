@@ -199,9 +199,13 @@ running
 mscore3 live_record.mid -o output_file.mscz
 ```
 
-The mscz file can then be animated to this [beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the cool animation of the midi data on the [musescore](https://musescore.com/user/36624930/scores/6458979) webpage by clicking play (make sure to choose the funky piano roll animation by clicking on the piano key symbol!)].
-
-
+The mscz file can then be animated to this
+[beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the cool
+animation of the midi data on the
+[musescore](https://musescore.com/user/36624930/scores/6458979) webpage by
+clicking play (make sure to choose the funky piano roll animation by clicking on
+the piano key symbol!)]. The sound in this video was generated with their proper
+soundfont. There is also one channel for percussion. :)
 
 As can be seen in the video, it makes more sense to translate midi to sheet
 music when the timing of the midi note events follows a stricter temporal
