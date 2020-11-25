@@ -20,7 +20,7 @@ featured: no
 image:
   caption: ''
   focal_point: ''
-  preview_only: no
+  preview_only: true
 projects: []
 ---
 
@@ -68,12 +68,12 @@ me to develop the code.
 As we live in different cities and traveling is difficult due to Covid-19 we decided it's best to make a public repository with the instructions for Axel to reconstruct the machine himself. 
 And with the possibility that somebody else is interested I was more motivated to write a good documentation. :) This article is to briefly introduce you to the project.
 
-To get an idea how the machine sounds so far please have a listen to the generated mp3 file in this [folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data) (or scroll down to the audio player at the bottom of this article). This file is the synthesization of the midi file you can also find there.
+To get an idea how the machine sounds so far you can have a listen to the generated mp3 file in this [folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data) (or scroll down to the audio player at the bottom of this article). This file is the synthesization of the midi file you can also find there.
 
 
 ## Technical description
 
-Basically, the machine translates temperature measurements into sound in real time. The [arduino code sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino) uploaded to the microcontroller reads the measured temperatures of multiple thermometers and then sends these to the computer. On the PC a python program (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb)) runs a main loop where the sent temperature data is again read in. Then the temperature differences are translated into midi notes of a chosen scale. The midi nodes are then sent to fluidsynth which finally synthesizes the midi notes to sound.  
+Basically, the machine translates temperature measurements into sound in real time. The [arduino code sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino) uploaded to the microcontroller reads the measured temperatures of multiple thermometers and then sends them to the computer. On the PC a python program (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb)) runs a main loop where the sent temperature data is again read in. Then the temperature differences are translated into midi notes of a chosen scale. The midi nodes are then sent to fluidsynth which finally synthesizes the midi notes to sound.  
 
 
 ### Main steps in the chaos machine
