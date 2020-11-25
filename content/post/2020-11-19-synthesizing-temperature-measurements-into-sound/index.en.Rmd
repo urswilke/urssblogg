@@ -24,6 +24,32 @@ image:
 projects: []
 ---
 
+## tl;dr
+
+This article shows how the [Chaos
+Machine](https://gitlab.com/urswilke/chaos_machine_code) produces sound like
+this:
+
+
+```{r, echo=FALSE}
+# from https://community.rstudio.com/t/audio-files-in-r-markdown/20874/3
+html_tag_audio <- function(file, type = c("wav", "mp3")) {
+  type <- match.arg(type)
+  htmltools::tags$audio(
+    controls = "",
+    htmltools::tags$source(
+      src = file,
+      type = glue::glue("audio/{type}", type = type)
+    )
+  )
+}
+
+
+html_tag_audio("live_record.mp3", type = "mp3")
+
+```
+
+
 ## Introduction 
 
 Interested in arduino, midi audio or sound synthesis? This blog post
@@ -123,19 +149,6 @@ You can
 listen to the result in the following audio file:
 
 ```{r, echo=FALSE}
-# from https://community.rstudio.com/t/audio-files-in-r-markdown/20874/3
-html_tag_audio <- function(file, type = c("wav", "mp3")) {
-  type <- match.arg(type)
-  htmltools::tags$audio(
-    controls = "",
-    htmltools::tags$source(
-      src = file,
-      type = glue::glue("audio/{type}", type = type)
-    )
-  )
-}
-
-
 html_tag_audio("increasing_sequence.mp3", type = "mp3")
 
 ```
