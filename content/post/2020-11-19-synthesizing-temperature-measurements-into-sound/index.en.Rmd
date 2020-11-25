@@ -151,7 +151,7 @@ The main python programm produces
   * the derived midi notes, as well as 
 * a midi file
   * which is then transformed to audio files by fluidsynth using the specified sf2 soundfont
-  * furthermore, the midi file can be transformed to a musescore mscz file which can then be animated to this [beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the cool animation of the midi data on the [musescore](https://musescore.com/user/36624930/scores/6458979) webpage by clicking play (make sure to choose the funky piano roll animation by clicking on the piano key symbol!)]
+  * a musescore sheet music file
 
 #### Python loop data
 
@@ -191,9 +191,20 @@ html_tag_audio("live_record.mp3", type = "mp3")
 
 #### Musescore
 
-the midi file can be transformed to the musescore format by running
+[Musescore](https://musescore.org/) is a music notation software. The midi file
+can be automatically translated to sheet music in the musescore mscz file format by
+running 
 
 ```{bash, eval=FALSE}
 mscore3 live_record.mid -o output_file.mscz
 ```
+
+The mscz file can then be animated to this [beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the cool animation of the midi data on the [musescore](https://musescore.com/user/36624930/scores/6458979) webpage by clicking play (make sure to choose the funky piano roll animation by clicking on the piano key symbol!)].
+
+
+
+As can be seen in the video, it makes more sense to translate midi to sheet
+music when the timing of the midi note events follows a stricter temporal
+pattern (to make sure that the midi notes can be expressed by musical notes more
+easily).
 
