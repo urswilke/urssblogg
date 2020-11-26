@@ -103,7 +103,7 @@ to sound.
 This is an interactive diagram^[If you're interested how you can produce and
 manipulate graphs like this with [graphviz](https://graphviz.org/) code try out
 yourself with the interactive ObservableHQ notebook
-[HERE](https://observablehq.com/@urswilke/workflow-of-the-chaos-machine-project)].]
+[HERE](https://observablehq.com/@urswilke/workflow-of-the-chaos-machine-project).]
 
 
 * hover (mouse-over) to see description
