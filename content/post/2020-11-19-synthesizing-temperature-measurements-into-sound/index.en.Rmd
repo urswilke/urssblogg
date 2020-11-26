@@ -49,36 +49,62 @@ html_tag_audio("live_record.mp3", type = "mp3")
 
 ```
 
+Want to learn something about arduino, midi audio or sound synthesis? Using
+python, R and many other tools. This blog post might interest you. Or you just
+have some spare minutes to watch and listen to and read about a project where
+live data is translated to sound.
 
 ## Introduction 
 
-Interested in arduino, midi audio or sound synthesis? This blog post
-might interest you. Or you just have some spare minutes to watch and listen 
-to and read about a project where live data is translated to sound. The cool thing is that
-all the software used is completely free of charge. The only money spent was on 
-the hardware (a microcontroller and some thermometers connected to the PC), which is not very expensive. All the software (microcontroller, programming, data management and audio-related) is completely free.
+This is an introductory blog post with a strong focus on documentation and some
+of the relevant topics if you want to construct such a machine. The cool thing
+is that all the software used is free. The only money spent was on the hardware
+(a circuit of a microcontroller and some thermometers), which is not very
+expensive. All the software (microcontroller, programming, data management and
+audio-related) is completely free.
 
 
-The article will give an overview over the [Chaos
+I will give an overview over the [Chaos
 Machine](https://gitlab.com/urswilke/chaos_machine_code) code repository. This
 repository is the result of the artist and my friend Axel Crettenand having the
 idea of his project called CHOEUR AQUATIQUE (the *Underwater Choir*) and hiring
 me to develop the code.
   
-As we live in different cities and traveling is difficult due to Covid-19 we decided it's best to make a public repository with the instructions for Axel to reconstruct the machine himself. 
-And with the possibility that somebody else is interested I was more motivated to write a good documentation. :) This article is to briefly introduce you to the project.
+As we live in different cities and traveling is difficult due to Covid-19 we
+decided it's best to make a public repository with the instructions for Axel to
+reconstruct the machine himself. And with the possibility that somebody else is
+interested I was more motivated to write a good documentation. :) This article
+is to briefly introduce you to the project.
 
-To get an idea how the machine sounds so far you can have a listen to the generated mp3 file in this [folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data) (or scroll down to the audio player at the bottom of this article). This file is the synthesization of the midi file you can also find there.
+To get an idea how the machine sounds so far you can have a listen to the
+generated mp3 file in this
+[folder](https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data)
+(or scroll down to the audio player at the bottom of this article). This file is
+the synthesization of the midi file you can also find there.
 
 
 ## Technical description
 
-Basically, the machine translates temperature measurements into sound in real time. The [arduino code sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino) uploaded to the microcontroller reads the measured temperatures of multiple thermometers and then sends them to the computer. On the PC a python program (see [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb)) runs a main loop where the sent temperature data is again read in. Then the temperature differences are translated into midi notes of a chosen scale. The midi nodes are then sent to fluidsynth which finally synthesizes the midi notes to sound.  
+Basically, the machine translates temperature measurements into sound in real
+time. The [arduino code
+sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/send_temp/send_temp.ino)
+uploaded to the microcontroller reads the measured temperatures of multiple
+thermometers and then sends them to the computer. On the PC a python program
+(see
+[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb))
+runs a main loop where the sent temperature data is again read in. Then the
+temperature differences are translated into midi notes of a chosen scale. The
+midi nodes are then sent to fluidsynth which finally synthesizes the midi notes
+to sound.
 
 
 ### Main steps in the chaos machine
 
-This is an interactive diagram.
+This is an interactive diagram^[If you're interested how you can produce and
+manipulate graphs like this with [graphviz](https://graphviz.org/) code try out
+yourself with the interactive ObservableHQ notebook
+[HERE](https://observablehq.com/@urswilke/workflow-of-the-chaos-machine-project)].]
+
 
 * hover (mouse-over) to see description
 * click on clickable nodes (not all) to view source code file
@@ -94,9 +120,13 @@ The main interfaces are the serial connection between python and the arduino on 
 
 ### Bigger picture
 
-Watch here if you're interested in a deeper understanding of the available tools in the project and arduino / midi in general.
+Watch here if you're interested in a deeper understanding of the available tools
+in the project and arduino / midi in general.
 
-The execution of the code produces output files. These are then processed for visualization of the notes and audio file output. Furthermore, there are some auxiliary functions. The following diagram depicts how these programs can be used and how the terms roughly interact with each other.
+The execution of the code produces output files. These are then processed for
+visualization of the notes and audio file output. Furthermore, there are some
+auxiliary functions. The following diagram depicts how these programs can be
+used and how the terms roughly interact with each other.
 
 
 ```{r, echo=FALSE}
@@ -111,10 +141,15 @@ graph_html$sizingPolicy$viewer$fill <- FALSE
 widgetframe::frameableWidget(graph_html)
 ```
 
+## Further short descriptions 
 
-#### Live plotter
+### Live plotter
 
-Perhaps it's best to start with the data sent by the microcontroller. It's really easy to program a [live plotter in R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R) with the package [arduinor](https://github.com/r-arduino/arduinor). This yields an app shown here:
+Perhaps it's best to start with the data sent by the microcontroller. It's
+really easy to program a [live plotter in
+R](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/live_plotter/live_plotter.R)
+with the package [arduinor](https://github.com/r-arduino/arduinor). This yields
+an app shown here:
 
 
 ```{r, echo=FALSE}
@@ -124,7 +159,7 @@ vembedr::embed_url("https://youtu.be/BN-RWrFkblc")
 showing how I touched 4 of the 5 thermometers briefly after starting the measurements.
 
 
-#### Temperatures to midi 
+### Temperatures to midi 
 
 Once the temperatures are measured and sent to rhe PC, python computes all the
 pairwise differences and translates them to midi notes in a given scale. For the
@@ -135,26 +170,29 @@ knitr::include_graphics("T_to_midi_Cmaj.svg")
 
 ```
 
-where the function maps to the midi notes of the white piano keys. This is explained
-in more detail [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md).
+where the function maps to the midi notes of the white piano keys. This is
+explained in more detail
+[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md).
 
-#### Midi to audio 
+### Midi to audio 
 
-With fluidsynth midi notes can be synthesized to audio with a soundfont file.
-The soundfont specifies which sample is played for which midi note. A small
-example how to do that via python can be seen
-[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb). This yields in an increasing sequence of notes of the sound font. 
-[This](https://musical-artifacts.com/artifacts/387) soundfont of choir voices was used.
-You can
-listen to the result in the following audio file:
+With fluidsynth and a soundfont file midi notes can be synthesized to audio. The
+soundfont specifies which sample is played for which midi note. An example how
+to do that via python can be seen
+[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb).
+This yields in an increasing sequence of notes of the sound font.
+[This](https://musical-artifacts.com/artifacts/387) soundfont of choir voices
+was used. You can enjoy the result in the following audio file:
 
 ```{r, echo=FALSE}
 html_tag_audio("increasing_sequence.mp3", type = "mp3")
-
 ```
 
+Consider this as a minimal example how to send live midi data with python to
+fluidsynth and after the session translate the recorded live data to a midi file
+and render it to an audio file that you were about to listen. 
 
-#### Output files
+### Output files
 
 The main python programm produces 
 
@@ -166,20 +204,25 @@ The main python programm produces
   * which is then transformed to audio files by fluidsynth using the specified sf2 soundfont
   * a musescore sheet music file
 
-#### Python loop data
+### Python loop data
 
 
-The data in the csv files is produced during the loop. Only look into that if you're interested in detail in the dictionary data structures that are used in the main loop. This data can be visualized as follows:
+The data in the csv files is produced during the loop. Only look into that if
+you're interested in detail in the dictionary data structures that are used in
+the main loop. This data can be visualized as follows:
 
 ```{r echo=FALSE}
 knitr::include_graphics("csv_vis.svg")
 ```
 
 
-#### Midi files
+### Midi files
 
-Probably it's more interesting to look at the piano roll visualization of the 
-midi file that's also generated. In the algorithm a new note is only started if it differs from the previous note, otherwise the previous is continued.
+The piano roll visualizations of the midi notes can also be derived from the
+midi file that's  generated after the loop has finished. In the algorithm a new
+note is only started (o) if it differs from the previous note, otherwise the
+previous is not stopped (+).
+
 
 
 
@@ -213,10 +256,10 @@ mscore3 live_record.mid -o output_file.mscz
 ```
 
 The mscz file can then be animated to this
-[beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the cool
+[beauty](https://www.youtube.com/watch?v=XNDlgnyYGto)^[Also checkout the 
 animation of the midi data on the
 [musescore](https://musescore.com/user/36624930/scores/6458979) webpage by
-clicking play (make sure to choose the funky piano roll animation by clicking on
+clicking play (make sure to also choose the funky piano roll animation by clicking on
 the piano key symbol!)]. The sound in this video was generated with their proper
 soundfont. There is also one channel for percussion. :)
 
