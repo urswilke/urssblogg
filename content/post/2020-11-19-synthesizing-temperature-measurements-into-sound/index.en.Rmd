@@ -26,7 +26,10 @@ projects: []
 
 ## tl;dr
 
-This article shows how the [Chaos
+Want to learn something about arduino, midi audio or sound synthesis? Using
+python, R and many other tools. This blog post might interest you. Or you just
+have some spare minutes to watch and listen to and read about a project where
+live data is translated to sound. This article shows how the [Chaos
 Machine](https://gitlab.com/urswilke/chaos_machine_code) produces sound like
 this:
 
@@ -49,10 +52,6 @@ html_tag_audio("live_record.mp3", type = "mp3")
 
 ```
 
-Want to learn something about arduino, midi audio or sound synthesis? Using
-python, R and many other tools. This blog post might interest you. Or you just
-have some spare minutes to watch and listen to and read about a project where
-live data is translated to sound.
 
 ## Introduction 
 
@@ -126,7 +125,7 @@ in the project and arduino / midi in general.
 The execution of the code produces output files. These are then processed for
 visualization of the notes and audio file output. Furthermore, there are some
 auxiliary functions. The following diagram depicts how these programs can be
-used and how the terms roughly interact with each other.
+used and how the elements roughly interact with each other.
 
 
 ```{r, echo=FALSE}
@@ -161,7 +160,9 @@ showing how I touched 4 of the 5 thermometers briefly after starting the measure
 
 ### Temperatures to midi 
 
-Once the temperatures are measured and sent to rhe PC, python computes all the
+#### Translation scheme
+
+Once the temperatures are measured and sent to the PC, python computes all the
 pairwise differences and translates them to midi notes in a given scale. For the
 C major scale this yields 
 
@@ -174,11 +175,29 @@ where the function maps to the midi notes of the white piano keys. This is
 explained in more detail
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md).
 
-### Midi to audio 
+#### Python loop data
 
-With fluidsynth and a soundfont file midi notes can be synthesized to audio. The
-soundfont specifies which sample is played for which midi note. An example how
-to do that via python can be seen
+
+To get an idea how the translation scheme works, have a look at this plot:
+
+```{r echo=FALSE}
+knitr::include_graphics("csv_vis.svg")
+```
+
+It shows the live data that is generated during the main loop. The differences
+``r "\u0394"`` of the temperatures `T` received from the microcontroller are 
+transformed to `midi` notes according to the scheme. 
+The data for the plot is produced during the loop and saved to csv files after
+the loop has finished. Only look into these csv files if you're interested in
+more detail what kind of data structures are used to control the main
+loop.
+
+
+### Midi to audio (live)
+
+Once the midi notes are sent, they can be synthesized to audio with fluidsynth
+and a soundfont file. The soundfont specifies which sample is played for which
+midi note. An example how to do that with python can be seen
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb).
 This yields in an increasing sequence of notes of the sound font.
 [This](https://musical-artifacts.com/artifacts/387) soundfont of choir voices
@@ -190,30 +209,19 @@ html_tag_audio("increasing_sequence.mp3", type = "mp3")
 
 Consider this as a minimal example how to send live midi data with python to
 fluidsynth and after the session translate the recorded live data to a midi file
-and render it to an audio file that you were about to listen. 
+and render it to the audio file that you were about to listen. 
 
 ### Output files
 
 The main python programm produces 
 
-* csv output files of 
+* csv output files (as already mentioned) of 
   * the temperatures from the serial connection
   * the calculated temperature differences
   * the derived midi notes, as well as 
 * a midi file
   * which is then transformed to audio files by fluidsynth using the specified sf2 soundfont
   * a musescore sheet music file
-
-### Python loop data
-
-
-The data in the csv files is produced during the loop. Only look into that if
-you're interested in detail in the dictionary data structures that are used in
-the main loop. This data can be visualized as follows:
-
-```{r echo=FALSE}
-knitr::include_graphics("csv_vis.svg")
-```
 
 
 ### Midi files
@@ -236,9 +244,6 @@ knitr::include_graphics("midi_piano_roll.svg")
 The midi files can be rendered to audio files also using fluidsynth and a soundfont. 
 
 You can listen to the result here:
-
-
-#### Play mp3
 
 
 ```{r audio, echo=FALSE}

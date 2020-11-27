@@ -34,16 +34,15 @@ projects: []
 
 <div id="tldr" class="section level2">
 <h2>tl;dr</h2>
-<p>This article shows how the <a href="https://gitlab.com/urswilke/chaos_machine_code">Chaos
+<p>Want to learn something about arduino, midi audio or sound synthesis? Using
+python, R and many other tools. This blog post might interest you. Or you just
+have some spare minutes to watch and listen to and read about a project where
+live data is translated to sound. This article shows how the <a href="https://gitlab.com/urswilke/chaos_machine_code">Chaos
 Machine</a> produces sound like
 this:</p>
 <audio controls="">
 <source src="live_record.mp3" type="audio/mp3"/>
 </audio>
-<p>Want to learn something about arduino, midi audio or sound synthesis? Using
-python, R and many other tools. This blog post might interest you. Or you just
-have some spare minutes to watch and listen to and read about a project where
-live data is translated to sound.</p>
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
@@ -103,7 +102,7 @@ in the project and arduino / midi in general.</p>
 <p>The execution of the code produces output files. These are then processed for
 visualization of the notes and audio file output. Furthermore, there are some
 auxiliary functions. The following diagram depicts how these programs can be
-used and how the terms roughly interact with each other.</p>
+used and how the elements roughly interact with each other.</p>
 <div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
@@ -129,7 +128,9 @@ an app shown here:</p>
 </div>
 <div id="temperatures-to-midi" class="section level3">
 <h3>Temperatures to midi</h3>
-<p>Once the temperatures are measured and sent to rhe PC, python computes all the
+<div id="translation-scheme" class="section level4">
+<h4>Translation scheme</h4>
+<p>Once the temperatures are measured and sent to the PC, python computes all the
 pairwise differences and translates them to midi notes in a given scale. For the
 C major scale this yields</p>
 <p><img src="T_to_midi_Cmaj.svg" /><!-- --></p>
@@ -137,11 +138,24 @@ C major scale this yields</p>
 explained in more detail
 <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md">here</a>.</p>
 </div>
-<div id="midi-to-audio" class="section level3">
-<h3>Midi to audio</h3>
-<p>With fluidsynth and a soundfont file midi notes can be synthesized to audio. The
-soundfont specifies which sample is played for which midi note. An example how
-to do that via python can be seen
+<div id="python-loop-data" class="section level4">
+<h4>Python loop data</h4>
+<p>To get an idea how the translation scheme works, have a look at this plot:</p>
+<p><img src="csv_vis.svg" /><!-- --></p>
+<p>It shows the live data that is generated during the main loop. The differences
+<code>Δ</code> of the temperatures <code>T</code> received from the microcontroller are
+transformed to <code>midi</code> notes according to the scheme.
+The data for the plot is produced during the loop and saved to csv files after
+the loop has finished. Only look into these csv files if you’re interested in
+more detail what kind of data structures are used to control the main
+loop.</p>
+</div>
+</div>
+<div id="midi-to-audio-live" class="section level3">
+<h3>Midi to audio (live)</h3>
+<p>Once the midi notes are sent, they can be synthesized to audio with fluidsynth
+and a soundfont file. The soundfont specifies which sample is played for which
+midi note. An example how to do that with python can be seen
 <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb">here</a>.
 This yields in an increasing sequence of notes of the sound font.
 <a href="https://musical-artifacts.com/artifacts/387">This</a> soundfont of choir voices
@@ -151,13 +165,13 @@ was used. You can enjoy the result in the following audio file:</p>
 </audio>
 <p>Consider this as a minimal example how to send live midi data with python to
 fluidsynth and after the session translate the recorded live data to a midi file
-and render it to an audio file that you were about to listen.</p>
+and render it to the audio file that you were about to listen.</p>
 </div>
 <div id="output-files" class="section level3">
 <h3>Output files</h3>
 <p>The main python programm produces</p>
 <ul>
-<li>csv output files of
+<li>csv output files (as already mentioned) of
 <ul>
 <li>the temperatures from the serial connection</li>
 <li>the calculated temperature differences</li>
@@ -170,13 +184,6 @@ and render it to an audio file that you were about to listen.</p>
 </ul></li>
 </ul>
 </div>
-<div id="python-loop-data" class="section level3">
-<h3>Python loop data</h3>
-<p>The data in the csv files is produced during the loop. Only look into that if
-you’re interested in detail in the dictionary data structures that are used in
-the main loop. This data can be visualized as follows:</p>
-<p><img src="csv_vis.svg" /><!-- --></p>
-</div>
 <div id="midi-files" class="section level3">
 <h3>Midi files</h3>
 <p>The piano roll visualizations of the midi notes can also be derived from the
@@ -188,9 +195,6 @@ previous is not stopped (+).</p>
 <h4>Audio files</h4>
 <p>The midi files can be rendered to audio files also using fluidsynth and a soundfont.</p>
 <p>You can listen to the result here:</p>
-</div>
-<div id="play-mp3" class="section level4">
-<h4>Play mp3</h4>
 <audio controls="">
 <source src="live_record.mp3" type="audio/mp3"/>
 </audio>
