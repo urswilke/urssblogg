@@ -1,5 +1,5 @@
 ---
-title: 'Synthesizing Temperature Measurements into Sound '
+title: 'The Chaos Machine - Synthesizing Temperature Measurements into Sound '
 author: Urs Wilke
 date: '2020-11-19'
 slug: []
@@ -27,7 +27,7 @@ projects: []
 ## tl;dr
 
 Want to learn something about arduino, midi audio or sound synthesis? Using
-python, R and many other tools. This blog post might interest you. Or you just
+python, R and many other tools. Or you just
 have some spare minutes to watch and listen to and read about a project where
 live data is translated to sound. This article shows how the [Chaos
 Machine](https://gitlab.com/urswilke/chaos_machine_code) produces sound like
@@ -82,7 +82,7 @@ generated mp3 file in this
 the synthesization of the midi file you can also find there.
 
 
-## Technical description
+## Technical description of the chaos machine
 
 Basically, the machine translates temperature measurements into sound in real
 time. The [arduino code
@@ -91,10 +91,10 @@ uploaded to the microcontroller reads the measured temperatures of multiple
 thermometers and then sends them to the computer. On the PC a python program
 (see
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb))
-runs a main loop where the sent temperature data is again read in. Then the
-temperature differences are translated into midi notes of a chosen scale. The
+runs a main loop where the sent temperature data is again read in. The
+temperature differences are then translated into midi notes of a chosen scale. The
 midi nodes are then sent to fluidsynth which finally synthesizes the midi notes
-to sound.
+to sound.  This will be referred to as the *chaos machine*.
 
 
 ### Main steps in the chaos machine
@@ -175,8 +175,7 @@ where the function maps to the midi notes of the white piano keys. This is
 explained in more detail
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/R/midi_intro/midi_intro.md).
 
-#### Python loop data
-
+#### Chaos machine data
 
 To get an idea how the translation scheme works, have a look at this plot:
 
@@ -184,13 +183,13 @@ To get an idea how the translation scheme works, have a look at this plot:
 knitr::include_graphics("csv_vis.svg")
 ```
 
-It shows the live data that is generated during the main loop. The differences
+It shows the live data that is generated during the main loop of the chaos machine. The differences
 ``r "\u0394"`` of the temperatures `T` received from the microcontroller are 
 transformed to `midi` notes according to the scheme. 
-The data for the plot is produced during the loop and saved to csv files after
-the loop has finished. Only look into these csv files if you're interested in
-more detail what kind of data structures are used to control the main
-loop.
+The data for the plot is produced during the execution of the chaos machine and saved to csv files after
+it has finished. Only look into these csv files if you're interested in
+more detail what kind of data structures are used to control the machine. If you want 
+to try out the machine, have a look at the [chaos machine package](https://gitlab.com/urswilke/chaosmachine).
 
 
 ### Midi to audio (live)
@@ -227,7 +226,7 @@ The main python programm produces
 ### Midi files
 
 The piano roll visualizations of the midi notes can also be derived from the
-midi file that's  generated after the loop has finished. In the algorithm a new
+midi file that's  generated after the chaos machine has finished. In the algorithm a new
 note is only started (o) if it differs from the previous note, otherwise the
 previous is not stopped (+).
 
@@ -266,12 +265,10 @@ animation of the midi data on the
 [musescore](https://musescore.com/user/36624930/scores/6458979) webpage by
 clicking play (make sure to also choose the funky piano roll animation by clicking on
 the piano key symbol!)]. The sound in this video was generated with their proper
-soundfont. There is also one channel for percussion. :)
+soundfont. Channel 10 is traditionally used for [percussion](https://fedoraproject.org/wiki/User:Crantila/FSC/Synthesizers/FluidSynth#Assigning_Programs_to_Channels_with_Qsynth). :)
 
 
 
-As can be seen in the video, it makes more sense to translate midi to sheet
-music when the timing of the midi note events follows a stricter temporal
-pattern (to make sure that the midi notes can be expressed by musical notes more
-easily).
+
+<!-- As can be seen in the notes sheet, quantization of the notes' times the notes could prevent  -->
 
