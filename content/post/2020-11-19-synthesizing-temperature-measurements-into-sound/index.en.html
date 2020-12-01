@@ -51,7 +51,8 @@ of the relevant topics if you want to construct such a machine. The cool thing
 is that all the software used is free. The only money spent was on the hardware
 (a circuit of a microcontroller and some thermometers), which is not very
 expensive. All the software (microcontroller, programming, data management and
-audio-related) is completely free.</p>
+audio-related) is completely free. Furthermore, all the code used in this project
+is open source.</p>
 <p>I will give an overview over the <a href="https://gitlab.com/urswilke/chaos_machine_code">Chaos
 Machine</a> code repository. This
 repository is the result of the artist and my friend Axel Crettenand having the
@@ -131,7 +132,7 @@ an app shown here:</p>
 <div id="translation-scheme" class="section level4">
 <h4>Translation scheme</h4>
 <p>Once the temperatures are measured and sent to the PC, python computes all the
-pairwise differences and translates them to midi notes in a given scale. For the
+pairwise differences Δ and translates them to midi notes in a given scale. For the
 C major scale this yields</p>
 <p><img src="T_to_midi_Cmaj.svg" /><!-- --></p>
 <p>where the function maps to the midi notes of the white piano keys. This is
@@ -144,11 +145,12 @@ explained in more detail
 <p><img src="csv_vis.svg" /><!-- --></p>
 <p>It shows the live data that is generated during the main loop of the chaos machine. The differences
 <code>Δ</code> of the temperatures <code>T</code> received from the microcontroller are
-transformed to <code>midi</code> notes according to the scheme.
+transformed to <code>midi</code> notes according to the above scheme.
 The data for the plot is produced during the execution of the chaos machine and saved to csv files after
 it has finished. Only look into these csv files if you’re interested in
-more detail what kind of data structures are used to control the machine. If you want
-to try out the machine, have a look at the <a href="https://gitlab.com/urswilke/chaosmachine">chaos machine package</a>.</p>
+more detail what kind of data structures are used to control the machine. If you
+want to try out the machine, have a look at the <a href="https://gitlab.com/urswilke/chaosmachine">chaos machine
+package</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 </div>
 </div>
 <div id="midi-to-audio-live" class="section level3">
@@ -157,7 +159,7 @@ to try out the machine, have a look at the <a href="https://gitlab.com/urswilke/
 and a soundfont file. The soundfont specifies which sample is played for which
 midi note. An example how to do that with python can be seen
 <a href="https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb">here</a>.
-This yields in an increasing sequence of notes of the sound font.
+This yields in a sequence of rising notes of the sound font.
 <a href="https://musical-artifacts.com/artifacts/387">This</a> soundfont of choir voices
 was used. You can enjoy the result in the following audio file:</p>
 <audio controls="">
@@ -191,8 +193,8 @@ midi file that’s generated after the chaos machine has finished. In the algori
 note is only started (o) if it differs from the previous note, otherwise the
 previous is not stopped (+).</p>
 <p><img src="midi_piano_roll.svg" /><!-- --></p>
-<div id="audio-files" class="section level4">
-<h4>Audio files</h4>
+<div id="midi-files-to-audio-files" class="section level4">
+<h4>Midi files to audio files</h4>
 <p>The midi files can be rendered to audio files also using fluidsynth and a soundfont.</p>
 <p>You can listen to the result here:</p>
 <audio controls="">
@@ -206,7 +208,7 @@ can be automatically translated to sheet music in the musescore mscz file format
 running</p>
 <pre class="bash"><code>mscore3 live_record.mid -o output_file.mscz</code></pre>
 <p>The mscz file can then be animated to this
-<a href="https://www.youtube.com/watch?v=XNDlgnyYGto">beauty</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. The sound in this video was generated with their proper
+<a href="https://www.youtube.com/watch?v=XNDlgnyYGto">beauty</a><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. The sound in this video was generated with their proper
 soundfont. Channel 10 is traditionally used for <a href="https://fedoraproject.org/wiki/User:Crantila/FSC/Synthesizers/FluidSynth#Assigning_Programs_to_Channels_with_Qsynth">percussion</a>. :)</p>
 <!-- As can be seen in the notes sheet, quantization of the notes' times the notes could prevent  -->
 </div>
@@ -219,10 +221,13 @@ soundfont. Channel 10 is traditionally used for <a href="https://fedoraproject.o
 manipulate graphs like this with <a href="https://graphviz.org/">graphviz</a> code try out
 yourself with the interactive ObservableHQ notebook
 <a href="https://observablehq.com/@urswilke/workflow-of-the-chaos-machine-project">HERE</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Also checkout the
+<li id="fn2"><p>The package also provides a
+<a href="https://gitlab.com/urswilke/chaosmachine#demo-mode">demo mode</a> option. Thus, you can try it out without having the microcontroller
+setup but instead using recorded temperature data also provided by the package.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Also checkout the
 animation of the midi data on the
 <a href="https://musescore.com/user/36624930/scores/6458979">musescore</a> webpage by
 clicking play (make sure to also choose the funky piano roll animation by clicking on
-the piano key symbol!)<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+the piano key symbol!)<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

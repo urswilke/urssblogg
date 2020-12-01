@@ -60,7 +60,8 @@ of the relevant topics if you want to construct such a machine. The cool thing
 is that all the software used is free. The only money spent was on the hardware
 (a circuit of a microcontroller and some thermometers), which is not very
 expensive. All the software (microcontroller, programming, data management and
-audio-related) is completely free.
+audio-related) is completely free. Furthermore, all the code used in this project 
+is open source.
 
 
 I will give an overview over the [Chaos
@@ -163,7 +164,7 @@ showing how I touched 4 of the 5 thermometers briefly after starting the measure
 #### Translation scheme
 
 Once the temperatures are measured and sent to the PC, python computes all the
-pairwise differences and translates them to midi notes in a given scale. For the
+pairwise differences `r "\u0394"` and translates them to midi notes in a given scale. For the
 C major scale this yields 
 
 ```{r, echo=FALSE}
@@ -185,11 +186,14 @@ knitr::include_graphics("csv_vis.svg")
 
 It shows the live data that is generated during the main loop of the chaos machine. The differences
 ``r "\u0394"`` of the temperatures `T` received from the microcontroller are 
-transformed to `midi` notes according to the scheme. 
+transformed to `midi` notes according to the above scheme. 
 The data for the plot is produced during the execution of the chaos machine and saved to csv files after
 it has finished. Only look into these csv files if you're interested in
-more detail what kind of data structures are used to control the machine. If you want 
-to try out the machine, have a look at the [chaos machine package](https://gitlab.com/urswilke/chaosmachine).
+more detail what kind of data structures are used to control the machine. If you
+want to try out the machine, have a look at the [chaos machine
+package](https://gitlab.com/urswilke/chaosmachine)^[The package also provides a
+[demo mode](https://gitlab.com/urswilke/chaosmachine#demo-mode) option. Thus, you can try it out without having the microcontroller
+setup but instead using recorded temperature data also provided by the package.].
 
 
 ### Midi to audio (live)
@@ -198,7 +202,7 @@ Once the midi notes are sent, they can be synthesized to audio with fluidsynth
 and a soundfont file. The soundfont specifies which sample is played for which
 midi note. An example how to do that with python can be seen
 [here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/play_soundfont/play_soundfont.ipynb).
-This yields in an increasing sequence of notes of the sound font.
+This yields in a sequence of rising notes of the sound font.
 [This](https://musical-artifacts.com/artifacts/387) soundfont of choir voices
 was used. You can enjoy the result in the following audio file:
 
@@ -238,7 +242,7 @@ knitr::include_graphics("midi_piano_roll.svg")
 ```
 
 
-#### Audio files
+#### Midi files to audio files
 
 The midi files can be rendered to audio files also using fluidsynth and a soundfont. 
 
