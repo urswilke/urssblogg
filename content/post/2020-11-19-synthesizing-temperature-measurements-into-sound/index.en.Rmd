@@ -91,7 +91,7 @@ sketch](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/arduino/sen
 uploaded to the microcontroller reads the measured temperatures of multiple
 thermometers and then sends them to the computer. On the PC a python program
 (see
-[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/temperatures_to_midi.ipynb))
+[here](https://gitlab.com/urswilke/chaos_machine_code/-/blob/master/python/T_to_midi.ipynb))
 runs a main loop where the sent temperature data is again read in. The
 temperature differences are then translated into midi notes of a chosen scale. The
 midi nodes are then sent to fluidsynth which finally synthesizes the midi notes
