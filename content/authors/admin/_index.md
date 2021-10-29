@@ -73,5 +73,5 @@ social:
 # - Visitors
 ---
 
-This is my blog site, where I will mostly post things about R (#rstats).
+This is my blog site, where I will mostly post things about R (#RStats).
 
