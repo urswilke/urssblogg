@@ -153,7 +153,11 @@ an app shown here:
 
 
 ```{r, echo=FALSE}
-vembedr::embed_url("https://youtu.be/BN-RWrFkblc")
+# htmltools::tags$video(src = "https://youtu.be/BN-RWrFkblc")
+knitr::include_url("https://www.youtube.com/embed/BN-RWrFkblc")
+# <iframe width="560" height="315" src="https://www.youtube.com/embed/BN-RWrFkblc?rel=0" frameborder="0" allowfullscreen></iframe>
+# blogdown::shortcode("youtube", "BN-RWrFkblc")
+# vembedr::embed_url("https://youtu.be/BN-RWrFkblc")
 ```
 
 showing how I touched 4 of the 5 thermometers briefly after starting the measurements.
