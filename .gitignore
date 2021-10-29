@@ -1,6 +1,8 @@
 # Hugo
-resources/
-public/
+/resources/
+/public/
 .Rproj.user
 .Rhistory
 playground
+.DS_Store
+Thumbs.db
