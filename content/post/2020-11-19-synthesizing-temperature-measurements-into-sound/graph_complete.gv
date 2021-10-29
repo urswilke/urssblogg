@@ -161,7 +161,7 @@ fluidsynth -> prelim_mp3 [style = dashed, color = "#f07531"]
     color=grey, 
     shape=diamond,
     tooltip = "The serial string sent from the arduino is of the following format:
-S: 1, ID: 40255662332332138251, T: 23.50; S: 2, ID: 402552102282332138209, T: 23.50; S: 3, ID: 402551932392332138119, T: 23.75; S: 4, ID: 4025514153413227192, T: 22.75; S: 5, ID: 402552272422332138169, T: 22.62",
+ID: 40255662332332138251, T: 24.62; ID: 402552102282332138209, T: 24.12; ID: 402551932392332138119, T: 24.62; ID: 4025514153413227192, T: 24.62; ID: 402552272422332138169, T: 21.75",
     URL = "https://gitlab.com/urswilke/chaos_machine_code/-/tree/master/python/recorded_data/serial_string.txt"
   ];
   mp [
