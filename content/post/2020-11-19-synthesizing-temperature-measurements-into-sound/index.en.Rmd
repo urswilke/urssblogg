@@ -113,7 +113,7 @@ yourself with the interactive ObservableHQ notebook
 # graphviz_code <- readr::read_file("https://gist.githubusercontent.com/urswilke/d49ccbf043bf2452f5bb9197e014d196/raw/6e60ffd6db1f755c990ce914a1afd8763988b644/graph_main.gv")
 graphviz_code <- readr::read_file("graph_main.gv")
 
-widgetframe::frameableWidget(DiagrammeR::grViz(graphviz_code))
+DiagrammeR::grViz(graphviz_code)
 ```
 
 The main interfaces are the serial connection between python and the arduino on the one hand. On the other hand, the midi format can either be synthesized directly with a midi port or by rendering the midi to audio files. This is done by fluidsynth using an sf2 soundfont that stores audio information for midi notes.
@@ -133,12 +133,12 @@ used and how the elements roughly interact with each other.
 # graphviz_code <- readr::read_file("https://gist.githubusercontent.com/urswilke/9176fb739147c835f5d99aa01da7ee96/raw/f7fe3e9ba94dacdc74244f13dde61a8f96a8c90a/graph_complete.gv")
 graphviz_code <- readr::read_file("graph_complete.gv")
 graph_html <- DiagrammeR::grViz(graphviz_code)
-graph_html$sizingPolicy$viewer$fill <- FALSE
+# graph_html$sizingPolicy$viewer$fill <- FALSE
 # save svg:
 # https://stackoverflow.com/questions/42737645/how-to-export-images-of-diagrammer-in-r
 
 
-widgetframe::frameableWidget(graph_html)
+graph_html
 ```
 
 ## Further short descriptions 
